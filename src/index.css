@@ -3,5 +3,7 @@
 @theme {
   --color-seagreen: #061430; 
   --color-skyblue: #1DA1F2; 
+  --color-Royal-Purple: #4A00E0; 
   --font-inter: "Inter", "sans-serif"; 
+  --font-poppins: "Poppins", "sans-serif"; 
 }
