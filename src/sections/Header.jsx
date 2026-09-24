@@ -17,6 +17,7 @@ const Header = () => {
 
   let handleServicesD = () => {
     setShowServices(!showServices);
+    setShowGraphicD(false);
   };
 
   const [ShowGraphicD, setShowGraphicD] = useState(false);
@@ -25,9 +26,11 @@ const Header = () => {
     setShowGraphicD(!ShowGraphicD);
   };
 
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest(".graphic-dropdown-area")) {
+      if (!event.target.closest(".dropdown-area")) {
+        setShowServices(false);
         setShowGraphicD(false);
       }
     };
@@ -38,6 +41,7 @@ const Header = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
 
   return (
     <header className="bg-seagreen">
@@ -57,9 +61,12 @@ const Header = () => {
                 <Link className="py-[31px] group">
                   <Li text={`Home`} />
                 </Link>
-                <Link className="py-[31px] group" onClick={handleServicesD}>
-                  <Li text={`Services`} icon={true} />
-                </Link>
+                <div className="dropdown-area py-[31px] cursor-pointer  onClick={handleServicesD} group-hover:text-red-500">
+                  <Link className="">
+                    <Li text={`Services`} icon={true} />
+                  </Link>
+                </div>
+
                 <Link className="py-[31px] group">
                   <Li text={`Templates`} icon={true} />
                 </Link>
@@ -82,73 +89,74 @@ const Header = () => {
             </button>
           </Flex>
         </Flex>
-        {showServices && (
-          <div className="w-[320px] bg-skyblue rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[360px] pb-4">
-            <ul className="flex flex-col pb-2">
-              <div className="graphic-dropdown-area">
+
+        <div className="dropdown-area">
+          {showServices && (
+            <div className={`w-[320px] bg-skyblue rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[360px] pb-4 ${showServices ? "services-animation-open" : "services-animation-close"}`}>
+              <ul className="flex flex-col pb-2">
                 <Link
-                  className="hover:bg-white/15 duration-200"
+                  className="hover:bg-white/15 duration-200 group"
                   onClick={handleGraphicD}
                 >
                   <DropdownLi text={`Graphics & Design`} icon={true} />
                 </Link>
-              </div>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`UI/UX Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Website Development`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Software Development`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Mobile Application Development`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`WordPress Development `} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Shopify Store Design &Development`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Video Animations`} />
-              </Link>
-            </ul>
-            <Flex className={`justify-center`}>
-              <button className="font-poppins font-bold italic text-2xl py-2 px-6 border-2 border-white rounded-full bg-Royal-Purple text-white hover:border-red-500 duration-200">
-                Monthly Hire
-              </button>
-            </Flex>
-          </div>
-        )}
-        {ShowGraphicD && (
-          <div className="w-[250px] bg-skyblue/90 rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[110px] pb-4">
-            <ul className="flex flex-col pb-2">
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Logo Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Cover Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Ads Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Thumbnail Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Business Card Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Poster Design`} />
-              </Link>
-              <Link className="hover:bg-white/15 duration-200">
-                <DropdownLi text={`Flyer Design`} />
-              </Link>
-            </ul>
-          </div>
-        )}
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`UI/UX Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`Website Development`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`Software Development`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`Mobile Application Development`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`WordPress Development `} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`Shopify Store Design &Development`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200 group">
+                  <DropdownLi text={`Video Animations`} />
+                </Link>
+              </ul>
+              <Flex className={`justify-center`}>
+                <button className="font-poppins font-bold italic text-2xl py-2 px-6 border-2 border-white rounded-full bg-Royal-Purple text-white hover:border-red-500 duration-200">
+                  Monthly Hire
+                </button>
+              </Flex>
+            </div>
+          )}
+          {ShowGraphicD && (
+            <div className={`w-[250px] bg-skyblue/90 rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[110px] pb-4 ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}>
+              <ul className="flex flex-col pb-2">
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Logo Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Cover Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Ads Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Thumbnail Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Business Card Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Poster Design`} />
+                </Link>
+                <Link className="hover:bg-white/15 duration-200">
+                  <DropdownLi text={`Flyer Design`} />
+                </Link>
+              </ul>
+            </div>
+          )}
+        </div>
       </Container>
     </header>
   );

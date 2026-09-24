@@ -1,5 +1,65 @@
 @import "tailwindcss";
 
+@keyframes servicesDropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes servicesDropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes graphicDropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes graphicDropdownClose {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  to {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+}
+
+.services-animation-open {
+  animation: servicesDropdownOpen 0.3s ease-out;
+}
+.services-animation-close {
+  animation: servicesDropdownClose 0.3s ease-out;
+}
+
+.graphic-animation-open {
+  animation: graphicDropdownOpen 0.25s ease-out;
+}
+.graphic-animation-close {
+  animation: graphicDropdownClose 0.25s ease-out;
+}
+
 @theme {
   --color-seagreen: #061430; 
   --color-skyblue: #1DA1F2; 
