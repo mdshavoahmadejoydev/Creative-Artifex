@@ -53,7 +53,7 @@ const Header = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        !event.target.closest(".dropdown-area") ||
+        !event.target.closest(".dropdown-area") &&
         !event.target.closest(".dropdown-area-tem")
       ) {
         setShowServices(false);
@@ -69,6 +69,7 @@ const Header = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
 
 
   return (
@@ -91,7 +92,7 @@ const Header = () => {
                 </Link>
                 <div
                   onClick={handleServicesD}
-                  className="dropdown-area cursor-pointer group "
+                  className={`dropdown-area cursor-pointer group`} 
                 >
                   <Link className="group">
                     <Li
