@@ -73,7 +73,7 @@ const Header = () => {
 
 
   return (
-    <header className="bg-seagreen">
+    <header className="bg-seagreen sticky top-0 z-50 border-b border-white/50">
       <Container className={`relative`}>
         <Flex>
           <Flex className="w-1/4 gap-3 items-center">

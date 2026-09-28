@@ -12,7 +12,7 @@ import Home from './pages/Home';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route path='/' element={<Home/>}></Route>
+      <Route index element={<Home/>}></Route>
     </Route>
   )
 );
