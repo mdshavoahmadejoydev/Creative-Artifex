@@ -146,7 +146,7 @@ const Header = () => {
         <div className="dropdown-area">
           {showServices && (
             <div
-              className={`w-[320px] bg-skyblue rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[360px] pb-4 ${showServices ? "services-animation-open" : "services-animation-close"}`}
+              className={`w-[320px] bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[360px] pb-4 ${showServices ? "services-animation-open" : "services-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -210,7 +210,7 @@ const Header = () => {
           )}
           {ShowGraphicD && (
             <div
-              className={`w-[250px] bg-skyblue/90 rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[110px] pb-4 ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
+              className={`w-[250px] bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[110px] pb-4 ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -263,7 +263,7 @@ const Header = () => {
         <div className="dropdown-area-tem">
           {showTemplates && (
             <div
-              className={`w-[230px] bg-skyblue rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[322px] pb-4 services-animation-open`}
+              className={`w-[230px] bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[322px] pb-4 services-animation-open`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -314,7 +314,7 @@ const Header = () => {
 
           {ShowUiuxD && (
             <div
-              className={`w-[190px] bg-skyblue/90 rounded-b-2xl border-t-2 border-red-500 absolute top-[93px] right-[132px] pb-4 graphic-animation-open`}
+              className={`w-[190px] bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[132px] pb-4 graphic-animation-open`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
