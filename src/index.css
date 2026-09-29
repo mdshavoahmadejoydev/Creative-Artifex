@@ -62,10 +62,12 @@
 
 @theme {
   --color-seagreen: #061430; 
+  --color-green: #0F083A; 
   --color-skyblue: #1DA1F2; 
   --color-Aqua: #00EAEA; 
   --color-Royal-Purple: #4A00E0; 
   --color-pinkish: #FFEFEF; 
+  --color-light-gray: #F7F7F7; 
 
 
   --font-inter: "Inter", "sans-serif"; 
@@ -81,24 +83,28 @@
   --spacing-30: 30px; 
   --spacing-31: 31px;
   --spacing-45: 45px;
-  --spacing-55: 55px; 
+  --spacing-55: 55px;
   --spacing-73: 73px; 
   --spacing-74: 74px; 
   --spacing-80: 80px;
   --spacing-83: 83px;
   --spacing-94: 94px; 
   --spacing-110: 110px; 
-  --spacing-132: 132px; 
+  --spacing-132: 132px;
+  --spacing-156: 156px;
   --spacing-190: 190px; 
   --spacing-230: 230px; 
+  --spacing-232: 232px; 
   --spacing-250: 250px;
+  --spacing-296: 296px;
+  --spacing-116: 116px;
   --spacing-300: 300px;
   --spacing-322: 322px;
   --spacing-335: 335px;
   --spacing-360: 360px;
   --spacing-416: 416px;
-  --spacing-116: 116px;
   --spacing-491: 491px;
+  --spacing-560: 560px;
   --spacing-657: 657px;
   --spacing-654: 654px;
   --spacing-826: 826px;
