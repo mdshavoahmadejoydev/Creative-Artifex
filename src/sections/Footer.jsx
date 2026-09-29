@@ -13,32 +13,32 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <>
-    <footer className="bg-seagreen pt-[83px] pb-[73px] border-b border-white/50">
+    <footer className="bg-seagreen pt-83 pb-73 border-b border-white/50">
       <Container>
         <Flex>
           <div className="w-1/2">
             <Flex className="w-1/2 gap-3 items-center">
               <Image
-                className={`h-[55px] py-[18px] box-content`}
+                className={`h-55 py-18 box-content`}
                 src={Footerlogo}
                 alt={`header logo`}
               />
-              <Image className={`h-[55px]`} src={FooterlogoTagline} />
+              <Image className={`h-55`} src={FooterlogoTagline} />
             </Flex>
             <FP
-              className={`w-[416px] ml-[45px]`}
+              className={`w-416 ml-45`}
               text={`Creative Artifex provides creative and technology-driven services that help businesses grow through impactful design, powerful software, and engaging digital experiences.`}
             />
             <FP
-              className={`w-[416px] ml-[45px] mt-[27px]`}
+              className={`w-416 ml-45 mt-27`}
               text={`Address: House #417, (4th Floor ) Borogram Chairmanbari Mor, Kamranggirchor Dhaka, Dhaka, Bangladesh, 1211`}
             />
           </div>
 
-          <Flex className="w-1/2 mt-[21px]">
+          <Flex className="w-1/2 mt-21">
             <div className="w-3/5">
-              <FooterTitle className={` mb-[30px]`} text={`Servives`} />
-              <Flex className={`w-[300px] gap-1 flex-col`}>
+              <FooterTitle className={` mb-30`} text={`Servives`} />
+              <Flex className={`w-300 gap-1 flex-col`}>
                 <Link><FP text={`Graphics & Design`} /></Link>
                 <Link><FP text={`UI/UX Design`} /></Link>
                 <Link><FP text={`Website Developmen`} /></Link>
@@ -49,8 +49,8 @@ const Footer = () => {
               </Flex>
             </div>
             <div className="w-2/5">
-              <FooterTitle className={` mb-[30px]`} text={`Social`} />
-              <Flex className={`w-[300px] gap-1 flex-col`}>
+              <FooterTitle className={` mb-30`} text={`Social`} />
+              <Flex className={`w-300 gap-1 flex-col`}>
                 <Link><FP text={`Facebook`} /></Link>
                 <Link><FP text={`Instagram`} /></Link>
                 <Link><FP text={`Tiktok`} /></Link>
@@ -61,9 +61,9 @@ const Footer = () => {
         </Flex>
       </Container>
     </footer>
-    <div className={`bg-seagreen py-[30px] relative`}>
-      <div className='absolute top-[50%] -translate-y-[50%] left-[5%]'>
-        <FaChevronCircleUp className='text-white text-5xl ml-[15px]'/>
+    <div className={`bg-seagreen py-30 relative`}>
+      <div className='absolute top-1/2 -translate-y-1/2 left-[5%]'>
+        <FaChevronCircleUp className='text-white text-5xl ml-15'/>
       </div>
       
       <Container>
@@ -72,10 +72,10 @@ const Footer = () => {
           <Flex className='items-center gap-10'>
             <p className='font-poppins font-medium text-white text-lg'>Folllow us on</p>
             <Flex className={`gap-6`}>
-              <FaFacebook className='text-white text-3xl cursor-pointer hover:text-red-500 duration-150' />
-              <FaInstagram className='text-white text-3xl cursor-pointer hover:text-red-500 duration-150' />
-              <FaTiktok className='text-white text-3xl cursor-pointer hover:text-red-500 duration-150' />
-              <FaTwitter className='text-white text-3xl cursor-pointer hover:text-red-500 duration-150' />
+              <FaFacebook className='text-white text-2xl cursor-pointer hover:text-red-500 duration-150' />
+              <FaInstagram className='text-white text-2xl cursor-pointer hover:text-red-500 duration-150' />
+              <FaTiktok className='text-white text-2xl cursor-pointer hover:text-red-500 duration-150' />
+              <FaTwitter className='text-white text-2xl cursor-pointer hover:text-red-500 duration-150' />
             </Flex>
           </Flex>
         </Flex>

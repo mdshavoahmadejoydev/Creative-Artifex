@@ -78,16 +78,16 @@ const Header = () => {
         <Flex>
           <Flex className="w-1/4 gap-3 items-center">
             <Image
-              className={`h-[55px] py-[18px] box-content`}
+              className={`h-55 py-18 box-content`}
               src={headerLogo}
               alt={`header logo`}
             />
-            <Image className={`h-[55px]`} src={headerLogoTagline} />
+            <Image className={`h-55`} src={headerLogoTagline} />
           </Flex>
           <Flex className="w-3/4 justify-end items-center">
             <nav>
               <ul className="flex gap-6">
-                <Link className="py-[31px] group">
+                <Link className="py-31 group">
                   <Li text={`Home`} />
                 </Link>
                 <div
@@ -98,7 +98,7 @@ const Header = () => {
                     <Li
                       text={`Services`}
                       icon={true}
-                      className={`py-[31px] ${
+                      className={`py-31 ${
                         showServices ? "text-red-500!" : ""
                       }`}
                     />
@@ -113,32 +113,29 @@ const Header = () => {
                     <Li
                       text={`Templates`}
                       icon={true}
-                      className={` py-[31px] ${
+                      className={` py-31 ${
                         showTemplates ? "text-red-500!" : ""
                       }`}
                     />
                   </Link>
                 </div>
 
-                {/* <Link className="py-[31px] group" onClick={showTemplatesItems}>
-                  <Li text={`Templates`} icon={true} />
-                </Link> */}
-                <Link className="py-[31px] group">
+                <Link className="py-31 group">
                   <Li text={`Reviews`} />
                 </Link>
-                <Link className="py-[31px] group">
+                <Link className="py-31 group">
                   <Li text={`Products`} />
                 </Link>
-                <Link className="py-[31px] group">
+                <Link className="py-31 group">
                   <Li text={`Team`} />
                 </Link>
-                <Link className="py-[31px] group">
+                <Link className="py-31 group">
                   <Li text={`Contact`} />
                 </Link>
               </ul>
             </nav>
             <button className="group">
-              <RiAccountCircleFill className="text-white text-4xl ml-10 py-[29px] cursor-pointer box-content hover:text-red-500 group-focus:text-red-500 duration-200" />
+              <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-red-500 group-focus:text-red-500 duration-200" />
             </button>
           </Flex>
         </Flex>
@@ -146,7 +143,7 @@ const Header = () => {
         <div className="dropdown-area">
           {showServices && (
             <div
-              className={`w-[320px] bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[360px] pb-4 ${showServices ? "services-animation-open" : "services-animation-close"}`}
+              className={`w-xs bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-360 pb-4 ${showServices ? "services-animation-open" : "services-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -210,7 +207,7 @@ const Header = () => {
           )}
           {ShowGraphicD && (
             <div
-              className={`w-[250px] bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[110px] pb-4 ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
+              className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-110 pb-4 ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -263,7 +260,7 @@ const Header = () => {
         <div className="dropdown-area-tem">
           {showTemplates && (
             <div
-              className={`w-[230px] bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[322px] pb-4 services-animation-open`}
+              className={`w-230 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-322 pb-4 services-animation-open`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -314,7 +311,7 @@ const Header = () => {
 
           {ShowUiuxD && (
             <div
-              className={`w-[190px] bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-[94px] right-[132px] pb-4 graphic-animation-open`}
+              className={`w-190 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-132 pb-4 graphic-animation-open`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
