@@ -3,7 +3,8 @@
 
 @theme {
   --color-seagreen: #061430; 
-  --color-green: #0F083A; 
+  --color-green: #0F083A;
+  --color-deep-blue: #05112D;
   --color-deep-green: #123D35;
   --color-skyblue: #1DA1F2; 
   --color-Aqua: #00EAEA; 
@@ -13,6 +14,7 @@
   --color-light-gray: #F7F7F7;
   --color-soft-gray: #E6E6F2;
   --color-serviceborder: #4DB15A;
+  --color-gray-white: #F2F2F2;
   
   
   --font-inter: "Inter", "sans-serif"; 
@@ -30,20 +32,23 @@
   --spacing-43: 43px;
   --spacing-45: 45px;
   --spacing-55: 55px;
+  --spacing-60: 60px;
   --spacing-73: 73px; 
   --spacing-74: 74px; 
   --spacing-80: 80px;
   --spacing-83: 83px;
   --spacing-94: 94px; 
   --spacing-110: 110px; 
+  --spacing-116: 116px;
+  --spacing-175: 175px;
   --spacing-132: 132px;
   --spacing-156: 156px;
   --spacing-190: 190px; 
-  --spacing-230: 230px; 
+  --spacing-230: 230px;
   --spacing-232: 232px; 
   --spacing-250: 250px;
+  --spacing-291: 291px;
   --spacing-296: 296px;
-  --spacing-116: 116px;
   --spacing-300: 300px;
   --spacing-322: 322px;
   --spacing-335: 335px;
@@ -54,8 +59,10 @@
   --spacing-491: 491px;
   --spacing-560: 560px;
   --spacing-591: 591px;
+  --spacing-624: 624px;
   --spacing-657: 657px;
   --spacing-654: 654px;
+  --spacing-835: 835px;
   --spacing-826: 826px;
   
   
