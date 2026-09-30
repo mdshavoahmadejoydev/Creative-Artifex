@@ -3,10 +3,12 @@ import Image from '../components/Image'
 
 const ServicesCard = ({src, text, className}) => {
   return (
-    <div className={`w-417 pb-30 pt-43 bg-deep-green border-4 border-light-aqua hover:border-red-500 duration-200 cursor-pointer ${className
+    <div className={`w-360 pb-30 pt-43 bg-deep-green border-4 border-serviceborder cursor-pointer 
+    transition-all duration-300 ease-out
+    hover:-translate-y-3 hover:scale-105 hover:shadow-[0_18px_40px_0_rgba(6,20,48,0.35)] ${className
     }`}>
-      <Image src={src} className={`mx-auto mb-15`} />
-      <h1 className="font-roboto font-extrabold text-white text-center text-55 leading-14">
+      <Image src={src} className={`mx-auto mb-15 w-156`} />
+      <h1 className="font-roboto font-extrabold text-white text-center text-45 leading-14 w-300 mx-auto">
         {text}
       </h1>
     </div>

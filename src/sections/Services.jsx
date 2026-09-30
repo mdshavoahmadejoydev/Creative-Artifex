@@ -20,7 +20,7 @@ const Services = () => {
         <P text={`From design to development, we craft digital  experiences that elevate your brand and drive real growth.`} className={`w-591 text-center mx-auto mt-4 mb-55`} />
 
         {/* services card */}
-        <Flex className="flex-wrap justify-around gap-3">
+        <Flex className="flex-wrap justify-around gap-10">
           <ServicesCard src={Service3} text={`UI/UX Development`} />
           <ServicesCard src={Service6} text={`Website Development`} />
           <ServicesCard src={Service5} text={`App Development`} />
