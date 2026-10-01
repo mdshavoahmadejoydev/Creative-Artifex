@@ -7,7 +7,8 @@
   --color-deep-blue: #05112D;
   --color-deep-green: #123D35;
   --color-skyblue: #1DA1F2; 
-  --color-Aqua: #00EAEA; 
+  --color-Aqua: #00EAEA;
+  --color-lightgreen: #064E3B;
   --color-light-aqua: #00FE2A; 
   --color-Royal-Purple: #4A00E0; 
   --color-pinkish: #FFEFEF; 
@@ -15,6 +16,8 @@
   --color-soft-gray: #E6E6F2;
   --color-serviceborder: #4DB15A;
   --color-gray-white: #F2F2F2;
+  --color-faqbg: #F6F6F6;
+  --color-faqans: #1C1C1C;
   
   
   --font-inter: "Inter", "sans-serif"; 
@@ -40,6 +43,7 @@
   --spacing-94: 94px; 
   --spacing-110: 110px; 
   --spacing-116: 116px;
+  --spacing-168: 168px;
   --spacing-175: 175px;
   --spacing-132: 132px;
   --spacing-156: 156px;
@@ -52,13 +56,16 @@
   --spacing-300: 300px;
   --spacing-322: 322px;
   --spacing-335: 335px;
+  --spacing-350: 350px;
   --spacing-360: 360px;
   --spacing-416: 416px;
   --spacing-417: 417px;
   --spacing-421: 421px;
+  --spacing-431: 431px;
   --spacing-491: 491px;
   --spacing-560: 560px;
   --spacing-591: 591px;
+  --spacing-602: 602px;
   --spacing-624: 624px;
   --spacing-657: 657px;
   --spacing-654: 654px;

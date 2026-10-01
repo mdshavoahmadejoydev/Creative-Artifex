@@ -5,6 +5,8 @@ import Experieance from '../sections/Experieance'
 import Services from '../sections/Services'
 import Portfolio from '../sections/Portfolio'
 import CustomerReviews from '../sections/CustomerReviews'
+import Teamexperts from '../sections/Teamexperts'
+import Faq from '../sections/Faq'
 
 const Home = () => {
   return (
@@ -15,6 +17,8 @@ const Home = () => {
     <Services/>
     <Portfolio/>
     <CustomerReviews />
+    <Teamexperts />
+    <Faq/>
     </>
   )
 }
