@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <>
-    <footer className="bg-seagreen pt-83 pb-73 border-b border-white/50">
+    <footer className="bg-seagreen pt-83 pb-73 border-b border-white/50 overflow-x-hidden">
       <Container>
         <Flex>
           <div className="w-1/2">
@@ -68,7 +68,7 @@ const Footer = () => {
       
       <Container>
         <Flex className={`items-center justify-around`}>
-          <p className='font-poppins font-medium text-white/50 text-base'>© 2024 naiyoj solutions</p>
+          <p className='font-poppins font-medium text-white/50 text-base'>© 2024 creative artifex</p>
           <Flex className='items-center gap-10'>
             <p className='font-poppins font-medium text-white text-lg'>Folllow us on</p>
             <Flex className={`gap-6`}>

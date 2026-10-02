@@ -5,7 +5,7 @@ import { IoIosStar } from "react-icons/io";
 
 const CustomerReviewsCard = ({name, proff, des}) => {
   return (
-    <div className="w-306 px-20 py-20 bg-white cursor-pointer rounded-2xl hover:shadow-2xl">
+    <div className="w-306 px-20 py-20 bg-white cursor-pointer rounded-2xl duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.2)]">
       <Flex className="w-full min-w-0">
         <RiAccountCircleFill className="text-[#2B2B2B] text-6xl cursor-pointer box-content shrink-0" />
 

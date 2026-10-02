@@ -7,6 +7,7 @@ import Portfolio from '../sections/Portfolio'
 import CustomerReviews from '../sections/CustomerReviews'
 import Teamexperts from '../sections/Teamexperts'
 import Faq from '../sections/Faq'
+import TeamMember from '../sections/TeamMember'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
     <CustomerReviews />
     <Teamexperts />
     <Faq/>
+    <TeamMember/>
     </>
   )
 }

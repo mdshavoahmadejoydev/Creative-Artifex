@@ -12,7 +12,7 @@ const FaqTemplate = ({className, qua, ans}) => {
 
   return (
     <div className={className}>
-      <p className='font-poppins font-semibold text-3xl text-faqans mb-5'> <GoDotFill className='inline-block text-4xl'/> {qua}
+      <p className='font-poppins font-semibold text-2xl text-faqans mb-5'> <GoDotFill className='inline-block text-3xl'/> {qua}
       {
         showans ?
         <MdOutlineKeyboardArrowUp className='inline-block text-5xl cursor-pointer' onClick={handleshows}/>
@@ -21,9 +21,9 @@ const FaqTemplate = ({className, qua, ans}) => {
 
       }  </p>
       {
-        showans && <p className='font-poppins font-medium text-2xl text-faqans ml-11'>{ans}</p>
+        showans && <p className='font-poppins font-medium text-xl text-faqans/80 ml-9'>{ans}</p>
       }
-      <div className='w-full h-0.5 bg-black/30 my-10'></div>
+      <div className='w-full h-0.5 bg-black/5 my-10'></div>
       
     </div>
   )

@@ -9,7 +9,7 @@ import Schedule from '../components/Schedule'
 
 const Experieance = () => {
   return (
-    <section className="bg-light-gray py-80">
+    <section className="bg-light-gray py-80 overflow-x-hidden">
       <Container>
         <Flex className={`items-center`}>
         {/* left part */}
@@ -45,7 +45,7 @@ const Experieance = () => {
           {/* Right part */}
           <div className="w-1/2">
             <Title text={`Inside Creative Artifex`}/>
-            <P text={`Naiyoj Solutions is a creative design and development agency  dedicated to empowering startups, individuals,  and businesses in their growth journeys. By combining strategic  thinking with innovative design and robust development.  thinking with innovative design and robust development.`} className={`w-560 mt-15 ml-21 mb-29`}/>
+            <P text={`Creative Artifex is a creative design and development agency  dedicated to empowering startups, individuals,  and businesses in their growth journeys. By combining strategic  thinking with innovative design and robust development.  thinking with innovative design and robust development.`} className={`w-560 mt-15 ml-21 mb-29`}/>
             <Schedule text={`Schedule A Meeting`} calender={true} hover={true} className={`bg-seagreen`} />
           </div>
         </Flex>

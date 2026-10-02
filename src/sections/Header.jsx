@@ -143,7 +143,7 @@ const Header = () => {
         <div className="dropdown-area">
           {showServices && (
             <div
-              className={`w-xs bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-360 pb-4 ${showServices ? "services-animation-open" : "services-animation-close"}`}
+              className={`w-xs bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-360 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${showServices ? "services-animation-open" : "services-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -207,7 +207,7 @@ const Header = () => {
           )}
           {ShowGraphicD && (
             <div
-              className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-110 pb-4 ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
+              className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-110 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -260,7 +260,7 @@ const Header = () => {
         <div className="dropdown-area-tem">
           {showTemplates && (
             <div
-              className={`w-230 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-322 pb-4 services-animation-open`}
+              className={`w-230 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-322 pb-4 services-animation-open duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)]`}
             >
               <ul className="flex flex-col pb-2">
                 <Link
@@ -311,7 +311,7 @@ const Header = () => {
 
           {ShowUiuxD && (
             <div
-              className={`w-190 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-132 pb-4 graphic-animation-open`}
+              className={`w-190 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-132 pb-4 graphic-animation-open duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)]`}
             >
               <ul className="flex flex-col pb-2">
                 <Link

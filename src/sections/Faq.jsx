@@ -6,7 +6,7 @@ import Container from '../components/Container'
 
 const Faq = () => {
   return (
-    <section className='bg-faqbg py-45'>
+    <section className='bg-faqbg py-45 overflow-x-hidden'>
       <Title text={`Frequently asked question`} className={`text-center`} />
       <P text={`Everything you need to know before starting your branding, website, and digital experience journey with us.`} className={`text-center w-602 mx-auto mt-4 mb-45`}  />
 

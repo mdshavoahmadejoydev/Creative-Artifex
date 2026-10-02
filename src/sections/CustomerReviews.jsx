@@ -8,7 +8,7 @@ import Schedule from '../components/Schedule'
 
 const CustomerReviews = () => {
   return (
-    <section className="bg-gray-white py-45">
+    <section className="bg-gray-white py-45 overflow-x-hidden">
       <Title text={`Our Satisfied Customer Feedback`} className={`w-560 leading-14 text-center mx-auto mb-45`}/>
 
       <Container>

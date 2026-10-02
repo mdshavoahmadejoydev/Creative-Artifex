@@ -7,7 +7,7 @@ import Schedule from '../components/Schedule'
 
 const Portfolio = () => {
   return (
-    <section className='bg-deep-blue py-55'>
+    <section className='bg-deep-blue py-55 overflow-x-hidden'>
       <Title text={`Our Portfolio Projects`} className={`text-white text-center`}/>;
       <P text={`Explore our portfolio to see the results of our creative thinking and design expertise. We help brands transform ideas into engaging digital experiences that drive growth and connection.`} className={`w-835 text-white/70 mx-auto text-center mb-55`}/>
 

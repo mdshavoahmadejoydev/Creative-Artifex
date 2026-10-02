@@ -19,7 +19,7 @@ const Teamexperts = () => {
   const [showTeamsex, setShowTeamsex] =  useState(true)
 
   return (
-    <section className={`bg-white py-45`}>
+    <section className={`bg-white py-45 overflow-x-hidden`}>
       <Title text={`Our Team Of experts`} className={`text-center`} />
       <P
         text={`Over many years of work, we have built a very successful history in our area of expertise.`}

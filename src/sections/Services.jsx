@@ -14,7 +14,7 @@ import ServicesCard from '../components/ServicesCard'
 
 const Services = () => {
   return (
-    <div className='bg-soft-gray py-94'>
+    <section className='bg-soft-gray py-94 overflow-x-hidden'>
       <Container>
         <Title text={`Our Services`} className={`text-center`} />
         <P text={`From design to development, we craft digital  experiences that elevate your brand and drive real growth.`} className={`w-591 text-center mx-auto mt-4 mb-55`} />
@@ -30,7 +30,7 @@ const Services = () => {
           <ServicesCard src={Service6} text={`Website Development`} />
         </Flex>
       </Container>
-    </div>
+    </section>
   )
 }
 
