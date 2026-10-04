@@ -8,6 +8,7 @@ import CustomerReviews from '../sections/CustomerReviews'
 import Teamexperts from '../sections/Teamexperts'
 import Faq from '../sections/Faq'
 import TeamMember from '../sections/TeamMember'
+import SubmitMsg from '../sections/SubmitMsg'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
     <Teamexperts />
     <Faq/>
     <TeamMember/>
+    <SubmitMsg/>
     </>
   )
 }

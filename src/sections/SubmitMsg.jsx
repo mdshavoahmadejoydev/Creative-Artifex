@@ -1,155 +1,89 @@
 import React from 'react'
 import Container from '../components/Container';
 import Flex from '../components/Flex';
+import Schedule from '../components/Schedule';
 import SubmitP from '../components/SubmitP';
+import Input from '../components/Input';
+import { FaPhoneVolume } from 'react-icons/fa';
+import { MdAddCall, MdEmail, MdLocationOn } from 'react-icons/md';
 
 const SubmitMsg = () => {
   return (
     <section className="bg-seagreen py-60">
       <Container className="">
-        <Flex className={` justify-between`}>
-          <div className="w-1/2 bg-white px-9 py-7 rounded-2xl">
-            <p
-              size="text-3xl"
-              textclr="text-black"
-              fontw="font-semibold"
-            >Submit message</p>
+        <Flex className={`justify-between`}>
+          <div className="w-[57%] bg-white px-9 py-7 rounded-2xl">
+            <SubmitP
+              text={`Submit message`}
+              className={`text-3xl! font-bold!`}
+            />
 
             <div className="mt-4">
-              <SubmitP text={`Your Name`} />
+              <SubmitP text={`Your Name`} requerment={true} />
 
-              <input type='text' placeholder='Your name' className='w-full py-1 text-base font-medium border-2 border-gray-300 rounded-full' />
+              <Input placeholder={`Enter Your Full Name ...`} />
             </div>
 
             <div className="mt-4">
-              <SubmitP text={`Service catagory`} />
-              <Ptag
-                size="text-xl"
-                textclr="text-black"
-                fontw="font-semibold"
-                content="Service catagory *"
-              />
+              <SubmitP text={`Phone number`} requerment={true} />
 
               <Input
+                placeholder={`Enter Your Phone Number with Country Code ...`}
+              />
+            </div>
+
+            <div className="mt-4">
+              <SubmitP text={`Service catagory`} requerment={false} />
+
+              <Input placeholder={`Enter Service Catagory ...`} />
+            </div>
+
+            <div className="mt-4">
+              <SubmitP text={`Ubload Images`} requerment={false} />
+            </div>
+
+            <div className="mt-4">
+              <SubmitP text={`Description`} requerment={false} />
+
+              <textarea
                 type="text"
-                width="w-full"
-                py="py-1"
-                textsize="text-base"
-                placeholder="Services catagory ..."
-                fontw="font-medium"
-                border="border-2"
-                borderclr="border-gray-300"
-                round="rounded-full"
-              />
-            </div>
-
-            <div className="mt-4 flex">
-              <Ptag
-                size="text-xl"
-                textclr="text-black"
-                fontw="font-semibold"
-                content="Ubload img *"
-              />
-
-              <Input
-                type="file"
-                textsize="text-sx"
-                pointer="cursor-pointer"
-                round="rounded-full"
-              />
-            </div>
-
-            <div className="mt-4">
-              <Ptag
-                size="text-xl"
-                textclr="text-black"
-                fontw="font-semibold"
-                content="Description *"
-              />
-
-              <Descriptionbox
-                placeholder="write something about  your need.........."
-                width="w-full"
-                height="h-40"
-                round="rounded-md"
-                border="border-2"
-                borderclr="border-gray-300"
+                placeholder="Write about your project"
+                className="w-full py-1 text-base font-medium border-2 border-gray-300 rounded-2xl outline-none font-poppins italic h-32 px-4 mt-2"
               />
             </div>
 
             <div className="flex justify-end">
-              <Smallbtn
-                bgcolor="bg-header-Clr"
-                px="px-6"
-                py="py-2"
-                textcolor="text-white"
-                textsize="text-2xl"
-                hover="hover:border-red-500 duration-150"
-                mt="mt-6"
-                content="submit here"
+              <Schedule
+                text="submit here"
+                className={`bg-seagreen mt-6 hover:shadow-[0px_0px_10px_1px_rgba(0,0,0,0.5)]`}
               />
             </div>
           </div>
 
-          <div className="w-2/5 bg-white px-9 py-7 rounded-35">
-            <Ptag
-              size="text-3xl"
-              textclr="text-black"
-              fontw="font-semibold"
-              content="Feel free to Direct message or call to us."
+          <div className="w-[40%] bg-white px-9 py-7 rounded-2xl">
+            <SubmitP
+              text={`Feel free to Direct message or call to us.`}
+              className={`text-3xl! font-bold!`}
             />
 
             {/* Phone */}
-            <div className="flex items-start gap-3 my-6">
-              <Iconsetup
-                href="#"
-                iconlink="fa-solid fa-phone-volume"
-                textsize="text-2xl"
-                textColor="text-gray-700"
-              />
+            <div className="flex items-center gap-3 my-6 text-black/70">
+              <MdAddCall className='text-2xl '/>
 
-              <Ptag
-                size="text-xl"
-                textclr="text-gray-700"
-                fontw="font-semibold"
-                content="+8801887002276"
-                ml="ml-2"
-              />
+              <SubmitP text={`+8801602282313`}  className={`text-black/70`}/>
             </div>
 
             {/* Email */}
-            <div className="flex items-start gap-3 mb-3 my-6">
-              <Iconsetup
-                href="#"
-                iconlink="fa-solid fa-envelope"
-                textsize="text-2xl"
-                textColor="text-gray-700"
-              />
+            <div className="flex items-center gap-3 mb-3 my-6 text-black/70">
+              <MdEmail  className='text-2xl'/>
 
-              <Ptag
-                size="text-xl"
-                textclr="text-gray-700"
-                fontw="font-semibold"
-                content="mdshavoahmadejoy@gmail.com"
-                ml="ml-2"
-              />
+              <SubmitP text={`mdshavoahmadejoy@gmail.com`}  className={`text-black/70`}/>
             </div>
 
-            <div className="flex items-start gap-3 mb-3 my-6">
-              <Iconsetup
-                href="#"
-                iconlink="fa-solid fa-location-dot"
-                textsize="text-2xl"
-                textColor="text-gray-700"
-              />
+            <div className="flex items-center gap-3 mb-3 my-6 text-black/70">
+              <MdLocationOn className='text-3xl shrink-0 mt-1'/>
 
-              <Ptag
-                size="text-xl"
-                textclr="text-gray-700"
-                fontw="font-semibold"
-                content="House, (4th Floor ) Borogram Chairmanbari Mor, Kamranggirchor Dhaka, Dhaka, Bangladesh, 1211"
-                ml="ml-2"
-              />
+              <SubmitP text={`House #417, (4th Floor ) Borogram Chairmanbari Mor, Kamranggirchor Dhaka, Dhaka, Bangladesh, 1211 `} className="text-black/70" />
             </div>
           </div>
         </Flex>

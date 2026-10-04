@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SubmitP = ({text, className}) => {
+const SubmitP = ({text, className, requerment}) => {
   return (
-    <p className={`text-xl text-black font-semibold ${className}`}>{text} <span className='text-red-500'>*</span></p>
+    <p className={`text-xl font-poppins text-black font-semibold ${className}`}>{text} {requerment && <span className='text-red-500'>*</span> } </p>
   )
 }
 
