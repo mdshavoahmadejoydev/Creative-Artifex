@@ -10,8 +10,8 @@ import { FaSearch } from 'react-icons/fa'
 const Hero = () => {
   return (
     <section
-      className="h-657 p-0 w-full bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{ backgroundImage: `url(${creativeHero})` }}
+      className={`h-657 p-0 w-full bg-cover bg-center bg-no-repeat overflow-hidden`} 
+      style={{ backgroundImage: `url(${creativeHero})`}}
     >
       <Container className={`relative`}>
         <div className="pt-74">
