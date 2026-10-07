@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MdAddCall, MdEmail, MdLocationOn, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 import ReactCountryFlag from "react-country-flag";
+import { FaImage } from 'react-icons/fa';
 
 const SubmitMsg = () => {
   
@@ -232,8 +233,8 @@ const SubmitMsg = () => {
               </div>
             </div>
 
-            <div className="mt-4">
-              <SubmitP text={`Ubload Images`} requerment={false} />
+            <div className="mt-4 cursor-pointer">
+              <SubmitP text={`Ubload Images`} requerment={false} className={`inline-block`} /> <FaImage className='text-2xl inline-block' />
             </div>
 
             <div className="mt-4">

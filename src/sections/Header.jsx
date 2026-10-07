@@ -157,10 +157,10 @@ let handleGraphicD = () => {
             <div
               className={`w-xs bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-360 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${showServices ? "services-animation-open" : "services-animation-close"}`}
               onMouseLeave={() => {
-  if (!ShowGraphicD) {
-    setShowServices(false);
-  }
-}}
+                if (!ShowGraphicD) {
+                  setShowServices(false);
+                }
+              }}
             >
               <ul className="flex flex-col pb-2">
                 <Link
