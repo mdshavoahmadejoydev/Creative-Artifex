@@ -234,7 +234,8 @@ const SubmitMsg = () => {
             </div>
 
             <div className="mt-4 cursor-pointer">
-              <SubmitP text={`Ubload Images`} requerment={false} className={`inline-block`} /> <FaImage className='text-2xl inline-block' />
+              <SubmitP text={`Ubload Images`} requerment={false} className={`inline-block`} /> 
+              <FaImage className='text-2xl inline-block text-black/90 mx-2' />
             </div>
 
             <div className="mt-4">
