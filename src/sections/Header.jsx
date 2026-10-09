@@ -19,6 +19,15 @@ const Header = () => {
   const [ShowGraphicD, setShowGraphicD] = useState(false);
   const [ShowUiuxD, setShowUiuxd] = useState(false);
 
+  const handleScroll = () => {
+    setShowServices(false);
+    setShowGraphicD(false);
+    setShowTemplates(false);
+    setShowUiuxd(false);
+  };
+
+  
+
   let handleServicesD = () => {
     setShowServices(true);
     setShowGraphicD(false);
@@ -67,11 +76,15 @@ let handleGraphicD = () => {
     };
 
     document.addEventListener("click", handleClickOutside);
+    window.addEventListener("scroll", handleScroll)
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+   
 
 
 
