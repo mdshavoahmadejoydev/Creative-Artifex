@@ -54,7 +54,7 @@ const Hero = () => {
           <p className="font-roboto font-extrabold text-white text-70 leading-24">
             Designed to <span className="text-74">Grow</span> Your{" "}
           </p>
-          <p className="font-roboto font-extrabold text-white text-80 leading-24">
+          <p className="font-roboto font-extrabold text-white text-[85px] leading-24">
             Business
           </p>
         </div>
@@ -96,7 +96,8 @@ const Hero = () => {
 
               {/* Dropdown */}
               {showOptions && search && (
-                <div className="absolute left-0 top-14 z-50 w-full bg-soft-gray shadow-lg rounded-md overflow-hidden max-h-77.75 overflow-y-scroll">
+                <div className="absolute left-0 top-14 z-50 w-full rounded-xl overflow-hidden bg-white">
+                <div className="max-h-77.75 overflow-y-scroll">
                   {filteredServices.length > 0 ? (
                     filteredServices.map((service, index) => {
                       const matchIndex = service
@@ -138,6 +139,7 @@ const Hero = () => {
                       No service found
                     </div>
                   )}
+                </div>
                 </div>
               )}
             </div>
