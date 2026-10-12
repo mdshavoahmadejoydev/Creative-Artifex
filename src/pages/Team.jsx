@@ -1,8 +1,12 @@
 import React from 'react'
+import TeamMember from '../sections/TeamMember'
 
 const Team = () => {
   return (
-    <div>Team</div>
+    <>
+    <div className='h-94'></div>
+    <TeamMember/>
+    </>
   )
 }
 
