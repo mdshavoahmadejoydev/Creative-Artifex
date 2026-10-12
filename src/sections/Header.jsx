@@ -94,24 +94,26 @@ let handleGraphicD = () => {
       <Container className={`relative`}>
         <Flex>
           {/* logo container start */}
-          <Flex
-            className="w-1/4 gap-3 items-center cursor-pointer"
-            onMouseEnter={afterClick}
-          >
-            <Image
-              className={`h-55 py-18 box-content`}
-              src={headerLogo}
-              alt={`header logo`}
-            />
-            <Image className={`h-55`} src={headerLogoTagline} />
-          </Flex>
+          <Link to={"/"} className="w-1/4 ">
+            <Flex
+              className="gap-3 items-center cursor-pointer"
+              onMouseEnter={afterClick}
+            >
+              <Image
+                className={`h-55 py-18 box-content`}
+                src={headerLogo}
+                alt={`header logo`}
+              />
+              <Image className={`h-55 shrink-0`} src={headerLogoTagline} />
+            </Flex>
+          </Link>
           {/* logo container end */}
 
           {/* nav container start */}
           <Flex className="w-3/4 justify-end items-center">
             <nav>
               <ul className="flex gap-6">
-                <Link className="py-31 group" onMouseEnter={afterClick}>
+                <Link to={"/"} className="py-31 group" onMouseEnter={afterClick}>
                   <Li text={`Home`} />
                 </Link>
 
@@ -143,7 +145,7 @@ let handleGraphicD = () => {
                 </div>
                 {/* Templates start */}
 
-                <Link className="py-31 group" onMouseEnter={afterClick}>
+                <Link to={"/reviews"} className="py-31 group" onMouseEnter={afterClick}>
                   <Li text={`Reviews`} />
                 </Link>
                 <Link className="py-31 group" onMouseEnter={afterClick}>

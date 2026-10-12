@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <>
-    <footer className="bg-seagreen pt-83 pb-73 border-b border-white/50 overflow-x-hidden">
+    <footer className="bg-seagreen pt-12.5 pb-73 border-b border-white/50 overflow-x-hidden">
       <Container>
         <Flex>
           <div className="w-1/2">
