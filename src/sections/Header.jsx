@@ -148,13 +148,13 @@ let handleGraphicD = () => {
                 <Link to={"/reviews"} className="py-31 group" onMouseEnter={afterClick}>
                   <Li text={`Reviews`} />
                 </Link>
-                <Link className="py-31 group" onMouseEnter={afterClick}>
+                <Link to={"/products"} className="py-31 group" onMouseEnter={afterClick}>
                   <Li text={`Products`} />
                 </Link>
-                <Link className="py-31 group" onMouseEnter={afterClick}>
+                <Link to={"/team"} className="py-31 group" onMouseEnter={afterClick}>
                   <Li text={`Team`} />
                 </Link>
-                <Link className="py-31 group" onMouseEnter={afterClick}>
+                <Link to={"contact"} className="py-31 group" onMouseEnter={afterClick}>
                   <Li text={`Contact`} />
                 </Link>
               </ul>

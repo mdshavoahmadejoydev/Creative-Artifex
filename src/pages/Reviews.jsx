@@ -16,17 +16,17 @@ const Reviews = () => {
       style={{ backgroundImage: `url(${creativeHero})` }}
     >
       <ReviewsPageTitle
-        text={"Customer Reviews"}
-        className={`mt-[105px] text-center`}
+        text={"<< Customer Reviews >>"}
+        className={`mt-26.25 text-center`}
       />
 
       <P
         text={`See what our customers have to say about their experience with us.`}
-        className={`text-white w-[672px] text-center mx-auto pb-[20px]`}
+        className={`text-white w-2xl text-center mx-auto pb-20`}
       />
 
       {/* Package informations */}
-      <div className="bg-gray-white pt-[70px]">
+      <div className="bg-gray-white pt-17.5">
         <Container>
           
          <ReviewsFullCard yourName={`Sojub khan`} country={`🇬🇧 USA`} prof={`ceo of creative artifex`} productLink={`............Link............`} clientDes={`Excellent experience working with this seller! The website turned out

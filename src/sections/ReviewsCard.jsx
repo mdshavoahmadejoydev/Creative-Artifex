@@ -8,7 +8,7 @@ export const ReviewsCard = ({yourName, prof, country, productLink, clientDes, Lp
     <div>
       {/* Profile */}
       <Flex className="items-center gap-3">
-        <FaRegUserCircle className="h-[60px] w-[60px] shrink-0 text-[#444]" />
+        <FaRegUserCircle className="h-60 w-60 shrink-0 text-[#444]" />
 
         <div>
           <Flex className="items-end gap-2">
@@ -25,7 +25,7 @@ export const ReviewsCard = ({yourName, prof, country, productLink, clientDes, Lp
           </p>
         </div>
       </Flex>
-      <Flex className="items-center gap-2 ml-[70px] -mt-[8px] text-[12px] leading-none text-[#F5A000]">
+      <Flex className="items-center gap-2 ml-17.5 -mt-2 text-[12px] leading-none text-starColor">
         <Flex className={`gap-0.5`}>
           <IoIosStar className="text-lg" />
           <IoIosStar className="text-lg" />
@@ -45,7 +45,7 @@ export const ReviewsCard = ({yourName, prof, country, productLink, clientDes, Lp
       </p>
 
       {/* Review */}
-      <p className="font-roboto font-medium text-lg leading-[1.45] text-black/90 w-[574px]">
+      <p className="font-roboto font-medium text-lg leading-[1.45] text-black/90 w-143.5">
         <span className="font-roboto font-bold text-lg text-black">
           Client said:
         </span>{" "}
@@ -53,7 +53,7 @@ export const ReviewsCard = ({yourName, prof, country, productLink, clientDes, Lp
       </p>
 
       {/* Order Details */}
-      <Flex className="mt-8 flex-wrap items-center gap-x-10 font-roboto font-medium text-lg text-[#2e2e2e]">
+      <Flex className="mt-8 flex-wrap items-center gap-x-10 font-roboto font-medium text-lg text-2e2e2e">
         <p>${Lprice} - ${Hprice} | Price</p>
         <p>{duration} weeks | Duration</p>
         <p>{pastWorkingTime} month ago | Delivery</p>
