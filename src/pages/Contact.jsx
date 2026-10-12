@@ -1,8 +1,12 @@
 import React from 'react'
+import SubmitMsg from '../sections/SubmitMsg'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <>
+    <div className='h-94'></div>
+    <SubmitMsg/>
+    </>
   )
 }
 
