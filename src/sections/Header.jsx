@@ -113,7 +113,11 @@ let handleGraphicD = () => {
           <Flex className="w-3/4 justify-end items-center">
             <nav>
               <ul className="flex gap-6">
-                <Link to={"/"} className="py-31 group" onMouseEnter={afterClick}>
+                <Link
+                  to={"/"}
+                  className="py-31 group"
+                  onMouseEnter={afterClick}
+                >
                   <Li text={`Home`} />
                 </Link>
 
@@ -145,16 +149,32 @@ let handleGraphicD = () => {
                 </div>
                 {/* Templates start */}
 
-                <Link to={"/reviews"} className="py-31 group" onMouseEnter={afterClick}>
+                <Link
+                  to={"/reviews"}
+                  className="py-31 group"
+                  onMouseEnter={afterClick}
+                >
                   <Li text={`Reviews`} />
                 </Link>
-                <Link to={"/products"} className="py-31 group" onMouseEnter={afterClick}>
+                <Link
+                  to={"/products"}
+                  className="py-31 group"
+                  onMouseEnter={afterClick}
+                >
                   <Li text={`Products`} />
                 </Link>
-                <Link to={"/team"} className="py-31 group" onMouseEnter={afterClick}>
+                <Link
+                  to={"/team"}
+                  className="py-31 group"
+                  onMouseEnter={afterClick}
+                >
                   <Li text={`Team`} />
                 </Link>
-                <Link to={"contact"} className="py-31 group" onMouseEnter={afterClick}>
+                <Link
+                  to={"contact"}
+                  className="py-31 group"
+                  onMouseEnter={afterClick}
+                >
                   <Li text={`Contact`} />
                 </Link>
               </ul>
@@ -183,14 +203,7 @@ let handleGraphicD = () => {
                   onClick={handleGraphicD}
                   onMouseEnter={handleGraphicD}
                 >
-                  <DropdownLi text={`Graphics & Design`} icon={true} />
-                </Link>
-                <Link
-                  className="hover:bg-white/15 duration-200 group"
-                  onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
-                >
-                  <DropdownLi text={`UI/UX Design`} />
+                  <DropdownLi text={`Graphics & Multimedia`} icon={true} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
@@ -227,13 +240,6 @@ let handleGraphicD = () => {
                 >
                   <DropdownLi text={`Shopify Store Design &Development`} />
                 </Link>
-                <Link
-                  className="hover:bg-white/15 duration-200 group"
-                  onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
-                >
-                  <DropdownLi text={`Video Animations`} />
-                </Link>
               </ul>
               <Flex className={`justify-center`}>
                 <button
@@ -262,6 +268,21 @@ let handleGraphicD = () => {
                 >
                   <DropdownLi text={`Logo Design`} />
                 </Link>
+
+                <Link
+                  className="hover:bg-white/15 duration-200 group"
+                  onClick={afterClick}
+                >
+                  <DropdownLi text={`UI/UX Design`} />
+                </Link>
+
+                <Link
+                  className="hover:bg-white/15 duration-200 group"
+                  onClick={afterClick}
+                >
+                  <DropdownLi text={`Video Animations`} />
+                </Link>
+
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
@@ -285,18 +306,6 @@ let handleGraphicD = () => {
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Business Card Design`} />
-                </Link>
-                <Link
-                  className="hover:bg-white/15 duration-200 group"
-                  onClick={afterClick}
-                >
-                  <DropdownLi text={`Poster Design`} />
-                </Link>
-                <Link
-                  className="hover:bg-white/15 duration-200 group"
-                  onClick={afterClick}
-                >
-                  <DropdownLi text={`Flyer Design`} />
                 </Link>
               </ul>
             </div>

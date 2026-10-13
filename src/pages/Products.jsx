@@ -10,19 +10,21 @@ import ProductFullCard from '../components/ProductFullCard';
 
 const Products = () => {
   return (
-    <section
-      className={` p-0 w-full bg-cover bg-center   bg-no-repeat overflow-hidden`}
-      style={{ backgroundImage: `url(${creativeHero})` }}
-    >
-      <ReviewsPageTitle
-        text={"<< Products >>"}
-        className={`mt-26.25 text-center`}
-      />
+    <section className={`w-full`}>
+      <div className='h-94'></div>
 
-      <P
-        text={`Explore our latest products, crafted with quality and care.`}
-        className={`text-white w-2xl text-center mx-auto pb-20`}
-      />
+      <div className='bg-seagreen'>
+        <ReviewsPageTitle
+          text={"<< Products >>"}
+          className={`pt-4 text-center`}
+        />
+
+        <P
+          text={`Explore our latest products, crafted with quality and care.`}
+          className={`text-white w-2xl text-center mx-auto pb-20`}
+        />
+
+      </div>
       {/* About Products */}
       <div className="bg-gray-white pt-17.5">
         <Container>
