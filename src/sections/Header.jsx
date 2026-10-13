@@ -238,7 +238,7 @@ let handleGraphicD = () => {
                   onClick={afterClick}
                   onMouseEnter={() => setShowGraphicD(false)}
                 >
-                  <DropdownLi text={`Shopify Store Design &Development`} />
+                  <DropdownLi text={`Shopify Store Design & Development`} />
                 </Link>
               </ul>
               <Flex className={`justify-center`}>
