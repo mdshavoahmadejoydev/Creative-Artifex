@@ -36,14 +36,14 @@ const GraphicMultimedia = () => {
       name: "Business Card Design",
       path: "/services/graphic-multimedia/business-card-design",
     },
-  ]
+  ];
 
 
   return (
     <>
       <div className="bg-seagreen py-2">
         <Flex
-          className={`justify-center gap-x-6 gap-y-2 list-none text-white/70 font-poppins font-medium text-lg mt-4 flex-wrap`}
+          className={`justify-center gap-x-6 gap-y-2 list-none text-white/70 font-poppins font-medium text-lg my-0.5 px-10 flex-wrap`}
         >
           {serviceItem.map((item, index) => {
             return (

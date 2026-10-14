@@ -22,6 +22,11 @@ import CoverDesign from './pages/CoverDesign';
 import AdsDesign from './pages/AdsDesign';
 import ThumbnailDesign from './pages/ThumbnailDesign';
 import BusinessCardDesign from './pages/BusinessCardDesign';
+import WebsiteDevelopment from './pages/WebsiteDevelopment';
+import SoftwareDevelopment from './pages/SoftwareDevelopment';
+import MobileApplicationDevelopment from './pages/MobileApplicationDevelopment';
+import WordPressDevelopment from './pages/WordPressDevelopment';
+import ShopifyStoreDesignDevelopment from './pages/ShopifyStoreDesignDevelopment';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,7 +49,13 @@ const router = createBrowserRouter(
         </Route>
 
 
-        <Route path='web-software' element={<WebSoftware/>}></Route>
+        <Route path='web-software' element={<WebSoftware/>}>
+          <Route path='website-development' element={<WebsiteDevelopment/>}></Route>
+          <Route path='software-development' element={<SoftwareDevelopment/>}></Route>
+          <Route path='mobile-application-development' element={<MobileApplicationDevelopment/>}></Route>
+          <Route path='wordpress-development' element={<WordPressDevelopment/>}></Route>
+          <Route path='shopify-store-design-development' element={<ShopifyStoreDesignDevelopment/>}></Route>
+        </Route>
 
 
       </Route>

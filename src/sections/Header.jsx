@@ -190,7 +190,7 @@ let handleGraphicD = () => {
         <div className="dropdown-area">
           {showServices && (
             <div
-              className={`w-xs bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-360 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${showServices ? "services-animation-open" : "services-animation-close"}`}
+              className={`w-67.5 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-95 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${showServices ? "services-animation-open" : "services-animation-close"}`}
               onMouseLeave={() => {
                 if (!ShowGraphicD) {
                   setShowServices(false);
@@ -206,6 +206,7 @@ let handleGraphicD = () => {
                   <DropdownLi text={`Graphics & Multimedia`} icon={true} />
                 </Link>
                 <Link
+                  to={`/services/web-software/website-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                   onMouseEnter={() => setShowGraphicD(false)}
@@ -213,6 +214,7 @@ let handleGraphicD = () => {
                   <DropdownLi text={`Website Development`} />
                 </Link>
                 <Link
+                  to={`/services/web-software/software-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                   onMouseEnter={() => setShowGraphicD(false)}
@@ -220,6 +222,7 @@ let handleGraphicD = () => {
                   <DropdownLi text={`Software Development`} />
                 </Link>
                 <Link
+                  to={`/services/web-software/mobile-application-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                   onMouseEnter={() => setShowGraphicD(false)}
@@ -227,6 +230,7 @@ let handleGraphicD = () => {
                   <DropdownLi text={`Mobile Application Development`} />
                 </Link>
                 <Link
+                  to={`/services/web-software/wordpress-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                   onMouseEnter={() => setShowGraphicD(false)}
@@ -234,6 +238,7 @@ let handleGraphicD = () => {
                   <DropdownLi text={`WordPress Development `} />
                 </Link>
                 <Link
+                  to={`/services/web-software/shopify-store-design-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                   onMouseEnter={() => setShowGraphicD(false)}
@@ -256,7 +261,7 @@ let handleGraphicD = () => {
           {/* Graphic Dropdown start */}
           {ShowGraphicD && (
             <div
-              className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-110 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
+              className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-32.5 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
               onMouseLeave={() => {
                 setShowGraphicD(false);
               }}

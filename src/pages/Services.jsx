@@ -17,6 +17,11 @@ const Services = () => {
     "ads-design": "Ads Design",
     "thumbnail-design": "Thumbnail Design",
     "business-card-design": "Business Card Design",
+    "website-development": "Website Development",
+    "software-development": "Software Development",
+    "wordpress-development": "Wordpress Development",
+    "shopify-store-design-development": "Shopify Store Design Development",
+    "mobile-application-development": "Mobile Application Development"
   };
 
   const currentPath = location.pathname.split("/").pop();

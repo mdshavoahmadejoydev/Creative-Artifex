@@ -1,32 +1,57 @@
 import React from "react";
 import Flex from "../components/Flex";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const WebSoftware = () => {
+
+  const location = useLocation();
+
+   const serviceItemWeb = [
+     {
+       name: "Website Development",
+       path: "/services/web-software/website-development",
+     },
+     {
+       name: "Software Development",
+       path: "/services/web-software/software-development",
+     },
+     {
+       name: "WordPress Development",
+       path: "/services/web-software/wordpress-development",
+     },
+     {
+       name: "Shopify Store Design Development",
+       path: "/services/web-software/shopify-store-design-development",
+     },
+     {
+       name: "Mobile Application Development",
+       path: "/services/web-software/mobile-application-development",
+     },
+   ];
+
   return (
-    <div>
+    <>
       <div className="bg-seagreen py-2">
         <Flex
-          className={`justify-center gap-x-6 gap-y-2 list-none text-white/70 font-poppins font-medium text-lg mt-4 px-10 flex-wrap`}
+          className={`justify-center gap-x-6 gap-y-2 list-none text-white/70 font-poppins font-medium text-lg my-0.5 px-10 flex-wrap`}
         >
-          <Link>
-            <li>Website Development</li>
-          </Link>
-          <Link>
-            <li>Software Development</li>
-          </Link>
-          <Link>
-            <li className="text-white">WordPress Development </li>
-          </Link>
-          <Link>
-            <li>Shopify Store Design Development</li>
-          </Link>
-          <Link>
-            <li>Mobile Application Development</li>
-          </Link>
+          
+          {
+            serviceItemWeb.map((item, index) => {
+              return (
+                <Link to={item.path} key={index} >
+                  <li className={location.pathname == item.path ? "text-white" : "text-white/70"}>{item.name}</li>
+                </Link>
+              )
+            })
+          }
+
         </Flex>
       </div>
-    </div>
+
+      <Outlet/>
+
+    </>
   );
 };
 
