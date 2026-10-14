@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReviewsPageTitle from '../components/ReviewsPageTitle'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation  } from 'react-router-dom'
 
 
 const Services = () => {
   
- 
+  // const [servicesTitle, setServicesTitle] = useState("Chouse services")
+
+  const location = useLocation();
+
+  const serviceNames = {
+    "logo-design": "Logo Design",
+    "uiux-design": "UI/UX Design",
+    "video-animation": "Video Animation",
+    "cover-design": "Cover Design",
+    "ads-design": "Ads Design",
+    "thumbnail-design": "Thumbnail Design",
+    "business-card-design": "Business Card Design",
+  };
+
+  const currentPath = location.pathname.split("/").pop();
+  const servicesTitle = serviceNames[currentPath] || "Choose services";
 
   return (
 
@@ -14,13 +29,12 @@ const Services = () => {
 
       <div className="bg-seagreen">
         <ReviewsPageTitle
-          text={"<< Graphic Design  >>"}
+          text={`<< ${servicesTitle} >>`}
           className={`pt-4 text-center`}
         />
       </div>
 
-      <Outlet/>
-      {/* <Outlet context={{ handleClick }}/> */}
+      <Outlet context={{servicesTitle }}/>
 
 
     </section>

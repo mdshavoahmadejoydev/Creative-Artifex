@@ -262,46 +262,46 @@ let handleGraphicD = () => {
               }}
             >
               <ul className="flex flex-col pb-2">
-                <Link
+                <Link to={"/services/graphic-multimedia/logo-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Logo Design`} />
                 </Link>
 
-                <Link
+                <Link to={"/services/graphic-multimedia/uiux-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`UI/UX Design`} />
                 </Link>
 
-                <Link
+                <Link to={"/services/graphic-multimedia/video-animation"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Video Animations`} />
                 </Link>
 
-                <Link
+                <Link to={"/services/graphic-multimedia/cover-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Cover Design`} />
                 </Link>
-                <Link
+                <Link to={"/services/graphic-multimedia/ads-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Ads Design`} />
                 </Link>
-                <Link
+                <Link to={"/services/graphic-multimedia/thumbnail-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Thumbnail Design`} />
                 </Link>
-                <Link
+                <Link to={"/services/graphic-multimedia/business-card-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
