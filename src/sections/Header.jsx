@@ -97,7 +97,6 @@ let handleGraphicD = () => {
           <Link to={"/"} className="w-1/4 ">
             <Flex
               className="gap-3 items-center cursor-pointer"
-              onMouseEnter={afterClick}
             >
               <Image
                 className={`h-55 py-18 box-content`}
@@ -116,7 +115,6 @@ let handleGraphicD = () => {
                 <Link
                   to={"/"}
                   className="py-31 group"
-                  onMouseEnter={afterClick}
                 >
                   <Li text={`Home`} />
                 </Link>
@@ -124,14 +122,13 @@ let handleGraphicD = () => {
                 {/* Services start */}
                 <div
                   onClick={handleServicesD}
-                  onMouseEnter={handleServicesD}
                   className={`dropdown-area cursor-pointer group`}
                 >
                   <Link className="group">
                     <Li
                       text={`Services`}
                       icon={true}
-                      className={`py-31 ${showServices ? "text-red-500" : ""}`}
+                      className={`py-31 ${showServices || ShowGraphicD ? "text-red-500!": ""}`}
                     />
                   </Link>
                 </div>
@@ -140,11 +137,10 @@ let handleGraphicD = () => {
                 {/* Templates start */}
                 <div
                   onClick={showTemplatesItems}
-                  onMouseEnter={showTemplatesItems}
                   className="dropdown-area-tem  cursor-pointer group "
                 >
                   <Link className="group">
-                    <Li text={`Templates`} icon={true} className={` py-31 `} />
+                    <Li text={`Templates`} icon={true} className={` py-31 ${showTemplates || ShowUiuxD ? "text-red-500!": ""}`} />
                   </Link>
                 </div>
                 {/* Templates start */}
@@ -152,34 +148,30 @@ let handleGraphicD = () => {
                 <Link
                   to={"/reviews"}
                   className="py-31 group"
-                  onMouseEnter={afterClick}
                 >
                   <Li text={`Reviews`} />
                 </Link>
                 <Link
                   to={"/products"}
                   className="py-31 group"
-                  onMouseEnter={afterClick}
                 >
                   <Li text={`Products`} />
                 </Link>
                 <Link
                   to={"/team"}
                   className="py-31 group"
-                  onMouseEnter={afterClick}
                 >
                   <Li text={`Team`} />
                 </Link>
                 <Link
                   to={"contact"}
                   className="py-31 group"
-                  onMouseEnter={afterClick}
                 >
                   <Li text={`Contact`} />
                 </Link>
               </ul>
             </nav>
-            <button className="group" onMouseEnter={afterClick}>
+            <button className="group">
               <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue group-focus:text-red-500! duration-200" />
             </button>
           </Flex>
@@ -191,17 +183,11 @@ let handleGraphicD = () => {
           {showServices && (
             <div
               className={`w-67.5 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-95 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${showServices ? "services-animation-open" : "services-animation-close"}`}
-              onMouseLeave={() => {
-                if (!ShowGraphicD) {
-                  setShowServices(false);
-                }
-              }}
             >
               <ul className="flex flex-col pb-2">
                 <Link
                   className="hover:bg-white/15 focus:bg-white/15  duration-200 group "
                   onClick={handleGraphicD}
-                  onMouseEnter={handleGraphicD}
                 >
                   <DropdownLi text={`Graphics & Multimedia`} icon={true} />
                 </Link>
@@ -209,7 +195,6 @@ let handleGraphicD = () => {
                   to={`/services/web-software/website-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
                 >
                   <DropdownLi text={`Website Development`} />
                 </Link>
@@ -217,7 +202,6 @@ let handleGraphicD = () => {
                   to={`/services/web-software/software-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
                 >
                   <DropdownLi text={`Software Development`} />
                 </Link>
@@ -225,7 +209,6 @@ let handleGraphicD = () => {
                   to={`/services/web-software/mobile-application-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
                 >
                   <DropdownLi text={`Mobile Application Development`} />
                 </Link>
@@ -233,7 +216,6 @@ let handleGraphicD = () => {
                   to={`/services/web-software/wordpress-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
                 >
                   <DropdownLi text={`WordPress Development `} />
                 </Link>
@@ -241,7 +223,6 @@ let handleGraphicD = () => {
                   to={`/services/web-software/shopify-store-design-development`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
                 >
                   <DropdownLi text={`Shopify Store Design & Development`} />
                 </Link>
@@ -250,7 +231,6 @@ let handleGraphicD = () => {
                 <button
                   className="font-poppins font-bold italic text-2xl py-2 px-6 border-2 border-white rounded-full bg-Royal-Purple text-white hover:border-red-500 duration-200 cursor-pointer"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowGraphicD(false)}
                 >
                   Monthly Hire
                 </button>
@@ -262,9 +242,7 @@ let handleGraphicD = () => {
           {ShowGraphicD && (
             <div
               className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-32.5 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
-              onMouseLeave={() => {
-                setShowGraphicD(false);
-              }}
+              
             >
               <ul className="flex flex-col pb-2">
                 <Link to={"/services/graphic-multimedia/logo-design"}
@@ -323,63 +301,48 @@ let handleGraphicD = () => {
           {showTemplates && (
             <div
               className={`w-230 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-322 pb-4 services-animation-open duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)]`}
-              onMouseLeave={() => {
-                if (showTemplates && ShowUiuxD) {
-                  setShowTemplates(true);
-                  setShowUiuxd(true);
-                } else {
-                  setShowTemplates(false);
-                  setShowUiuxd(false);
-                }
-              }}
+              
             >
               <ul className="flex flex-col pb-2">
                 <Link
                   className="hover:bg-white/15 focus:bg-white/15 duration-200 group"
                   onClick={showUiuxItems}
-                  onMouseEnter={showUiuxItems}
                 >
                   <DropdownLi text={`UI/UX Design`} icon={true} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowUiuxd(false)}
                 >
                   <DropdownLi text={`Cover Design`} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowUiuxd(false)}
                 >
                   <DropdownLi text={`Ads Design`} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowUiuxd(false)}
                 >
                   <DropdownLi text={`Thumbel Design`} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowUiuxd(false)}
                 >
                   <DropdownLi text={`Business Card Design`} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowUiuxd(false)}
                 >
                   <DropdownLi text={`Poster Design`} />
                 </Link>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
-                  onMouseEnter={() => setShowUiuxd(false)}
                 >
                   <DropdownLi text={`Flyer Design`} />
                 </Link>
@@ -390,14 +353,7 @@ let handleGraphicD = () => {
           {ShowUiuxD && (
             <div
               className={`w-190 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-132 pb-4 graphic-animation-open duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)]`}
-              onMouseLeave={() => {
-                if (!ShowUiuxD) {
-                  return;
-                } else {
-                  setShowTemplates(!false);
-                  setShowUiuxd(false);
-                }
-              }}
+              
             >
               <ul className="flex flex-col pb-2">
                 <Link
