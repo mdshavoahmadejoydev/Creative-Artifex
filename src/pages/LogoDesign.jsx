@@ -1,47 +1,155 @@
-import React, { Component } from 'react'
-import Container from '../components/Container'
-import Flex from '../components/Flex'
-import { FaCheck } from 'react-icons/fa'
+import React, { Component, useState } from "react";
+import Container from "../components/Container";
+import Flex from "../components/Flex";
+import { FaCheck } from "react-icons/fa";
+import PackageItemCard from "../components/PackageItemCard";
 
 const LogoDesign = () => {
+  const [isDefault, setIsDefault] = useState(true);
+
   return (
-    <div className='bg-EEEEEE py-[40px]'>
+    <div className="bg-EEEEEE py-[40px]">
       <Container>
-        <Flex>
-          <div className='w-[367px] bg-white px-[40px] py-[20px] rounded-4xl font-poppins border border-[#D9EFF7] hover:shadow-[0px_2px_10px_2px_rgba(0,0,0,0.3)] duration-200'>
-            <h5 className='font-bold text-[31px] text-[#07506B]'>BASIC PACKAGE</h5>
-            <p className='font-semibold text-[24px] text-[#079FD3] mt-3.5 mb-1'>$ 500 tk</p>
-            <p className='font-semibold text-[26px] text-black/80'>Our services :</p>
+        <div className="flex items-center gap-3 justify-center mb-8">
+          {/* Default */}
+          <span
+            className={`font-bold font-poppins text-xl duration-300 ${
+              isDefault ? "text-[#07506B]" : "text-gray-400"
+            }`}
+          >
+            Default
+          </span>
 
-            <Flex className={`list-none flex-col gap-y-2 font-poppins font-semibold text-lg text-black/80 mt-1`}>
-                
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> 2 concepts included</li>
-              
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> Logo transparency</li>
-              
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> Vector file</li>
-              
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> Printable file</li>
-              
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> Include 3D mockup</li>
-              
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> Include source file</li>
+          {/* Toggle Button */}
+          <button
+            onClick={() => setIsDefault(!isDefault)}
+            className={`relative h-10 w-[100px] rounded-full transition-colors duration-300 ease-in-out transition-all ${
+              isDefault ? "bg-[#07506B]" : "bg-red-500"
+            }`}
+            aria-label="Toggle pricing plan"
+            aria-pressed={!isDefault}
+          >
+            <span
+              className={`absolute top-1 h-8 w-8 rounded-full bg-white shadow-sm transition-all duration-500 ${
+                isDefault ? "left-1" : "left-[64px]"
+              }`}
+            />
+          </button>
 
-              
-              <li className={`flex items-center gap-2 text-black/80`}><FaCheck className='inline-block text-xl'/> Stationery designs</li>
-              
-              <li className={`flex items-center gap-2 text-black/30`}><FaCheck className='inline-block text-xl'/> Include social media kit</li>
-              
-            </Flex>
+          {/* Monthly */}
+          <span
+            className={`font-bold font-poppins text-xl transition-colors duration-300 ${
+              !isDefault ? "text-red-500" : "text-gray-400"
+            }`}
+          >
+            Monthly
+          </span>
+        </div>
 
-            <button className='font-poppins font-semibold text-2xl text-white bg-[#006F9F] hover:bg-[#07506B] duration-200 w-full py-1 rounded-full mb-2 mt-4 cursor-pointer'>Order Now</button>
+        <Flex className={`justify-center gap-6`}>
+          {isDefault ? (
+            <>
+              <PackageItemCard
+                packagename="BASIC PACKAGE"
+                pricemoney="500 tk"
+                provive1="2 concepts included"
+                provive2="Logo transparency"
+                provive3="Vector file"
+                provive4="Printable file"
+                provive5="Include 3D mockup"
+                provive6="Include source file"
+                provive7="Stationery designs"
+                provive8="Include social media kit"
+                notprovide4={true}
+                notprovide5={true}
+                notprovide6={true}
+                notprovide7={true}
+                notprovide8={true}
+              />
 
-            <button className='font-poppins font-semibold text-2xl text-[#079CC8] border-2 border-[#079CC8] w-full py-1 rounded-full   cursor-pointer '>Contact Us</button>
-          </div>
+              <PackageItemCard
+                packagename="STANDARD PACKAGE"
+                pricemoney="700 tk"
+                provive1="5 concepts included"
+                provive2="Logo transparency"
+                provive3="Vector file"
+                provive4="Printable file"
+                provive5="Include 3D mockup"
+                provive6="Include source file"
+                provive7="Stationery designs"
+                provive8="Include social media kit"
+                notprovide6={true}
+                notprovide7={true}
+                notprovide8={true}
+              />
+
+              <PackageItemCard
+                packagename="PREMIUM PACKAGE"
+                pricemoney="1000 tk"
+                provive1="8 concepts included"
+                provive2="Logo transparency"
+                provive3="Vector file"
+                provive4="Printable file"
+                provive5="Include 3D mockup"
+                provive6="Include source file"
+                provive7="Stationery designs"
+                provive8="Include social media kit"
+              />
+            </>
+          ) : (
+            <>
+              <PackageItemCard
+                packagename="BASIC PACKAGE"
+                pricemoney="5000 tk"
+                provive1="10 concepts included"
+                provive2="Logo transparency"
+                provive3="Vector file"
+                provive4="Printable file"
+                provive5="Include 3D mockup"
+                provive6="Include source file"
+                icon7={true}
+                icon8={true}
+                notprovide4={true}
+                notprovide5={true}
+                notprovide6={true}
+                notprovide7={true}
+                notprovide8={true}
+              />
+
+              <PackageItemCard
+                packagename="STANDARD PACKAGE"
+                pricemoney="1000 tk"
+                provive1="5 concepts included"
+                provive2="Logo transparency"
+                provive3="Vector file"
+                provive4="Printable file"
+                provive5="Include 3D mockup"
+                provive6="Include source file"
+                provive7="Stationery designs"
+                provive8="Include social media kit"
+                notprovide6={true}
+                notprovide7={true}
+                notprovide8={true}
+              />
+
+              <PackageItemCard
+                packagename="PREMIUM PACKAGE"
+                pricemoney="15000 tk"
+                provive1="8 concepts included"
+                provive2="Logo transparency"
+                provive3="Vector file"
+                provive4="Printable file"
+                provive5="Include 3D mockup"
+                provive6="Include source file"
+                provive7="Stationery designs"
+                provive8="Include social media kit"
+              />
+            </>
+          )}
         </Flex>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default LogoDesign
+export default LogoDesign;
