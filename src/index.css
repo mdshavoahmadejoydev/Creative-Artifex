@@ -21,6 +21,11 @@
   --color-starColor: #F5A000;
   --color-2e2e2e: #2e2e2e;
   --color-EEEEEE: #EEEEEE;
+  --color-D9EFF7: #D9EFF7;
+  --color-07506B: #07506B;
+  --color-079FD3: #079FD3;
+  --color-006F9F: #006F9F;
+  --color-079CC8: #079CC8;
 
   --color-standard-shadow:[0px_2px_6px_3px_rgba(0,0,0,0.90)];
   
@@ -87,6 +92,7 @@
   --text-45: 45px;
   --text-70: 70px;
   --text-80: 80px;
+  --text-25: 25px;
 }
 
 

@@ -1,57 +1,88 @@
 import React from 'react'
 import Flex from '../components/Flex'
 import { FaCheck } from 'react-icons/fa'
+import { MdAccessTime } from "react-icons/md";
+import { BiRevision } from 'react-icons/bi';
 
-const PackageItemCard = ({packagename,pricemoney,provive1,provive2, provive3, provive4, provive5, provive6, provive7,provive8, notprovide1, notprovide2, notprovide3, notprovide4, notprovide5, notprovide6, notprovide7, notprovide8, icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,}) => {
+
+const PackageItemCard = ({packagename,pricemoney,provide1,provide2, provide3, provide4, provide5, provide6, provide7,provide8, notprovide1, notprovide2, notprovide3, notprovide4, notprovide5, notprovide6, notprovide7, notprovide8, time}) => {
   return (
-    <div className="w-[367px] bg-white px-[25px] py-[15px] rounded-4xl font-poppins border border-[#D9EFF7] hover:shadow-[0px_2px_10px_2px_rgba(0,0,0,0.3)] duration-200">
-      <h5 className="font-bold text-[25px] text-[#07506B]">{packagename}</h5>
-      <p className="font-semibold text-[20px] text-[#079FD3] mt-1 -mb-2">
+    <div className="w-91.75 bg-white px-6.25 py-15 rounded-4xl font-poppins border border-D9EFF7 hover:shadow-[0px_2px_10px_2px_rgba(0,0,0,0.3)] duration-200">
+      <h5 className="font-bold text-25 text-07506B">{packagename}</h5>
+      <p className="font-semibold text-xl text-079FD3 mt-1 -mb-2">
         $ {pricemoney}
       </p>
-      <p className="font-semibold text-[24px] text-black/80">Our services :</p>
+      <p className="font-semibold text-2xl text-black/80">Our services :</p>
 
       <Flex
         className={`list-none flex-col gap-y-0.5 font-poppins font-semibold text-base text-black/80 mt-1`}
       >
-        <li className={`flex items-center gap-2 ${notprovide1 && "text-black/30" }`}>
-          {!icon1 && <FaCheck className="inline-block " />} {provive1}
-        </li>
+        {
+          provide1 && 
+          <li className={`flex items-center gap-2 ${notprovide1 && "text-black/30" }`}>
+          <FaCheck className="inline-block " /> {provide1}
+          </li>
+        }
+        {
+          provide2 && 
+          <li className={`flex items-center gap-2 ${notprovide2 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide2}
+          </li>
+        }
 
-        <li className={`flex items-center gap-2 ${notprovide2 && "text-black/30" }`}>
-          {!icon2 && <FaCheck className="inline-block " />} {provive2}
-        </li>
+        {
+          provide3 && 
+          <li className={`flex items-center gap-2 ${notprovide3 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide3}
+          </li>
+        }
 
-        <li className={`flex items-center gap-2 ${notprovide3 && "text-black/30" }`}>
-          {!icon3 && <FaCheck className="inline-block " />} {provive3}
-        </li>
+        {
+          provide4 && 
+          <li className={`flex items-center gap-2 ${notprovide4 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide4}
+          </li>
+        }
 
-        <li className={`flex items-center gap-2 ${notprovide4 && "text-black/30" }`}>
-          {!icon4 && <FaCheck className="inline-block " />} {provive4}
-        </li>
+        {
+          provide5 && 
+          <li className={`flex items-center gap-2 ${notprovide5 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide5}
+          </li>
+        }
 
-        <li className={`flex items-center gap-2 ${notprovide5 && "text-black/30" }`}>
-          {!icon5 && <FaCheck className="inline-block " />} {provive5}
-        </li>
+        {
+          provide6 && 
+          <li className={`flex items-center gap-2 ${notprovide6 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide6}
+          </li>
+        }
 
-        <li className={`flex items-center gap-2 ${notprovide6 && "text-black/30" }`}>
-          {!icon6 && <FaCheck className="inline-block " />} {provive6}
-        </li>
+        {
+          provide7 && 
+          <li className={`flex items-center gap-2 ${notprovide7 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide8} {provide7}
+          </li>
+        }
 
-        <li className={`flex items-center gap-2 ${notprovide7 && "text-black/30" }`}>
-          {!icon7 && <FaCheck className="inline-block " />} {provive8} {provive7}
-        </li>
-
-        <li className={`flex items-center gap-2 ${notprovide8 && "text-black/30" }`}>
-          {!icon8 && <FaCheck className="inline-block " />} {provive8}
-        </li>
+        {
+          provide8 && 
+          <li className={`flex items-center gap-2 ${notprovide8 && "text-black/30" }`}>
+            <FaCheck className="inline-block " /> {provide8}
+          </li>
+        }
       </Flex>
 
-      <button className="font-poppins font-semibold text-2xl text-white bg-[#006F9F] hover:bg-[#07506B] duration-200 w-full py-1 rounded-full mb-2 mt-4 cursor-pointer">
+      <Flex className='gap-4 mt-3 font-poppins font-semibold text-sm text-black/80'>
+        <span className='flex items-center gap-0.5'> <MdAccessTime className='inline text-lg text-black/50'/> {time}-day delivery</span>
+        <span className='flex items-center gap-0.5'> <BiRevision className='inline text-lg text-black/50'/> Unlimited Revisions</span>
+      </Flex>
+
+      <button className="font-poppins font-semibold text-2xl text-white bg-006F9F hover:bg-07506B duration-200 w-full py-1 rounded-full my-2 cursor-pointer">
         Order Now
       </button>
 
-      <button className="font-poppins font-semibold text-2xl text-[#079CC8] border-2 border-[#079CC8] w-full py-1 rounded-full   cursor-pointer ">
+      <button className="font-poppins font-semibold text-2xl text-079CC8 border-2 border-079CC8 w-full py-1 rounded-full   cursor-pointer ">
         Contact Us
       </button>
     </div>

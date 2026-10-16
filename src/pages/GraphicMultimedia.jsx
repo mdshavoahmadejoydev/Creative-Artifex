@@ -17,10 +17,6 @@ const GraphicMultimedia = () => {
       path: "/services/graphic-multimedia/uiux-design",
     },
     {
-      name: "Video Animation",
-      path: "/services/graphic-multimedia/video-animation",
-    },
-    {
       name: "Cover Design",
       path: "/services/graphic-multimedia/cover-design",
     },
@@ -35,6 +31,10 @@ const GraphicMultimedia = () => {
     {
       name: "Business Card Design",
       path: "/services/graphic-multimedia/business-card-design",
+    },
+    {
+      name: "Video Animation",
+      path: "/services/graphic-multimedia/video-animation",
     },
   ];
 
