@@ -14,7 +14,7 @@ const LogoDesign = () => {
     <div className="bg-EEEEEE py-10">
       <Container>
 
-        <Flex className={`justify-center gap-8`}>
+        <Flex className={`justify-center items-start gap-8`}>
           <PackageItemCard
             packagename="BASIC PACKAGE"
             pricemoney="500 tk"

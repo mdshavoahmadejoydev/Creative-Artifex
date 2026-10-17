@@ -5,13 +5,16 @@ import { MdAccessTime } from "react-icons/md";
 import { BiRevision } from 'react-icons/bi';
 
 
-const PackageItemCard = ({packagename,pricemoney,provide1,provide2, provide3, provide4, provide5, provide6, provide7,provide8, notprovide1, notprovide2, notprovide3, notprovide4, notprovide5, notprovide6, notprovide7, notprovide8, time}) => {
+const PackageItemCard = ({packagename,pricemoney,provide1,provide2, provide3, provide4, provide5, provide6, provide7,provide8, notprovide1, notprovide2, notprovide3, notprovide4, notprovide5, notprovide6, notprovide7, notprovide8, time,aboutPackage}) => {
   return (
     <div className="w-91.75 bg-white px-6.25 py-15 rounded-4xl font-poppins border border-D9EFF7 hover:shadow-[0px_2px_10px_2px_rgba(0,0,0,0.3)] duration-200">
       <h5 className="font-bold text-25 text-07506B">{packagename}</h5>
       <p className="font-semibold text-xl text-079FD3 mt-1 -mb-2">
         $ {pricemoney}
       </p>
+
+      <p className='font-poppins font-semibold text-sm text-black/80 my-2'>{aboutPackage}</p>
+
       <p className="font-semibold text-2xl text-black/80">Our services :</p>
 
       <Flex

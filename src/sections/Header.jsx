@@ -124,13 +124,11 @@ let handleGraphicD = () => {
                   onClick={handleServicesD}
                   className={`dropdown-area cursor-pointer group`}
                 >
-                  <Link className="group">
-                    <Li
+                  <Li
                       text={`Services`}
                       icon={true}
                       className={`py-31 ${showServices || ShowGraphicD ? "text-red-500!": ""}`}
                     />
-                  </Link>
                 </div>
                 {/* Services end */}
 
@@ -139,9 +137,9 @@ let handleGraphicD = () => {
                   onClick={showTemplatesItems}
                   className="dropdown-area-tem  cursor-pointer group "
                 >
-                  <Link className="group">
+                  <div className="group cursor-pointer">
                     <Li text={`Templates`} icon={true} className={` py-31 ${showTemplates || ShowUiuxD ? "text-red-500!": ""}`} />
-                  </Link>
+                  </div>
                 </div>
                 {/* Templates start */}
 
@@ -185,12 +183,12 @@ let handleGraphicD = () => {
               className={`w-67.5 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-95 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${showServices ? "services-animation-open" : "services-animation-close"}`}
             >
               <ul className="flex flex-col pb-2">
-                <Link
-                  className="hover:bg-white/15 focus:bg-white/15  duration-200 group "
+                <div
+                  className="hover:bg-white/15 focus:bg-white/15 duration-200 group cursor-pointer "
                   onClick={handleGraphicD}
                 >
                   <DropdownLi text={`Graphics & Multimedia`} icon={true} />
-                </Link>
+                </div>
                 <Link
                   to={`/services/web-software/website-development`}
                   className="hover:bg-white/15 duration-200 group"
@@ -259,13 +257,6 @@ let handleGraphicD = () => {
                   <DropdownLi text={`UI/UX Design`} />
                 </Link>
 
-                <Link to={"/services/graphic-multimedia/video-animation"}
-                  className="hover:bg-white/15 duration-200 group"
-                  onClick={afterClick}
-                >
-                  <DropdownLi text={`Video Animations`} />
-                </Link>
-
                 <Link to={"/services/graphic-multimedia/cover-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
@@ -290,6 +281,14 @@ let handleGraphicD = () => {
                 >
                   <DropdownLi text={`Business Card Design`} />
                 </Link>
+
+                <Link to={"/services/graphic-multimedia/video-animation"}
+                  className="hover:bg-white/15 duration-200 group"
+                  onClick={afterClick}
+                >
+                  <DropdownLi text={`Video Animations`} />
+                </Link>
+                
               </ul>
             </div>
           )}
@@ -304,12 +303,12 @@ let handleGraphicD = () => {
               
             >
               <ul className="flex flex-col pb-2">
-                <Link
-                  className="hover:bg-white/15 focus:bg-white/15 duration-200 group"
+                <div
+                  className="hover:bg-white/15 focus:bg-white/15 duration-200 group cursor-pointer"
                   onClick={showUiuxItems}
                 >
                   <DropdownLi text={`UI/UX Design`} icon={true} />
-                </Link>
+                </div>
                 <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
