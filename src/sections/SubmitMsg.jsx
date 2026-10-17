@@ -90,7 +90,13 @@ const SubmitMsg = () => {
             </div>
 
             <div className="mt-4">
-              <SubmitP text={`Phone number`} requerment={true} />
+              <SubmitP text={`Email Address`} requerment={true} />
+
+              <Input placeholder={`Enter Your Email ...`} />
+            </div>
+
+            <div className="mt-4">
+              <SubmitP text={`Phone number`} requerment={false} />
 
               <div ref={countryDropdownRef} className="relative shrink-0 mt-2">
                 <div className="flex w-full items-center rounded-full border-2 border-gray-300 px-4 py-1">
