@@ -35,6 +35,8 @@ import CoverDesignTem from './pages/CoverDesignTem';
 import AdsDesignTem from './pages/AdsDesignTem';
 import ThumbelDesignTem from './pages/ThumbelDesignTem';
 import BusinessCardDesignTem from './pages/BusinessCardDesignTem';
+import SubmitOrder from './pages/SubmitOrder';
+import OrderSubmited from './pages/OrderSubmited';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -85,6 +87,8 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Products/>}></Route>
       <Route path="/team" element={<Team/>}></Route>
       <Route path="/contact" element={<Contact/>}></Route>
+      <Route path="/order" element={<SubmitOrder/>}></Route>
+      <Route path="/order-submited" element={<OrderSubmited/>}></Route>
     </Route>
   )
 );
