@@ -27,6 +27,14 @@ import SoftwareDevelopment from './pages/SoftwareDevelopment';
 import MobileApplicationDevelopment from './pages/MobileApplicationDevelopment';
 import WordPressDevelopment from './pages/WordPressDevelopment';
 import ShopifyStoreDesignDevelopment from './pages/ShopifyStoreDesignDevelopment';
+import Templates from './sections/Templates';
+import AppsDesignTem from './pages/AppsDesignTem';
+import WebsiteDesigntem from './pages/WebsiteDesigntem';
+import DesktopSoftwaredesignTem from './pages/DesktopSoftwaredesignTem';
+import CoverDesignTem from './pages/CoverDesignTem';
+import AdsDesignTem from './pages/AdsDesignTem';
+import ThumbelDesignTem from './pages/ThumbelDesignTem';
+import BusinessCardDesignTem from './pages/BusinessCardDesignTem';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -59,6 +67,18 @@ const router = createBrowserRouter(
 
 
       </Route>
+
+      {/* Template nav */}
+      <Route path="/templates" element={<Templates/>}>
+        <Route path='apps-design' element={<AppsDesignTem/>}></Route>
+        <Route path='website-design' element={<WebsiteDesigntem/>}></Route>
+        <Route path='desktop-software-design' element={<DesktopSoftwaredesignTem/>}></Route>
+        <Route path='cover-design' element={<CoverDesignTem/>}></Route>
+        <Route path='ads-design' element={<AdsDesignTem/>}></Route>
+        <Route path='thumbnail-design' element={<ThumbelDesignTem/>}></Route>
+        <Route path='business-card-design' element={<BusinessCardDesignTem/>}></Route>
+      </Route>
+
 
 
       <Route path="/reviews" element={<Reviews/>}></Route>

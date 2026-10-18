@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import headerLogo from "../assets/creativeArtifexLogo.png";
 import headerLogoTagline from "../assets/creativeArtifexLogoTagline.png";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Container from "../components/Container";
 import Flex from "../components/Flex";
@@ -11,8 +11,23 @@ import Image from "../components/Image";
 import Li from "../components/Li";
 import { RiAccountCircleFill } from "react-icons/ri";
 import DropdownLi from "../components/DropdownLi";
+import Templates from "./Templates";
+import WebSoftware from "../pages/WebSoftware";
+import GraphicMultimedia from "../pages/GraphicMultimedia";
 
 const Header = () => {
+
+  // manu custom focus generation
+  const location = useLocation();
+  const [activeMenu, setActiveMenu] = useState("");
+  const serviceTemplate = ()=> {
+    setActiveMenu("");
+    setActiveMenu("");
+  }
+
+
+
+
   const [showServices, setShowServices] = useState(false);
   const [showTemplates, setShowTemplates] = useState(false);
   
@@ -34,6 +49,9 @@ const Header = () => {
 
     setShowTemplates(false);
     setShowUiuxd(false);
+
+
+    setActiveMenu("services");
   };
 
 let handleGraphicD = () => {
@@ -47,6 +65,9 @@ let handleGraphicD = () => {
 
     setShowServices(false);
     setShowGraphicD(false);
+
+
+    setActiveMenu("templates");
   }
 
   let showUiuxItems = () => {
@@ -95,9 +116,7 @@ let handleGraphicD = () => {
         <Flex>
           {/* logo container start */}
           <Link to={"/"} className="w-1/4 ">
-            <Flex
-              className="gap-3 items-center cursor-pointer"
-            >
+            <Flex className="gap-3 items-center cursor-pointer">
               <Image
                 className={`h-55 py-18 box-content`}
                 src={headerLogo}
@@ -112,10 +131,7 @@ let handleGraphicD = () => {
           <Flex className="w-3/4 justify-end items-center">
             <nav>
               <ul className="flex gap-6">
-                <Link
-                  to={"/"}
-                  className="py-31 group"
-                >
+                <Link to={"/"} className="py-31 group" onClick={serviceTemplate}>
                   <Li text={`Home`} />
                 </Link>
 
@@ -125,10 +141,10 @@ let handleGraphicD = () => {
                   className={`dropdown-area cursor-pointer group`}
                 >
                   <Li
-                      text={`Services`}
-                      icon={true}
-                      className={`py-31 ${showServices || ShowGraphicD ? "text-red-500!": ""}`}
-                    />
+                    text={`Services`}
+                    icon={true}
+                    className={`py-31 ${activeMenu === "services" ? "text-red-500!" : ""}`}
+                  />
                 </div>
                 {/* Services end */}
 
@@ -137,34 +153,31 @@ let handleGraphicD = () => {
                   onClick={showTemplatesItems}
                   className="dropdown-area-tem  cursor-pointer group "
                 >
-                  <div className="group cursor-pointer">
-                    <Li text={`Templates`} icon={true} className={` py-31 ${showTemplates || ShowUiuxD ? "text-red-500!": ""}`} />
+                  <div
+                    className="group cursor-pointer"
+                    onClick={() => setShowServices(false)}
+                  >
+                    <Li
+                      text={`Templates`}
+                      icon={true}
+                      className={` py-31 ${
+                        activeMenu === "templates" ? "text-red-500!" : ""
+                      }`}
+                    />
                   </div>
                 </div>
                 {/* Templates start */}
 
-                <Link
-                  to={"/reviews"}
-                  className="py-31 group"
-                >
+                <Link to={"/reviews"} className="py-31 group" onClick={serviceTemplate}>
                   <Li text={`Reviews`} />
                 </Link>
-                <Link
-                  to={"/products"}
-                  className="py-31 group"
-                >
+                <Link to={"/products"} className="py-31 group" onClick={serviceTemplate}>
                   <Li text={`Products`} />
                 </Link>
-                <Link
-                  to={"/team"}
-                  className="py-31 group"
-                >
+                <Link to={"/team"} className="py-31 group" onClick={serviceTemplate}>
                   <Li text={`Team`} />
                 </Link>
-                <Link
-                  to={"contact"}
-                  className="py-31 group"
-                >
+                <Link to={"contact"} className="py-31 group" onClick={serviceTemplate}>
                   <Li text={`Contact`} />
                 </Link>
               </ul>
@@ -240,55 +253,60 @@ let handleGraphicD = () => {
           {ShowGraphicD && (
             <div
               className={`w-250 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-32.5 pb-4 duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)] ${ShowGraphicD ? "graphic-animation-open" : "graphic-animation-close"}`}
-              
             >
               <ul className="flex flex-col pb-2">
-                <Link to={"/services/graphic-multimedia/logo-design"}
+                <Link
+                  to={"/services/graphic-multimedia/logo-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Logo Design`} />
                 </Link>
 
-                <Link to={"/services/graphic-multimedia/uiux-design"}
+                <Link
+                  to={"/services/graphic-multimedia/uiux-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`UI/UX Design`} />
                 </Link>
 
-                <Link to={"/services/graphic-multimedia/cover-design"}
+                <Link
+                  to={"/services/graphic-multimedia/cover-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Cover Design`} />
                 </Link>
-                <Link to={"/services/graphic-multimedia/ads-design"}
+                <Link
+                  to={"/services/graphic-multimedia/ads-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Ads Design`} />
                 </Link>
-                <Link to={"/services/graphic-multimedia/thumbnail-design"}
+                <Link
+                  to={"/services/graphic-multimedia/thumbnail-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Thumbnail Design`} />
                 </Link>
-                <Link to={"/services/graphic-multimedia/business-card-design"}
+                <Link
+                  to={"/services/graphic-multimedia/business-card-design"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Business Card Design`} />
                 </Link>
 
-                <Link to={"/services/graphic-multimedia/video-animation"}
+                <Link
+                  to={"/services/graphic-multimedia/video-animation"}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Video Animations`} />
                 </Link>
-                
               </ul>
             </div>
           )}
@@ -300,7 +318,6 @@ let handleGraphicD = () => {
           {showTemplates && (
             <div
               className={`w-230 bg-skyblue rounded-b-2xl border-t border-red-500 absolute top-94 right-322 pb-4 services-animation-open duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)]`}
-              
             >
               <ul className="flex flex-col pb-2">
                 <div
@@ -310,41 +327,39 @@ let handleGraphicD = () => {
                   <DropdownLi text={`UI/UX Design`} icon={true} />
                 </div>
                 <Link
+                  to={`/templates/cover-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Cover Design`} />
                 </Link>
                 <Link
+                  to={`/templates/ads-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Ads Design`} />
                 </Link>
                 <Link
+                  to={`/templates/thumbnail-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Thumbel Design`} />
                 </Link>
                 <Link
+                  to={`/templates/business-card-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Business Card Design`} />
                 </Link>
-                <Link
-                  className="hover:bg-white/15 duration-200 group"
-                  onClick={afterClick}
-                >
-                  <DropdownLi text={`Poster Design`} />
-                </Link>
-                <Link
+                {/* <Link
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Flyer Design`} />
-                </Link>
+                </Link> */}
               </ul>
             </div>
           )}
@@ -352,26 +367,28 @@ let handleGraphicD = () => {
           {ShowUiuxD && (
             <div
               className={`w-190 bg-skyblue/90 rounded-b-2xl border-t border-red-500 absolute top-94 right-132 pb-4 graphic-animation-open duration-200 hover:shadow-[0px_0px_20px_2px_rgba(0,0,0,0.5)]`}
-              
             >
               <ul className="flex flex-col pb-2">
                 <Link
+                  to={`/templates/apps-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Apps Design`} />
                 </Link>
                 <Link
+                  to={`/templates/website-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
                   <DropdownLi text={`Website Design`} />
                 </Link>
                 <Link
+                  to={`/templates/desktop-software-design`}
                   className="hover:bg-white/15 duration-200 group"
                   onClick={afterClick}
                 >
-                  <DropdownLi text={`Desktop Software- design`} />
+                  <DropdownLi text={`Desktop Software-Design`} />
                 </Link>
               </ul>
             </div>
