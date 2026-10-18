@@ -58,7 +58,7 @@ const LogoDesign = () => {
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
             packagename="BASIC PACKAGE"
-            pricemoney="10"
+            pricemoney="20000"
             provide1="2 concepts included"
             provide2="Logo transparency"
             provide3="Vector file"
@@ -77,7 +77,7 @@ const LogoDesign = () => {
 
           <PackageItemCard
             packagename="STANDARD PACKAGE"
-            pricemoney="70"
+            pricemoney="15000"
             provide1="5 concepts included"
             provide2="Logo transparency"
             provide3="Vector file"
@@ -93,7 +93,7 @@ const LogoDesign = () => {
 
           <PackageItemCard
             packagename="PREMIUM PACKAGE"
-            pricemoney="100"
+            pricemoney="10000"
             provide1="8 concepts included"
             provide2="Logo transparency"
             provide3="Vector file"
