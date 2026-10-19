@@ -1,29 +1,122 @@
-import React from 'react'
-import ReviewsPageTitle from '../components/ReviewsPageTitle'
-import Container from '../components/Container'
-import Flex from '../components/Flex'
+import React from "react";
+import ReviewsPageTitle from "../components/ReviewsPageTitle";
+import Container from "../components/Container";
+import Flex from "../components/Flex";
+import { Link } from "react-router-dom";
 
-import { FaUser, FaFileAlt, FaPaperclip, FaHeadset, FaArrowRight} from "react-icons/fa";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import {
+  FaUser,
+  FaFileAlt,
+  FaPaperclip,
+  FaHeadset,
+  FaArrowRight,
+} from "react-icons/fa";
 import { FiClipboard, FiPackage, FiClock } from "react-icons/fi";
-import { CgProfile } from 'react-icons/cg';
-import OrderPageInput from '../components/OrderPageInput';
-import { FaArrowRightLong } from 'react-icons/fa6';
-
-
-
-
-
+import { CgProfile } from "react-icons/cg";
+import OrderPageInput from "../components/OrderPageInput";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const SubmitOrder = () => {
+
+
+
+
   const orderSummaryarray = [
-    {
-      servicesName: "Logo Design",
-      packageName: "Basic",
-      price: "৳500 tk",
-      deliveryTime: "2",
-    },
+    // Logo Design
+    { id: 1, servicesName: "Logo Design" },
+    { id: 2, servicesName: "Logo Design" },
+    { id: 3, servicesName: "Logo Design" },
+
+    // Cover Design
+    { id: 4, servicesName: "Cover Design" },
+    { id: 5, servicesName: "Cover Design" },
+    { id: 6, servicesName: "Cover Design" },
+
+    // Ads Design
+    { id: 7, servicesName: "Ads Design" },
+    { id: 8, servicesName: "Ads Design" },
+    { id: 9, servicesName: "Ads Design" },
+
+    // Thumbnail Design
+    { id: 10, servicesName: "Thumbnail Design" },
+    { id: 11, servicesName: "Thumbnail Design" },
+    { id: 12, servicesName: "Thumbnail Design" },
+
+    // Business Card Design
+    { id: 13, servicesName: "Business Card Design" },
+    { id: 14, servicesName: "Business Card Design" },
+    { id: 15, servicesName: "Business Card Design" },
+
+    // Poster Design
+    // { id: 16, servicesName: "Poster Design" },
+    // { id: 17, servicesName: "Poster Design" },
+    // { id: 18, servicesName: "Poster Design" },
+
+    // Flyer Design
+    // { id: 19, servicesName: "Flyer Design" },
+    // { id: 20, servicesName: "Flyer Design" },
+    // { id: 21, servicesName: "Flyer Design" },
+
+    // UI/UX Design
+    { id: 22, servicesName: "UI/UX Design" },
+    { id: 23, servicesName: "UI/UX Design" },
+    { id: 24, servicesName: "UI/UX Design" },
+
+    // Website Development
+    { id: 25, servicesName: "Website Development" },
+    { id: 26, servicesName: "Website Development" },
+    { id: 27, servicesName: "Website Development" },
+
+    // Software Development
+    { id: 28, servicesName: "Software Development" },
+    { id: 29, servicesName: "Software Development" },
+    { id: 30, servicesName: "Software Development" },
+
+    // Mobile Application Development
+    // { id: 31, servicesName: "Mobile Application Development" },
+    // { id: 32, servicesName: "Mobile Application Development" },
+    // { id: 33, servicesName: "Mobile Application Development" },
+
+    // WordPress Development
+    { id: 34, servicesName: "WordPress Development" },
+    { id: 35, servicesName: "WordPress Development" },
+    { id: 36, servicesName: "WordPress Development" },
+
+    // Shopify Store Design & Development
+    { id: 37, servicesName: "Shopify Store Design & Development" },
+    { id: 38, servicesName: "Shopify Store Design & Development" },
+    { id: 39, servicesName: "Shopify Store Design & Development" },
+
+    // Video Animations
+    // { id: 40, servicesName: "Video Animations" },
+    // { id: 41, servicesName: "Video Animations" },
+    // { id: 42, servicesName: "Video Animations" },
   ];
 
+  const location = useLocation();
+  const selectedId = location.state?.id;
+  const price = location.state?.pricemoney;
+  const packagename = location.state?.packagename;
+  const deliverytime = location.state?.time;
+  console.log(packagename)
+  console.log(deliverytime)
+
+  const orderIndex = orderSummaryarray.findIndex(
+    (item) => item.id === selectedId
+  );
+
+
+  let navigate = useNavigate();
+  const orderedSuccessfully = () => {
+    navigate("/order-submited", {
+    state: { id, pricemoney, packagename, time },
+  })
+  }
+
+
+  const selectedOrder = orderSummaryarray[orderIndex];
 
   return (
     <section className="bg-[#EFF4F6]">
@@ -116,7 +209,7 @@ const SubmitOrder = () => {
 
                   <div className="border border-slate-200 rounded-lg">
                     <p className="text-3xl text-black/70 font-roboto p-4 font-semibold">
-                      {orderSummaryarray[0].servicesName}
+                      {selectedOrder.servicesName}
                     </p>
                   </div>
                 </div>
@@ -133,14 +226,14 @@ const SubmitOrder = () => {
 
                     <div>
                       <h3 className="font-bold text-sm text-slate-800 font-roboto">
-                        {orderSummaryarray[0].packageName} Package
+                        {packagename}
                       </h3>
                       <p className=" text-cyan-600 font-bold font-roboto">
-                        {orderSummaryarray[0].price}
+                        {price}
                       </p>
                       <p className="flex items-center gap-1 text-sm text-slate-600 font-roboto">
                         <FiClock className="text-base" />{" "}
-                        {orderSummaryarray[0].deliveryTime}-day delivery
+                        {deliverytime}-day delivery
                       </p>
                     </div>
                   </div>
@@ -169,8 +262,9 @@ const SubmitOrder = () => {
 
               {/* Submit Button */}
               <button
+                onClick={orderedSuccessfully}
                 type="button"
-                className="w-full flex justify-center items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold font-roboto text-xl py-2 rounded-xl mt-5 duration-200"
+                className="w-full flex justify-center items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold font-roboto text-xl py-2 rounded-xl mt-5 duration-200 cursor-pointer"
               >
                 Submit Order <FaArrowRightLong className="text-white text-xl" />
               </button>
@@ -198,18 +292,18 @@ const SubmitOrder = () => {
 
                   <div>
                     <h3 className="font-bold text-sm text-slate-800 font-roboto uppercase">
-                      {orderSummaryarray[0].packageName} PACKAGE
+                      {packagename}
                     </h3>
 
                     <p className="text-sm font-roboto font-bold text-cyan-600 mt-1 ">
-                      {orderSummaryarray[0].price}
+                      {price}
                     </p>
                   </div>
                 </div>
 
                 <p className="flex items-center gap-1 text-xs text-[#123B5B] font-roboto whitespace-nowrap">
                   <FiClock className="text-lg" />
-                  {orderSummaryarray[0].deliveryTime}-day delivery
+                  {deliverytime}-day delivery
                 </p>
               </div>
 
@@ -217,28 +311,28 @@ const SubmitOrder = () => {
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Service:</span>
                   <span className="font-semibold text-[#123B5B]">
-                    {orderSummaryarray[0].servicesName}
+                    {selectedOrder.servicesName}
                   </span>
                 </div>
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Package:</span>
                   <span className="font-semibold text-[#123B5B]">
-                    {orderSummaryarray[0].packageName} Package
+                    {packagename}
                   </span>
                 </div>
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Price:</span>
                   <span className="font-semibold text-[#123B5B]">
-                    {orderSummaryarray[0].price}
+                    {price}
                   </span>
                 </div>
 
                 <div className="flex justify-between pt-3">
                   <span>Delivery:</span>
                   <span className="font-semibold text-[#123B5B]">
-                    {orderSummaryarray[0].deliveryTime} days
+                    {deliverytime} days
                   </span>
                 </div>
               </div>
@@ -261,13 +355,13 @@ const SubmitOrder = () => {
                 Our team will contact you.
               </p>
 
-              <button
-                type="button"
-                className="w-full flex items-center justify-center gap-3 border-2 border-[#08A5C8] text-[#079CC0] hover:bg-[#08A5C8] hover:text-white font-bold py-3 rounded-full mt-5 transition duration-200"
+              <Link
+                to={"/contact"}
+                className="w-full flex items-center justify-center gap-3 border-2 border-[#08A5C8] text-[#079CC0] hover:bg-[#08A5C8] hover:text-white font-bold py-3 rounded-full mt-5 transition duration-200 cursor-pointer"
               >
                 Contact Us
                 <FaArrowRightLong className="duration-200 text-xl" />
-              </button>
+              </Link>
             </div>
           </div>
         </Flex>
@@ -276,4 +370,4 @@ const SubmitOrder = () => {
   );
 };
 
-export default SubmitOrder
+export default SubmitOrder;

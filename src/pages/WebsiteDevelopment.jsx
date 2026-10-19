@@ -2,13 +2,26 @@ import React from "react";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import PackageItemCard from "../components/PackageItemCard";
+import { useNavigate } from "react-router-dom";
 
 const WebsiteDevelopment = () => {
+
+  const navigate = useNavigate();
+
+    const handleContinue = (id, pricemoney, packagename, time) => {
+      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    };
+
+
   return (
     <div className="bg-EEEEEE py-10">
       <Container>
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
+
+              id={25}
+              onContinue={handleContinue}
+              
             packagename="BASIC PACKAGE"
             pricemoney="500 tk"
             aboutPackage={`One Page Website Design and Development W/ Static Functionality | Need something specific? | DM Now`}
@@ -34,6 +47,10 @@ const WebsiteDevelopment = () => {
           />
 
           <PackageItemCard
+
+              id={26}
+              onContinue={handleContinue}
+              
             packagename="STANDARD PACKAGE"
             pricemoney="1000 tk"
             aboutPackage={`5 Page website development, Basic API integrations | Figma to React, Clean Code + Payment Integrate`}
@@ -57,6 +74,10 @@ const WebsiteDevelopment = () => {
           />
 
           <PackageItemCard
+
+              id={27}
+              onContinue={handleContinue}
+              
             packagename="PREMIUM PACKAGE"
             pricemoney="1000 tk"
             aboutPackage={`Up to 8 Pages Custom Website Design and Development + Backend Setup + API Integration (Customizable)`}

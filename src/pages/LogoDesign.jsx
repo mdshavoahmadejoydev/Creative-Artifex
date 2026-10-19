@@ -5,6 +5,8 @@ import Flex from "../components/Flex";
 import PackageItemCard from "../components/PackageItemCard";
 import ServicesIncludePortfolio from "../sections/ServicesIncludePortfolio";
 
+import { useNavigate } from "react-router-dom";
+
 import Portfolio1 from "../assets/logoPortfolio/1.jpg";
 import Portfolio2 from "../assets/logoPortfolio/2.jpg";
 import Portfolio3 from "../assets/logoPortfolio/3.jpg";
@@ -51,12 +53,24 @@ const logoPortfolio = [
   Portfolio21,
 ];
 
+
+
 const LogoDesign = () => {
+
+  
+  const navigate = useNavigate();
+
+  const handleContinue = (id, pricemoney, packagename, time) => {
+    navigate("/order", { state: { id, pricemoney, packagename, time } });
+  };
+
   return (
     <div className="bg-EEEEEE py-10">
       <Container>
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
+            id={1}
+            onContinue={handleContinue}
             packagename="BASIC PACKAGE"
             pricemoney="20000"
             provide1="2 concepts included"
@@ -76,6 +90,8 @@ const LogoDesign = () => {
           />
 
           <PackageItemCard
+            id={2}
+            onContinue={handleContinue}
             packagename="STANDARD PACKAGE"
             pricemoney="15000"
             provide1="5 concepts included"
@@ -89,9 +105,12 @@ const LogoDesign = () => {
             notprovide6={true}
             notprovide7={true}
             notprovide8={true}
+            time={3}
           />
 
           <PackageItemCard
+            id={3}
+            onContinue={handleContinue}
             packagename="PREMIUM PACKAGE"
             pricemoney="10000"
             provide1="8 concepts included"
@@ -102,6 +121,7 @@ const LogoDesign = () => {
             provide6="Include source file"
             provide7="Stationery designs"
             provide8="Include social media kit"
+            time={5}
           />
         </Flex>
 

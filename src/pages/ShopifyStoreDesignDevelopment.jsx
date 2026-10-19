@@ -2,13 +2,26 @@ import React from "react";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import PackageItemCard from "../components/PackageItemCard";
+import { useNavigate } from "react-router-dom";
 
 const ShopifyStoreDesignDevelopment = () => {
+
+  const navigate = useNavigate();
+
+    const handleContinue = (id, pricemoney, packagename, time) => {
+      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    };
+
+
   return (
     <div className="bg-EEEEEE py-10">
       <Container>
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
+
+              id={37}
+              onContinue={handleContinue}
+              
             packagename="BASIC PACKAGE"
             pricemoney="500 tk"
             aboutPackage={`Launch-ready Store Set-up 3 pages + 10 Product Uploads + Mobile Optimization + Payment Setup`}
@@ -34,6 +47,10 @@ const ShopifyStoreDesignDevelopment = () => {
           />
 
           <PackageItemCard
+
+              id={38}
+              onContinue={handleContinue}
+              
             packagename="STANDARD PACKAGE"
             pricemoney="1000 tk"
             aboutPackage={`Branded Store Set-up 5 pages + 25 products + Custom FAQs, About pages + Email popup + Shopify 2.0 Support + SEO`}
@@ -57,6 +74,10 @@ const ShopifyStoreDesignDevelopment = () => {
           />
 
           <PackageItemCard
+
+              id={37}
+              onContinue={handleContinue}
+              
             packagename="PREMIUM PACKAGE"
             pricemoney="1000 tk"
             aboutPackage={`Premier Store Set-up 10 pages + Speed Optimization + 50 Product Uploads + SEO + 4 Email Automations + Metafields`}
