@@ -8,8 +8,8 @@ const SoftwareDevelopment = () => {
 
   const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time,servidesname) => {
+      navigate("/order", { state: {pricemoney, packagename, time,servidesname } });
     };
 
   return (
@@ -18,11 +18,11 @@ const SoftwareDevelopment = () => {
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
 
-              id={28}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Software Development`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="7000"
             aboutPackage={`3 page software solution with frontend, backend, database integration`}
             provide1="3 pages"
             provide2="Design customization"
@@ -39,13 +39,13 @@ const SoftwareDevelopment = () => {
 
           <PackageItemCard
 
-              id={29}
               onContinue={handleContinue}
+              servidesname={`Software Development`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="50000 tk"
             aboutPackage={`Complete software module with frontend, backend, database, API integrations, and responsive UI`}
-            provide1="10 pages"
+            provide1="6 pages"
             provide2="Design customization"
             provide3="Content upload"
             provide4="Content upload"
@@ -58,11 +58,11 @@ const SoftwareDevelopment = () => {
 
           <PackageItemCard
 
-              id={30}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Software Development`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="90000 tk"
             aboutPackage={`Custom software with frontend, backend, database, API integrations, and core features`}
             provide1="10 pages"
             provide2="Design customization"

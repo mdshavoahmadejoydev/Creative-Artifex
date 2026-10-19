@@ -60,8 +60,8 @@ const LogoDesign = () => {
   
   const navigate = useNavigate();
 
-  const handleContinue = (id, pricemoney, packagename, time) => {
-    navigate("/order", { state: { id, pricemoney, packagename, time } });
+  const handleContinue = (id, pricemoney, packagename, time, servidesname) => {
+    navigate("/order", { state: { id, pricemoney, packagename, time, servidesname } });
   };
 
   return (
@@ -69,10 +69,12 @@ const LogoDesign = () => {
       <Container>
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
-            id={1}
+
             onContinue={handleContinue}
+            servidesname={`Logo Desgin`}
+
             packagename="BASIC PACKAGE"
-            pricemoney="20000"
+            pricemoney="500"
             provide1="2 concepts included"
             provide2="Logo transparency"
             provide3="Vector file"
@@ -90,10 +92,12 @@ const LogoDesign = () => {
           />
 
           <PackageItemCard
-            id={2}
+
             onContinue={handleContinue}
+            servidesname={`Logo Desgin`}
+
             packagename="STANDARD PACKAGE"
-            pricemoney="15000"
+            pricemoney="799"
             provide1="5 concepts included"
             provide2="Logo transparency"
             provide3="Vector file"
@@ -109,10 +113,12 @@ const LogoDesign = () => {
           />
 
           <PackageItemCard
-            id={3}
+
             onContinue={handleContinue}
+            servidesname={`Logo Desgin`}
+
             packagename="PREMIUM PACKAGE"
-            pricemoney="10000"
+            pricemoney="2000"
             provide1="8 concepts included"
             provide2="Logo transparency"
             provide3="Vector file"

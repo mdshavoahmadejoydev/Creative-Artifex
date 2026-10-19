@@ -8,8 +8,8 @@ const WordPressDevelopment = () => {
 
   const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time, servidesname) => {
+      navigate("/order", { state: {pricemoney, packagename, time, servidesname } });
     };
 
 
@@ -19,14 +19,14 @@ const WordPressDevelopment = () => {
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
 
-              id={34}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`WordPress Development`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="7000"
             aboutPackage={`1 page + Expert Consultation 1 Page basic WordPress website design with three sections using Divi layout/templates.`}
             provide1="Functional website"
-            provide2="3 pages"
+            provide2="1 pages"
             provide3="Content upload"
             provide4="5 plugins/extensions"
             provide5="Responsive design"
@@ -42,11 +42,11 @@ const WordPressDevelopment = () => {
 
           <PackageItemCard
 
-              id={35}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`WordPress Development`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="23000"
             aboutPackage={`5 pages + Expert Consultation For startups and individuals who need a simple, functional website using amazing layouts/templates.`}
             provide1="Functional website"
             provide2="5 pages"
@@ -63,11 +63,11 @@ const WordPressDevelopment = () => {
 
           <PackageItemCard
 
-              id={36}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`WordPress Development`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="48000"
             aboutPackage={`10 pages + Expert Consultation For Professionals and businesses, high-quality, Modern website, 10 Pages + Popups + Dynamic Blogs`}
             provide1="Functional website"
             provide2="10 pages"

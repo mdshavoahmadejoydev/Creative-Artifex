@@ -73,7 +73,7 @@ const OrderPageInput = ({ fullName, placeholder, id, icon }) => {
           {/* Country dropdown */}
 
           {showCountries && (
-            <div className="absolute p-2 top-full left-0 mt-2 w-[273px] bg-white border border-slate-200 rounded-lg shadow-lg z-50">
+            <div className="absolute p-2 top-full left-0 mt-2 w-68.25 bg-white border border-slate-200 rounded-lg shadow-lg z-50">
               <div className="max-h-[220px] overflow-y-auto">
                 {countries.map((country) => (
                   <button

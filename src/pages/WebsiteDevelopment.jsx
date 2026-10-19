@@ -8,8 +8,8 @@ const WebsiteDevelopment = () => {
 
   const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time,servidesname) => {
+      navigate("/order", { state: { pricemoney, packagename, time,servidesname } });
     };
 
 
@@ -19,11 +19,11 @@ const WebsiteDevelopment = () => {
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
 
-              id={25}
               onContinue={handleContinue}
+              servidesname={`Website Development`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="9000 tk"
             aboutPackage={`One Page Website Design and Development W/ Static Functionality | Need something specific? | DM Now`}
             provide1="Functional website"
             provide2="1 pages"
@@ -48,11 +48,11 @@ const WebsiteDevelopment = () => {
 
           <PackageItemCard
 
-              id={26}
               onContinue={handleContinue}
+              servidesname={`Website Development`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="25000 tk"
             aboutPackage={`5 Page website development, Basic API integrations | Figma to React, Clean Code + Payment Integrate`}
             provide1="Functional website"
             provide2="5 pages"
@@ -75,14 +75,14 @@ const WebsiteDevelopment = () => {
 
           <PackageItemCard
 
-              id={27}
               onContinue={handleContinue}
+              servidesname={`Website Development`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="45000 tk"
             aboutPackage={`Up to 8 Pages Custom Website Design and Development + Backend Setup + API Integration (Customizable)`}
             provide1="Functional website"
-            provide2="8 pages"
+            provide2="10 pages"
             provide3="Content upload"
             provide4="10 plugins/extensions"
             provide5="E-commerce functionality"

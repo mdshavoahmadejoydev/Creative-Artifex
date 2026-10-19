@@ -9,8 +9,8 @@ const BusinessCardDesign = () => {
 
   const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time,servidesname) => {
+      navigate("/order", { state: {pricemoney, packagename, time,servidesname } });
     };
 
 
@@ -20,11 +20,11 @@ const BusinessCardDesign = () => {
         <Flex className={`justify-center items-start gap-8`}>
           <PackageItemCard
 
-              id={13}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Business Card Designt`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="700"
             aboutPackage={`Basic Package 2 Sided Business Card + High-Res 300dpi + Print-Ready JPG & PDF`}
             provide1="1 Concept"
             provide2="Files Ready for Print"
@@ -38,11 +38,11 @@ const BusinessCardDesign = () => {
 
           <PackageItemCard
 
-              id={14}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Business Card Designt`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="1200"
             aboutPackage={`Standard Package 2 Sided Business Card + High-Res 300dpi + Print-Ready JPG & PDF + Editable Source Files`}
             provide1="2 Concept"
             provide2="Files Ready for Print"
@@ -55,13 +55,13 @@ const BusinessCardDesign = () => {
 
           <PackageItemCard
 
-              id={15}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Business Card Designt`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="2000"
             aboutPackage={`Premium Package Stationery Set – Business Card + Letterhead + Envelope + Email Signature`}
-            provide1="3 Concept"
+            provide1="4 Concept"
             provide2="Files Ready for Print"
             provide3="Include Source File"
             provide4="Front & back design"

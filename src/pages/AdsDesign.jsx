@@ -10,8 +10,8 @@ const AdsDesign = () => {
 
   const navigate = useNavigate();
 
-  const handleContinue = (id, pricemoney, packagename, time) => {
-    navigate("/order", { state: { id, pricemoney, packagename, time } });
+  const handleContinue = (pricemoney, packagename, time,servidesname) => {
+    navigate("/order", { state: { pricemoney, packagename, time,servidesname } });
   };
 
 
@@ -21,15 +21,15 @@ const AdsDesign = () => {
         <Flex className={`justify-center items-start gap-8`}>
           <PackageItemCard
 
-              id={7}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Ads Design`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="500"
             aboutPackage={`ESSENTIAL PACK 5 Static Post Templates for your Social Media ✅ Unique & Editable Designs in Canva`}
             provide1="Feed template"
             provide2="Include source file"
-            provide3="5 posts"
+            provide3="3 posts"
             notprovide2={true}
             notprovide3={true}
             time={`2`}
@@ -37,30 +37,30 @@ const AdsDesign = () => {
 
           <PackageItemCard
 
-              id={8}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Ads Design`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="800"
             aboutPackage={`GROWTH PACK 10 Premium Static Post Templates for your Social Media ✅ Unique Designs in Canva`}
             provide1="Feed template"
             provide2="Include source file"
-            provide3="10 posts"
+            provide3="6 posts"
             notprovide3={true}
             time={`2`}
           />
 
           <PackageItemCard
 
-              id={9}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Ads Design`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="1000"
             aboutPackage={`30 POST POWER PACKAGE ⚡️ 30 Premium Static Post Templates for your Social Media ✅ Knock me to discuss about it`}
             provide1="Feed template"
             provide2="Include source file"
-            provide3="13 posts"
+            provide3="10 posts"
             time={`2`}
           />
         </Flex>

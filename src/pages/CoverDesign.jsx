@@ -9,8 +9,8 @@ const CoverDesign = () => {
 
     const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time,servidesname) => {
+      navigate("/order", { state: {pricemoney, packagename, time,servidesname } });
     };
 
 
@@ -21,12 +21,12 @@ const CoverDesign = () => {
           
             <PackageItemCard
 
-              id={4}
               onContinue={handleContinue}
+              servidesname={`Cover Design`}
 
               packagename="BASIC PACKAGE"
-              pricemoney="500 tk"
-              aboutPackage={`Launch Ready Header One clean header or banner design for a platform of your choice`}
+              pricemoney="800"
+              aboutPackage={`Launch Ready Header 1 clean header or banner design for a platform of your choice`}
               provide1="1 Asset"
               provide2="Matching profile picture"
               provide3="Include source file"
@@ -37,13 +37,13 @@ const CoverDesign = () => {
 
             <PackageItemCard
 
-              id={5}
               onContinue={handleContinue}
+              servidesname={`Cover Design`}
 
               packagename="STANDARD PACKAGE"
-              pricemoney="500 tk"
-              aboutPackage={`Social Profile Sync Kit Header/banner + profile photo + mobile friendly optimization for 2 platforms`}
-              provide1="4 Asset"
+              pricemoney="1800"
+              aboutPackage={`Social Profile Sync Kit Header/banner + profile photo + mobile friendly optimization for 3 platforms`}
+              provide1="3 Asset"
               provide2="Matching profile picture"
               provide3="Include source file"
               notprovide3={true}
@@ -52,13 +52,13 @@ const CoverDesign = () => {
 
             <PackageItemCard
 
-              id={6}
               onContinue={handleContinue}
+              servidesname={`Cover Design`}
               
               packagename="PREMIUM PACKAGE"
-              pricemoney="500 tk"
-              aboutPackage={`Full Brand Presence Headers/Banners, profile images, and post templates for up to 4 platforms`}
-              provide1="9 Asset"
+              pricemoney="3000"
+              aboutPackage={`Full Brand Presence Headers/Banners, profile images, and post templates for up to 5 platforms`}
+              provide1="5 Asset"
               provide2="Matching profile picture"
               provide3="Include source file"
               time={`2`}

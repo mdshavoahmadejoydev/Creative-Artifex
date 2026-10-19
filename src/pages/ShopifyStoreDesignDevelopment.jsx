@@ -8,8 +8,8 @@ const ShopifyStoreDesignDevelopment = () => {
 
   const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time, servidesname) => {
+      navigate("/order", { state: { pricemoney, packagename, time, servidesname } });
     };
 
 
@@ -19,12 +19,12 @@ const ShopifyStoreDesignDevelopment = () => {
         <Flex className="justify-center items-start gap-8">
           <PackageItemCard
 
-              id={37}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Shopify Store Design & Development`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
-            aboutPackage={`Launch-ready Store Set-up 3 pages + 10 Product Uploads + Mobile Optimization + Payment Setup`}
+            pricemoney="7000"
+            aboutPackage={`Launch-ready Store Set-up 1 pages + 2 Product Uploads + Mobile Optimization + Payment Setup`}
             provide1="Functional website"
             provide2="1 pages"
             provide3="Content upload"
@@ -48,14 +48,14 @@ const ShopifyStoreDesignDevelopment = () => {
 
           <PackageItemCard
 
-              id={38}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Shopify Store Design & Development`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="17000"
             aboutPackage={`Branded Store Set-up 5 pages + 25 products + Custom FAQs, About pages + Email popup + Shopify 2.0 Support + SEO`}
             provide1="Functional website"
-            provide2="5 pages"
+            provide2="25 pages"
             provide3="Content upload"
             provide4="8 plugins/extensions"
             provide5="E-commerce functionality"
@@ -75,18 +75,18 @@ const ShopifyStoreDesignDevelopment = () => {
 
           <PackageItemCard
 
-              id={37}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Shopify Store Design & Development`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="1000 tk"
+            pricemoney="37000"
             aboutPackage={`Premier Store Set-up 10 pages + Speed Optimization + 50 Product Uploads + SEO + 4 Email Automations + Metafields`}
             provide1="Functional website"
-            provide2="8 pages"
+            provide2="10 pages"
             provide3="Content upload"
             provide4="10 plugins/extensions"
             provide5="E-commerce functionality"
-            provide6="8 products"
+            provide6="50 products"
             provide7="Payment Integration"
             provide8="Opt-in form"
             provide9="Autoresponder integration"

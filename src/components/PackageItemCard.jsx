@@ -39,8 +39,8 @@ const PackageItemCard = ({
   time,
   aboutPackage,
 
-  id,
   onContinue,
+  servidesname,
 }) => {
 
 
@@ -51,7 +51,7 @@ let navigate = useNavigate();
     <div className="w-91.75 bg-white px-6.25 py-15 rounded-4xl font-poppins border border-D9EFF7 hover:shadow-[0px_2px_10px_2px_rgba(0,0,0,0.3)] duration-200">
       <h5 className="font-bold text-25 text-07506B">{packagename}</h5>
       <p className="font-semibold text-xl text-079FD3 mt-1 -mb-2">
-        {pricemoney}
+        {pricemoney} TK
       </p>
 
       <p className="font-poppins font-semibold text-sm text-black/80 my-2">
@@ -180,7 +180,7 @@ let navigate = useNavigate();
       </Flex>
 
       <button
-        onClick={() => onContinue(id, pricemoney, packagename, time)}
+        onClick={() => onContinue(pricemoney, packagename, time, servidesname)}
         className="font-poppins font-semibold text-2xl text-white bg-006F9F hover:bg-07506B duration-200 w-full py-1 rounded-full my-2 cursor-pointer"
       >
         Continue

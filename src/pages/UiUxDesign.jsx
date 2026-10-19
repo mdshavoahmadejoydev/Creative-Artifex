@@ -8,8 +8,8 @@ const UiUxDesign = () => {
 
   const navigate = useNavigate();
 
-    const handleContinue = (id, pricemoney, packagename, time) => {
-      navigate("/order", { state: { id, pricemoney, packagename, time } });
+    const handleContinue = (pricemoney, packagename, time,servidesname) => {
+      navigate("/order", { state: {pricemoney, packagename, time,servidesname } });
     };
 
 
@@ -19,11 +19,12 @@ const UiUxDesign = () => {
         <Flex className={`justify-center items-start gap-6`}>
           <PackageItemCard
 
-              id={22}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Ui/Ux Design`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="3000"
+            aboutPackage={`Figma Custom Unique Landing Page Design – Crafted from Scratch | Responsive Website Design`}
             provide1="1 page"
             provide2="Responsive design"
             provide3="Prototype"
@@ -35,31 +36,33 @@ const UiUxDesign = () => {
 
           <PackageItemCard
 
-              id={23}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Ui/Ux Design`}
               
             packagename="STANDAND PACKAGE"
-            pricemoney="500 tk"
-            provide1="1 page"
+            pricemoney="10000"
+            aboutPackage={`Upto 6 pages Figma Custom Unique design | Responsive Website Design`}
+            provide1="6 page"
             provide2="Responsive design"
             provide3="Prototype"
             provide4="Source file"
             notprovide4={true}
-            time={`3`}
+            time={`5`}
           />
 
           <PackageItemCard
 
-              id={24}
-              onContinue={handleContinue}
+            onContinue={handleContinue}
+            servidesname={`Ui/Ux Design`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="500 tk"
-            provide1="1 page"
+            pricemoney="15000"
+            aboutPackage={`Upto 15 pages Figma Custom Unique design | Responsive Website Design`}
+            provide1="15 page"
             provide2="Responsive design"
             provide3="Prototype"
             provide4="Source file"
-            time={`3`}
+            time={`7`}
           />
         </Flex>
       </Container>

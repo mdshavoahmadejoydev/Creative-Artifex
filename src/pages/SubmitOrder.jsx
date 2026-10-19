@@ -21,91 +21,12 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const SubmitOrder = () => {
 
 
-
-
-  const orderSummaryarray = [
-    // Logo Design
-    { id: 1, servicesName: "Logo Design" },
-    { id: 2, servicesName: "Logo Design" },
-    { id: 3, servicesName: "Logo Design" },
-
-    // Cover Design
-    { id: 4, servicesName: "Cover Design" },
-    { id: 5, servicesName: "Cover Design" },
-    { id: 6, servicesName: "Cover Design" },
-
-    // Ads Design
-    { id: 7, servicesName: "Ads Design" },
-    { id: 8, servicesName: "Ads Design" },
-    { id: 9, servicesName: "Ads Design" },
-
-    // Thumbnail Design
-    { id: 10, servicesName: "Thumbnail Design" },
-    { id: 11, servicesName: "Thumbnail Design" },
-    { id: 12, servicesName: "Thumbnail Design" },
-
-    // Business Card Design
-    { id: 13, servicesName: "Business Card Design" },
-    { id: 14, servicesName: "Business Card Design" },
-    { id: 15, servicesName: "Business Card Design" },
-
-    // Poster Design
-    // { id: 16, servicesName: "Poster Design" },
-    // { id: 17, servicesName: "Poster Design" },
-    // { id: 18, servicesName: "Poster Design" },
-
-    // Flyer Design
-    // { id: 19, servicesName: "Flyer Design" },
-    // { id: 20, servicesName: "Flyer Design" },
-    // { id: 21, servicesName: "Flyer Design" },
-
-    // UI/UX Design
-    { id: 22, servicesName: "UI/UX Design" },
-    { id: 23, servicesName: "UI/UX Design" },
-    { id: 24, servicesName: "UI/UX Design" },
-
-    // Website Development
-    { id: 25, servicesName: "Website Development" },
-    { id: 26, servicesName: "Website Development" },
-    { id: 27, servicesName: "Website Development" },
-
-    // Software Development
-    { id: 28, servicesName: "Software Development" },
-    { id: 29, servicesName: "Software Development" },
-    { id: 30, servicesName: "Software Development" },
-
-    // Mobile Application Development
-    // { id: 31, servicesName: "Mobile Application Development" },
-    // { id: 32, servicesName: "Mobile Application Development" },
-    // { id: 33, servicesName: "Mobile Application Development" },
-
-    // WordPress Development
-    { id: 34, servicesName: "WordPress Development" },
-    { id: 35, servicesName: "WordPress Development" },
-    { id: 36, servicesName: "WordPress Development" },
-
-    // Shopify Store Design & Development
-    { id: 37, servicesName: "Shopify Store Design & Development" },
-    { id: 38, servicesName: "Shopify Store Design & Development" },
-    { id: 39, servicesName: "Shopify Store Design & Development" },
-
-    // Video Animations
-    // { id: 40, servicesName: "Video Animations" },
-    // { id: 41, servicesName: "Video Animations" },
-    // { id: 42, servicesName: "Video Animations" },
-  ];
-
   const location = useLocation();
-  const selectedId = location.state?.id;
   const price = location.state?.pricemoney;
   const packagename = location.state?.packagename;
   const deliverytime = location.state?.time;
-  console.log(packagename)
-  console.log(deliverytime)
-
-  const orderIndex = orderSummaryarray.findIndex(
-    (item) => item.id === selectedId
-  );
+  const servidesname = location.state?.servidesname;
+  console.log(servidesname)
 
 
   let navigate = useNavigate();
@@ -115,7 +36,6 @@ const SubmitOrder = () => {
   }
 
 
-  const selectedOrder = orderSummaryarray[orderIndex];
 
   return (
     <section className="bg-[#EFF4F6]">
@@ -208,7 +128,7 @@ const SubmitOrder = () => {
 
                   <div className="border border-slate-200 rounded-lg">
                     <p className="text-3xl text-black/70 font-roboto p-4 font-semibold">
-                      {selectedOrder.servicesName}
+                      {servidesname}
                     </p>
                   </div>
                 </div>
@@ -242,7 +162,7 @@ const SubmitOrder = () => {
               {/* File Upload */}
               <label className="flex items-center gap-3 border border-dashed border-slate-300 rounded-lg p-4 mt-5 cursor-pointer hover:bg-slate-50">
                 <FaPaperclip className="text-slate-600" size={20} />
-                <span className="text-sm font-roboto text-base text-slate-500">
+                <span className="text-sm font-roboto text-slate-500">
                   Attach references (optional) — PDF, PNG, JPG
                 </span>
                 <input
@@ -309,8 +229,8 @@ const SubmitOrder = () => {
               <div className="mt-4 text-sm font-roboto text-[#294963]">
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Service:</span>
-                  <span className="font-semibold text-[#123B5B]">
-                    {selectedOrder.servicesName}
+                  <span className="font-semibold text-[#123B5B] uppercase">
+                    {servidesname}
                   </span>
                 </div>
 
