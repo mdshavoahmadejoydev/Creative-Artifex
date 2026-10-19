@@ -109,10 +109,9 @@ const SubmitOrder = () => {
 
 
   let navigate = useNavigate();
+  
   const orderedSuccessfully = () => {
-    navigate("/order-submited", {
-    state: { id, pricemoney, packagename, time },
-  })
+    navigate("/order-submited")
   }
 
 

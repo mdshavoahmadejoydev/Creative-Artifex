@@ -3,6 +3,8 @@ import Flex from '../components/Flex'
 import { FaCheck } from 'react-icons/fa'
 import { MdAccessTime } from "react-icons/md";
 import { BiRevision } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const PackageItemCard = ({
@@ -42,8 +44,8 @@ const PackageItemCard = ({
 }) => {
 
 
-
-
+  
+let navigate = useNavigate();
 
   return (
     <div className="w-91.75 bg-white px-6.25 py-15 rounded-4xl font-poppins border border-D9EFF7 hover:shadow-[0px_2px_10px_2px_rgba(0,0,0,0.3)] duration-200">
@@ -177,11 +179,17 @@ const PackageItemCard = ({
         </span>
       </Flex>
 
-      <button onClick={()=> onContinue(id, pricemoney, packagename, time)} className="font-poppins font-semibold text-2xl text-white bg-006F9F hover:bg-07506B duration-200 w-full py-1 rounded-full my-2 cursor-pointer">
+      <button
+        onClick={() => onContinue(id, pricemoney, packagename, time)}
+        className="font-poppins font-semibold text-2xl text-white bg-006F9F hover:bg-07506B duration-200 w-full py-1 rounded-full my-2 cursor-pointer"
+      >
         Continue
       </button>
 
-      <button className="font-poppins font-semibold text-2xl text-079CC8 border-2 border-079CC8 w-full py-1 rounded-full   cursor-pointer ">
+      <button
+        onClick={() => navigate("/contact")}
+        className="font-poppins font-semibold text-2xl text-079CC8 border-2 border-079CC8 w-full py-1 rounded-full   cursor-pointer "
+      >
         Contact Us
       </button>
     </div>
