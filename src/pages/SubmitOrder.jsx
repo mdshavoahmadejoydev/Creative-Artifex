@@ -5,8 +5,26 @@ import Flex from '../components/Flex'
 
 import { FaUser, FaFileAlt, FaPaperclip, FaHeadset, FaArrowRight} from "react-icons/fa";
 import { FiClipboard, FiPackage, FiClock } from "react-icons/fi";
+import { CgProfile } from 'react-icons/cg';
+import OrderPageInput from '../components/OrderPageInput';
+import { FaArrowRightLong } from 'react-icons/fa6';
+
+
+
+
+
 
 const SubmitOrder = () => {
+  const orderSummaryarray = [
+    {
+      servicesName: "Logo Design",
+      packageName: "Basic",
+      price: "৳500 tk",
+      deliveryTime: "2",
+    },
+  ];
+
+
   return (
     <section className="bg-[#EFF4F6]">
       <div className="h-94"></div>
@@ -28,48 +46,35 @@ const SubmitOrder = () => {
             {/* Your Details */}
 
             <div className="mb-6">
-              <div className="flex items-center gap-3 mb-5">
+              <Flex className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
-                  <FaUser size={18} />
+                  <CgProfile className="text-3xl" />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800">
                   Your Details
                 </h2>
-              </div>
+              </Flex>
 
               <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold mb-2">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your full name"
-                    className="w-full border border-slate-200 rounded-lg px-3 py-3 outline-none focus:border-cyan-500"
-                  />
-                </div>
+                <OrderPageInput
+                  fullName={`Full Name`}
+                  placeholder={`Enter Your Full Name`}
+                  id={`fullName`}
+                  icon={true}
+                />
 
-                <div>
-                  <label className="block text-sm font-semibold mb-2">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="w-full border border-slate-200 rounded-lg px-3 py-3 outline-none focus:border-cyan-500"
-                  />
-                </div>
+                <OrderPageInput
+                  fullName={`Email`}
+                  placeholder={`Enter Your Email address`}
+                  id={`email`}
+                  icon={true}
+                />
 
-                <div>
-                  <label className="block text-sm font-semibold mb-2">
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Enter your phone number"
-                    className="w-full border border-slate-200 rounded-lg px-3 py-3 outline-none focus:border-cyan-500"
-                  />
-                </div>
+                <OrderPageInput
+                  fullName={`Phone Number`}
+                  placeholder={`Enter Your Phone Number`}
+                  id={`phone`}
+                />
               </div>
             </div>
 
@@ -78,21 +83,25 @@ const SubmitOrder = () => {
             {/* Project Brief */}
 
             <div>
-              <div className="flex items-center gap-3 mb-5">
+              <Flex className="items-center gap-1 mb-5">
                 <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
-                  <FaFileAlt size={18} />
+                  <CgProfile className="text-3xl" />
                 </div>
-                <h2 className="text-xl font-bold text-slate-800">
+                <h2 className="text-xl font-bold font-roboto text-slate-800">
                   Project Brief
                 </h2>
-              </div>
+              </Flex>
 
-              <label className="block text-sm font-semibold mb-2">
+              <label
+                htmlFor="textarea"
+                className="block text-sm font-roboto font-semibold mb-2"
+              >
                 Tell us about your project{" "}
                 <span className="text-red-500">*</span>
               </label>
 
               <textarea
+                id="textarea"
                 rows="4"
                 placeholder="Describe your idea, goals, required features, preferred style, timeline, and any references..."
                 className="w-full border border-slate-200 rounded-lg p-3 outline-none resize-y focus:border-cyan-500"
@@ -101,37 +110,38 @@ const SubmitOrder = () => {
               {/* Service and Package */}
               <div className="grid grid-cols-2 gap-5 mt-5">
                 <div>
-                  <label className="block text-sm font-semibold mb-2">
-                    Service You Need <span className="text-red-500">*</span>
+                  <label className="block font-poppins text-base font-semibold mb-2">
+                    Service You Need
                   </label>
 
-                  <select className="w-full border border-slate-200 rounded-lg px-3 py-3 outline-none focus:border-cyan-500">
-                    <option value="">Choose a service</option>
-                    <option>Logo Design</option>
-                    <option>UI/UX Design</option>
-                    <option>Website Development</option>
-                    <option>Software Development</option>
-                    <option>Cover Design</option>
-                    <option>Ads Design</option>
-                  </select>
+                  <div className="border border-slate-200 rounded-lg">
+                    <p className="text-3xl text-black/70 font-roboto p-4 font-semibold">
+                      {orderSummaryarray[0].servicesName}
+                    </p>
+                  </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2">
+                  <label className="block font-poppins text-base font-semibold mb-2">
                     Selected Package
                   </label>
 
-                  <div className="flex items-center gap-3 border border-cyan-100 bg-cyan-50 rounded-lg p-3">
+                  <div className="flex items-center gap-3 border border-slate-200 bg-cyan-50 rounded-lg p-3">
                     <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600">
-                      <FiPackage size={23} />
+                      <FiPackage className="text-3xl" />
                     </div>
 
                     <div>
-                      <h3 className="font-bold text-sm text-slate-800">
-                        BASIC PACKAGE
+                      <h3 className="font-bold text-sm text-slate-800 font-roboto">
+                        {orderSummaryarray[0].packageName} Package
                       </h3>
-                      <p className="text-cyan-600 font-bold">৳500 tk</p>
-                      <p className="text-xs text-slate-600">◷ 2-day delivery</p>
+                      <p className=" text-cyan-600 font-bold font-roboto">
+                        {orderSummaryarray[0].price}
+                      </p>
+                      <p className="flex items-center gap-1 text-sm text-slate-600 font-roboto">
+                        <FiClock className="text-base" />{" "}
+                        {orderSummaryarray[0].deliveryTime}-day delivery
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -140,7 +150,7 @@ const SubmitOrder = () => {
               {/* File Upload */}
               <label className="flex items-center gap-3 border border-dashed border-slate-300 rounded-lg p-4 mt-5 cursor-pointer hover:bg-slate-50">
                 <FaPaperclip className="text-slate-600" size={20} />
-                <span className="text-sm text-slate-500">
+                <span className="text-sm font-roboto text-base text-slate-500">
                   Attach references (optional) — PDF, PNG, JPG
                 </span>
                 <input
@@ -152,7 +162,7 @@ const SubmitOrder = () => {
               </label>
 
               {/* Agreement */}
-              <label className="flex items-center gap-2 mt-5 text-sm text-slate-700 cursor-pointer">
+              <label className="flex items-center gap-2 mt-5 text-sm text-roboto text-slate-700 cursor-pointer">
                 <input type="checkbox" className="accent-cyan-600 w-4 h-4" />I
                 agree to be contacted about this project.
               </label>
@@ -160,9 +170,9 @@ const SubmitOrder = () => {
               {/* Submit Button */}
               <button
                 type="button"
-                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-xl mt-5 duration-200"
+                className="w-full flex justify-center items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold font-roboto text-xl py-2 rounded-xl mt-5 duration-200"
               >
-                Submit Order →
+                Submit Order <FaArrowRightLong className="text-white text-xl" />
               </button>
             </div>
           </div>
@@ -172,10 +182,10 @@ const SubmitOrder = () => {
             <div className="bg-white border border-[#DCE9F0] rounded-2xl p-5 w-full mb-6">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-full bg-[#DDF5F7] flex items-center justify-center text-[#123B5B]">
-                  <FiClipboard size={21} />
+                  <FiClipboard className="text-2xl" />
                 </div>
 
-                <h2 className="text-lg font-bold text-[#123B5B]">
+                <h2 className="text-lg font-roboto font-bold text-[#123B5B]">
                   Your Order Summary
                 </h2>
               </div>
@@ -183,49 +193,53 @@ const SubmitOrder = () => {
               <div className="flex items-center justify-between gap-2 bg-[#F0FAFA] border border-[#D4F0F2] rounded-lg p-3">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[#DDF5F7] flex items-center justify-center text-cyan-600">
-                    <FiPackage size={23} />
+                    <FiPackage className="text-2xl" />
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-bold text-[#123B5B]">
-                      BASIC PACKAGE
+                    <h3 className="font-bold text-sm text-slate-800 font-roboto uppercase">
+                      {orderSummaryarray[0].packageName} PACKAGE
                     </h3>
 
-                    <p className="text-sm font-bold text-cyan-600 mt-1">
-                      ৳500 tk
+                    <p className="text-sm font-roboto font-bold text-cyan-600 mt-1 ">
+                      {orderSummaryarray[0].price}
                     </p>
                   </div>
                 </div>
 
-                <p className="flex items-center gap-1 text-xs text-[#123B5B] whitespace-nowrap">
-                  <FiClock size={14} />
-                  2-day delivery
+                <p className="flex items-center gap-1 text-xs text-[#123B5B] font-roboto whitespace-nowrap">
+                  <FiClock className="text-lg" />
+                  {orderSummaryarray[0].deliveryTime}-day delivery
                 </p>
               </div>
 
-              <div className="mt-4 text-sm text-[#294963]">
+              <div className="mt-4 text-sm font-roboto text-[#294963]">
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Service:</span>
                   <span className="font-semibold text-[#123B5B]">
-                    Logo Design
+                    {orderSummaryarray[0].servicesName}
                   </span>
                 </div>
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Package:</span>
                   <span className="font-semibold text-[#123B5B]">
-                    Basic Package
+                    {orderSummaryarray[0].packageName} Package
                   </span>
                 </div>
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Price:</span>
-                  <span className="font-semibold text-[#123B5B]">৳500 tk</span>
+                  <span className="font-semibold text-[#123B5B]">
+                    {orderSummaryarray[0].price}
+                  </span>
                 </div>
 
                 <div className="flex justify-between pt-3">
                   <span>Delivery:</span>
-                  <span className="font-semibold text-[#123B5B]">2 days</span>
+                  <span className="font-semibold text-[#123B5B]">
+                    {orderSummaryarray[0].deliveryTime} days
+                  </span>
                 </div>
               </div>
             </div>
@@ -233,13 +247,15 @@ const SubmitOrder = () => {
             <div className="bg-white border border-[#DCE9F0] rounded-2xl p-5 w-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-full bg-[#DDF5F7] flex items-center justify-center text-[#123B5B]">
-                  <FaHeadset size={23} />
+                  <FaHeadset className="text-3xl" />
                 </div>
 
-                <h2 className="text-xl font-bold text-[#123B5B]">Need help?</h2>
+                <h2 className="text-xl font-roboto font-bold text-[#123B5B]">
+                  Need help?
+                </h2>
               </div>
 
-              <p className="text-sm leading-6 text-[#294963] pl-1">
+              <p className="text-sm font-roboto font-semibold leading-6 text-[#294963] pl-1">
                 Questions before ordering?
                 <br />
                 Our team will contact you.
@@ -250,15 +266,14 @@ const SubmitOrder = () => {
                 className="w-full flex items-center justify-center gap-3 border-2 border-[#08A5C8] text-[#079CC0] hover:bg-[#08A5C8] hover:text-white font-bold py-3 rounded-full mt-5 transition duration-200"
               >
                 Contact Us
-                <FaArrowRight />
+                <FaArrowRightLong className="duration-200 text-xl" />
               </button>
             </div>
-
           </div>
         </Flex>
       </Container>
     </section>
   );
-}
+};
 
 export default SubmitOrder
