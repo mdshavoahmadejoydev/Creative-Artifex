@@ -60,8 +60,8 @@ const LogoDesign = () => {
   
   const navigate = useNavigate();
 
-  const handleContinue = (id, pricemoney, packagename, time, servidesname) => {
-    navigate("/order", { state: { id, pricemoney, packagename, time, servidesname } });
+  const handleContinue = (pricemoney, packagename, time, servidesname) => {
+    navigate("/order", { state: { pricemoney, packagename, time, servidesname } });
   };
 
   return (

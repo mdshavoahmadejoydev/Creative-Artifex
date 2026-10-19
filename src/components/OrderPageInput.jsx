@@ -6,7 +6,7 @@ const OrderPageInput = ({ fullName, placeholder, id, icon }) => {
     { name: "Bangladesh", countryCode: "BD", code: "+880" },
     { name: "India", countryCode: "IN", code: "+91" },
     { name: "United States", countryCode: "US", code: "+1" },
-    { name: "United Kingdom", countryCode: "GB", code: "+44" },
+    { name: "United Kingdom", countryCode: "UK", code: "+44" },
     { name: "Pakistan", countryCode: "PK", code: "+92" },
     { name: "Canada", countryCode: "CA", code: "+1" },
     { name: "Australia", countryCode: "AU", code: "+61" },
@@ -39,7 +39,7 @@ const OrderPageInput = ({ fullName, placeholder, id, icon }) => {
     <div>
       <label
         htmlFor={id}
-        className="block font-poppins text-sm font-semibold mb-2"
+        className="block font-poppins text-base text-black/80 font-semibold mb-2"
       >
         {fullName} {icon && <span className="text-red-500">*</span>}
       </label>
@@ -47,17 +47,16 @@ const OrderPageInput = ({ fullName, placeholder, id, icon }) => {
       {id === "phone" ? (
         <div
           ref={countryDropdownRef}
-          className="relative flex items-center w-full border border-slate-200 rounded-lg focus-within:border-cyan-500"
+          className="relative flex items-center w-full border border-slate-400 rounded-lg focus-within:border-cyan-500"
         >
           {/* Country selector button */}
           <button
             type="button"
             onClick={() => setShowCountries((prev) => !prev)}
-            className="flex items-center gap-1 px-1 py-3 border-r border-slate-200 whitespace-nowrap"
+            className="flex items-center gap-1 px-1 py-3  border-slate-400 whitespace-nowrap text-black/70 font-roboto font-medium cursor-pointer"
           >
-            <span>{selectedCountry.countryCode}</span>
-            <span className="text-sm">{selectedCountry.code}</span>
-            <span>▾</span>
+            <span className="">{selectedCountry.countryCode}</span>
+            <span className="">{selectedCountry.code}</span>
           </button>
 
           {/* Phone number input */}
@@ -67,7 +66,7 @@ const OrderPageInput = ({ fullName, placeholder, id, icon }) => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder={placeholder}
-            className="w-full min-w-0 px-3 py-3 rounded-r-lg outline-none"
+            className="w-full min-w-0 px-1.5 py-3 rounded-r-lg outline-none text-black/70 placeholder:font-roboto font-medium"
           />
 
           {/* Country dropdown */}
@@ -98,7 +97,7 @@ const OrderPageInput = ({ fullName, placeholder, id, icon }) => {
           id={id}
           type="text"
           placeholder={placeholder}
-          className="w-full border border-slate-200 rounded-lg px-3 py-3 outline-none focus:border-cyan-500"
+          className="w-full border border-slate-400 rounded-lg px-3 py-3 outline-none focus:border-cyan-500 placeholder:text-black/70 placeholder:font-roboto placeholder:font-medium "
         />
       )}
     </div>

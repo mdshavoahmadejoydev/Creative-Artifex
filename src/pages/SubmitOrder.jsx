@@ -59,8 +59,8 @@ const SubmitOrder = () => {
 
             <div className="mb-6">
               <Flex className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
-                  <CgProfile className="text-3xl" />
+                <div className="w- h- rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
+                  <CgProfile className="text-4xl" />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800">
                   Your Details
@@ -95,9 +95,9 @@ const SubmitOrder = () => {
             {/* Project Brief */}
 
             <div>
-              <Flex className="items-center gap-1 mb-5">
-                <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
-                  <CgProfile className="text-3xl" />
+              <Flex className="items-center gap-3 mb-5">
+                <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
+                  <CgProfile className="text-4xl" />
                 </div>
                 <h2 className="text-xl font-bold font-roboto text-slate-800">
                   Project Brief
@@ -106,7 +106,7 @@ const SubmitOrder = () => {
 
               <label
                 htmlFor="textarea"
-                className="block text-sm font-roboto font-semibold mb-2"
+                className="block text-base text-black/80 font-poppins font-semibold mb-2"
               >
                 Tell us about your project{" "}
                 <span className="text-red-500">*</span>
@@ -116,17 +116,17 @@ const SubmitOrder = () => {
                 id="textarea"
                 rows="4"
                 placeholder="Describe your idea, goals, required features, preferred style, timeline, and any references..."
-                className="w-full border border-slate-200 rounded-lg p-3 outline-none resize-y focus:border-cyan-500"
+                className="w-full placeholder:text-black/70 placeholder:font-roboto placeholder:font-medium  border border-slate-400 rounded-lg p-3 outline-none resize-y focus:border-cyan-500"
               />
 
               {/* Service and Package */}
               <div className="grid grid-cols-2 gap-5 mt-5">
                 <div>
-                  <label className="block font-poppins text-base font-semibold mb-2">
+                  <label className="block font-poppins text-base font-semibold mb-2 text-black/80">
                     Service You Need
                   </label>
 
-                  <div className="border border-slate-200 rounded-lg">
+                  <div className="border border-slate-400 rounded-lg">
                     <p className="text-3xl text-black/70 font-roboto p-4 font-semibold">
                       {servidesname}
                     </p>
@@ -134,11 +134,11 @@ const SubmitOrder = () => {
                 </div>
 
                 <div>
-                  <label className="block font-poppins text-base font-semibold mb-2">
+                  <label className="block font-poppins text-base font-semibold mb-2 text-black/80">
                     Selected Package
                   </label>
 
-                  <div className="flex items-center gap-3 border border-slate-200 bg-cyan-50 rounded-lg p-3">
+                  <div className="flex items-center gap-3 border border-slate-400 bg-cyan-50 rounded-lg p-3">
                     <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600">
                       <FiPackage className="text-3xl" />
                     </div>
@@ -160,7 +160,7 @@ const SubmitOrder = () => {
               </div>
 
               {/* File Upload */}
-              <label className="flex items-center gap-3 border border-dashed border-slate-300 rounded-lg p-4 mt-5 cursor-pointer hover:bg-slate-50">
+              <label className="flex items-center gap-3 border border-dashed border-slate-400 rounded-lg p-4 mt-5 cursor-pointer hover:bg-slate-50">
                 <FaPaperclip className="text-slate-600" size={20} />
                 <span className="text-sm font-roboto text-slate-500">
                   Attach references (optional) — PDF, PNG, JPG
