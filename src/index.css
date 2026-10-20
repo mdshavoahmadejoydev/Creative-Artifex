@@ -234,15 +234,40 @@
   0% {
     opacity: 1;
     height: 80%;
+    width: 2px;
   }
 
   50% {
     opacity: 0;
     height: 100%;
+    width: 4px;
   }
 
   100% {
     opacity: 1;
     height: 80%;
+    width: 2px;
+  }
+}
+
+
+/* grow text animation */
+.grow-glow {
+  display: inline-block;
+  animation: growGlow 2s ease-in-out infinite;
+}
+
+@keyframes growGlow {
+  0%, 30%, 100%  {
+    transform: scale(1);
+    text-shadow: 0 0 0 transparent;
+  }
+
+  50%, 70% {
+    transform: scale(1.04);
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 12px rgba(255, 255, 255, 0.7),
+      0 0 22px rgba(255, 255, 255, 0.5);
   }
 }

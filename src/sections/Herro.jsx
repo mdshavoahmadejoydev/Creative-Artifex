@@ -20,32 +20,33 @@ const Hero = () => {
     // const text = "Business...";
     // const [displaytext, setDisplaytext] = useState("");
     // const [count, setCount] = useState(0);
-    const text = "Business...";
-
+    const text = ["Business", "App...", "Website", "Sales..."];
+    const [textIndex, setTextIndex] = useState(0)
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
 
      useEffect(() => {
        let timeout;
 
-       if (!isDeleting && displayText.length < text.length) {
+       if (!isDeleting && displayText.length < text[textIndex].length) {
          timeout = setTimeout(() => {
-           setDisplayText(text.slice(0, displayText.length + 1));
-         }, 200);
-       } else if (!isDeleting && displayText.length === text.length) {
+           setDisplayText(text[textIndex].slice(0, displayText.length + 1));
+         }, 150);
+       } else if (!isDeleting && displayText.length === text[textIndex].length) {
          timeout = setTimeout(() => {
            setIsDeleting(true);
          }, 800);
        } else if (isDeleting && displayText.length > 0) {
          timeout = setTimeout(() => {
-           setDisplayText(text.slice(0, displayText.length - 1));
-         }, 30);
+           setDisplayText(text[textIndex].slice(0, displayText.length - 1));
+         }, 24);
        } else {
          setIsDeleting(false);
+         setTextIndex((prov) => (prov + 1) % text.length)
        }
 
        return () => clearTimeout(timeout);
-     }, [displayText, isDeleting]);
+     }, [displayText, isDeleting, textIndex]);
 
     // useEffect(() => {
     //   const interval = setInterval(() => {
@@ -103,9 +104,9 @@ const Hero = () => {
             A Clean and Smart Solution{" "}
           </p>
           <p className="font-roboto font-extrabold text-white text-70 leading-24">
-            Designed to <span className="text-74">Grow</span> Your{" "}
+            Designed to <span className="text-74 grow-glow">Grow</span> Your
           </p>
-          <p className={`relative inline-block font-roboto font-extrabold text-white text-[85px] leading-24 transition-all duration-500 ease-in-out after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+          <p className={`relative inline-block font-roboto font-extrabold text-white text-[85px] tracking-[8px] leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
           after:w-1 after:h-30 after:bg-white
           after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
           `}>
