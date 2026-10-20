@@ -8,6 +8,7 @@ import Image from '../components/Image'
 import { FaSearch } from 'react-icons/fa'
 
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const Hero = () => {
@@ -24,7 +25,9 @@ const Hero = () => {
     const [textIndex, setTextIndex] = useState(0)
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
+    let navigate = useNavigate();
 
+    
      useEffect(() => {
        let timeout;
 
@@ -65,7 +68,6 @@ const Hero = () => {
     // for Business button animation end
 
     const services = [
-      "Graphics & Design",
       "UI/UX Design",
       "Website Development",
       "Software Development",
@@ -78,19 +80,84 @@ const Hero = () => {
       "Ads Design",
       "Thumbnail Design",
       "Business Card Design",
-      "Poster Design",
-      "Flyer Design",
       "Apps Design",
       "Website Design",
       "Desktop Software- design",
-      "Thumbel Design",
       "Apps Design",
-      "Desktop Software- design",
     ];
 
     const filteredServices = services.filter((service) =>
       service.toLowerCase().includes(search.toLowerCase()),
     );
+
+
+
+    // find item on search input
+
+    const serchFindItem = () => {
+      if (search == "UI/UX Design") {
+        navigate("/services/graphic-multimedia/uiux-design");
+      }
+
+      if (search == "Website Development") {
+        navigate("/services/web-software/website-development");
+      }
+
+      if (search == "Software Development") {
+        navigate("/services/web-software/software-development");
+      }
+
+      if (search == "Mobile Application Development") {
+        navigate("/services/web-software/mobile-application-development");
+      }
+
+      if (search == "WordPress Development") {
+        navigate("/services/web-software/wordpress-development");
+      }
+
+      if (search == "Shopify Store Design & Development") {
+        navigate("/services/web-software/shopify-store-design-development");
+      }
+
+      if (search == "Video Animations") {
+        navigate("/services/graphic-multimedia/video-animation");
+      }
+
+      if (search == "Logo Design") {
+        navigate("/services/graphic-multimedia/logo-design");
+      }
+
+      if (search == "Cover Design") {
+        navigate("/services/graphic-multimedia/cover-design");
+      }
+
+      if (search == "Ads Design") {
+        navigate("/services/graphic-multimedia/ads-design");
+      }
+
+      if (search == "Thumbnail Design") {
+        navigate("/services/graphic-multimedia/thumbnail-design");
+      }
+
+      if (search == "Business Card Design") {
+        navigate("/services/graphic-multimedia/business-card-design");
+      }
+
+      if (search == "Apps Design") {
+        navigate("/services/graphic-multimedia/uiux-design");
+      }
+
+      if (search == "Website Design") {
+        navigate("/services/graphic-multimedia/uiux-design");
+      }
+
+      if (search == "Desktop Software- design") {
+        navigate("/services/graphic-multimedia/uiux-design");
+      }
+      if (search == "Website Design") {
+        navigate("/services/graphic-multimedia/uiux-design");
+      }
+    };
 
 
   return (
@@ -142,7 +209,7 @@ const Hero = () => {
         </p>
 
         <div class="searchBox absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/8 ">
-          <div class="w-335">
+          <div class="w-93.75">
             <div className="relative w-full mb-2">
               {/* Search Input */}
               <div className="w-full flex">
@@ -157,7 +224,7 @@ const Hero = () => {
                   className="w-4/5 bg-white pl-6 pr-2 py-2.5 rounded-l-full outline-none text-2xl font-poppins font-medium text-gray-700 placeholder:text-gray-700"
                 />
 
-                <FaSearch className="w-1/5 text-2xl text-gray-600 bg-white py-3.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer" />
+                <FaSearch onClick={serchFindItem} className="w-1/5 text-2xl text-gray-600 bg-white py-3.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer" />
               </div>
 
               {/* Dropdown */}
