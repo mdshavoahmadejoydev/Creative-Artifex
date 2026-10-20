@@ -227,3 +227,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Business typeing animation */
+@keyframes cursorBlink {
+  0% {
+    opacity: 1;
+    height: 80%;
+  }
+
+  50% {
+    opacity: 0;
+    height: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    height: 80%;
+  }
+}

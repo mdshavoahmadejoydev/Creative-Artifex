@@ -7,10 +7,61 @@ import Schedule from '../components/Schedule'
 import Image from '../components/Image'
 import { FaSearch } from 'react-icons/fa'
 
+import { useEffect } from 'react'
+
+
 const Hero = () => {
 
     const [search, setSearch] = useState("");
     const [showOptions, setShowOptions] = useState(false);
+
+    // for Business button animation start
+
+    // const text = "Business...";
+    // const [displaytext, setDisplaytext] = useState("");
+    // const [count, setCount] = useState(0);
+    const text = "Business...";
+
+    const [displayText, setDisplayText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+
+     useEffect(() => {
+       let timeout;
+
+       if (!isDeleting && displayText.length < text.length) {
+         timeout = setTimeout(() => {
+           setDisplayText(text.slice(0, displayText.length + 1));
+         }, 200);
+       } else if (!isDeleting && displayText.length === text.length) {
+         timeout = setTimeout(() => {
+           setIsDeleting(true);
+         }, 800);
+       } else if (isDeleting && displayText.length > 0) {
+         timeout = setTimeout(() => {
+           setDisplayText(text.slice(0, displayText.length - 1));
+         }, 30);
+       } else {
+         setIsDeleting(false);
+       }
+
+       return () => clearTimeout(timeout);
+     }, [displayText, isDeleting]);
+
+    // useEffect(() => {
+    //   const interval = setInterval(() => {
+    //     if(count < text.length) {
+    //       setDisplaytext((prev) => prev + text.charAt(count))
+    //       setCount((prev) => prev + 1)
+    //     } else {
+    //       setDisplaytext("")
+    //       setCount(0)
+    //     }
+    //   }, 200);
+    //   return () => clearInterval(interval)
+    // }, [count]);
+
+
+    // for Business button animation end
 
     const services = [
       "Graphics & Design",
@@ -54,8 +105,11 @@ const Hero = () => {
           <p className="font-roboto font-extrabold text-white text-70 leading-24">
             Designed to <span className="text-74">Grow</span> Your{" "}
           </p>
-          <p className="font-roboto font-extrabold text-white text-[85px] leading-24">
-            Business
+          <p className={`relative inline-block font-roboto font-extrabold text-white text-[85px] leading-24 transition-all duration-500 ease-in-out after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+          after:w-1 after:h-30 after:bg-white
+          after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
+          `}>
+            {displayText || "\u00A0"}
           </p>
         </div>
         <div className="ml-23 my-7">
