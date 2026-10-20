@@ -1,9 +1,9 @@
 import React from 'react'
 import { FaCalendarAlt } from 'react-icons/fa'
 
-const Schedule = ({text, calender, hover, className,}) => {
+const Schedule = ({text, calender, hover, className, onClick}) => {
   return (
-    <button className={`px-6.25 bg-Royal-Purple/80 py-2 font-poppins text-white italic font-extrabold border border-white rounded-full text-2xl cursor-pointer duration-200 ${className} ${hover && 'hover:border-red-500'}`}>{text} {calender && <FaCalendarAlt className='text-white text-2xl inline-block ml-1'/>}</button>
+    <button onClick={onClick} type="button" className={`px-6.25 bg-Royal-Purple/80 py-2 font-poppins text-white italic font-extrabold border border-white rounded-full text-2xl cursor-pointer duration-200 ${className} ${hover && 'hover:border-red-500'}`}>{text} {calender && <FaCalendarAlt className='text-white text-2xl inline-block ml-1'/>}</button>
   )
 }
 

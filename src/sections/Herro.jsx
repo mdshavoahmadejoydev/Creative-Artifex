@@ -106,17 +106,28 @@ const Hero = () => {
           <p className="font-roboto font-extrabold text-white text-70 leading-24">
             Designed to <span className="text-74 grow-glow">Grow</span> Your
           </p>
-          <p className={`relative inline-block font-roboto font-extrabold text-white text-[85px] tracking-[8px] leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+          <p
+            className={`relative inline-block font-roboto font-extrabold text-white text-[85px] tracking-[8px] leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
           after:w-1 after:h-30 after:bg-white
           after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
-          `}>
+          `}
+          >
             {displayText || "\u00A0"}
           </p>
         </div>
         <div className="ml-23 my-7">
-          <button className="px-30 font-poppins py-2 te bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-4xl cursor-pointer hover:border-red-500 duration-200">
+          <button
+            onClick={() => {
+              document.getElementById("servidesSection")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+            className="px-30 font-poppins py-2 te bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-4xl cursor-pointer hover:border-red-500 duration-200"
+          >
             Hire Us
           </button>
+            
           <Schedule
             text={`Schedule A Meeting`}
             className={`block  mt-3.5`}
@@ -146,64 +157,68 @@ const Hero = () => {
                   className="w-4/5 bg-white pl-6 pr-2 py-2.5 rounded-l-full outline-none text-2xl font-poppins font-medium text-gray-700 placeholder:text-gray-700"
                 />
 
-                <FaSearch className="w-1/5 text-2xl text-gray-600 bg-white py-3.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150" />
+                <FaSearch className="w-1/5 text-2xl text-gray-600 bg-white py-3.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer" />
               </div>
 
               {/* Dropdown */}
               {showOptions && search && (
                 <div className="absolute left-0 top-14 z-50 w-full rounded-xl overflow-hidden bg-white">
-                <div className="max-h-77.75 overflow-y-scroll">
-                  {filteredServices.length > 0 ? (
-                    filteredServices.map((service, index) => {
-                      const matchIndex = service
-                        .toLowerCase()
-                        .indexOf(search.toLowerCase());
+                  <div className="max-h-77.75 overflow-y-scroll">
+                    {filteredServices.length > 0 ? (
+                      filteredServices.map((service, index) => {
+                        const matchIndex = service
+                          .toLowerCase()
+                          .indexOf(search.toLowerCase());
 
-                      const beforeMatch = service.slice(0, matchIndex);
+                        const beforeMatch = service.slice(0, matchIndex);
 
-                      const matchText = service.slice(
-                        matchIndex,
-                        matchIndex + search.length,
-                      );
+                        const matchText = service.slice(
+                          matchIndex,
+                          matchIndex + search.length,
+                        );
 
-                      const afterMatch = service.slice(
-                        matchIndex + search.length,
-                      );
+                        const afterMatch = service.slice(
+                          matchIndex + search.length,
+                        );
 
-                      return (
-                        <div
-                          key={index}
-                          onClick={() => {
-                            setSearch(service);
-                            setShowOptions(false);
-                          }}
-                          className="cursor-pointer px-6 py-3 text-xl font-poppins font-medium hover:bg-gray-100"
-                        >
-                          <span className="text-gray-600/50">
-                            {beforeMatch}
-                          </span>
+                        return (
+                          <div
+                            key={index}
+                            onClick={() => {
+                              setSearch(service);
+                              setShowOptions(false);
+                            }}
+                            className="cursor-pointer px-6 py-3 text-xl font-poppins font-medium hover:bg-gray-100"
+                          >
+                            <span className="text-gray-600/50">
+                              {beforeMatch}
+                            </span>
 
-                          <span className="text-gray-600">{matchText}</span>
+                            <span className="text-gray-600">{matchText}</span>
 
-                          <span className="text-gray-600/50">{afterMatch}</span>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <div className="px-6 py-3 text-xl font-poppins text-gray-600/50">
-                      No service found
-                    </div>
-                  )}
-                </div>
+                            <span className="text-gray-600/50">
+                              {afterMatch}
+                            </span>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="px-6 py-3 text-xl font-poppins text-gray-600/50">
+                        No service found
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
 
-
-
-
             <div class="w-full flex justify-center">
-              <button class="text-2xl font-poppins font-bold px-9 py-1 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150">
+              <button onClick={() => {
+                document.getElementById("servidesSection")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                })
+              }} class="text-2xl font-poppins font-bold px-9 py-1 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer">
                 ORDER NOW
               </button>
             </div>
