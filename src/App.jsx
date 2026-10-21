@@ -37,10 +37,11 @@ import ThumbelDesignTem from './pages/ThumbelDesignTem';
 import BusinessCardDesignTem from './pages/BusinessCardDesignTem';
 import SubmitOrder from './pages/SubmitOrder';
 import OrderSubmited from './pages/OrderSubmited';
+import ScheduleButton from './sections/ScheduleButton'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    
+    <>
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home/>}></Route>
 
@@ -92,6 +93,8 @@ const router = createBrowserRouter(
 
       <Route path="/order-submited" element={<OrderSubmited/>}></Route>
     </Route>
+    {/* <Route path="/meeting" element={<ScheduleButton/>}></Route> */}
+    </>
   )
 );
 

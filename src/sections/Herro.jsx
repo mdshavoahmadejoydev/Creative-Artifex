@@ -10,8 +10,9 @@ import { FaSearch } from 'react-icons/fa'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import ScheduleButton from '../sections/ScheduleButton'
 
-const Hero = () => {
+const Hero = ({onScheduleClick}) => {
 
     const [search, setSearch] = useState("");
     const [showOptions, setShowOptions] = useState(false);
@@ -160,11 +161,20 @@ const Hero = () => {
     };
 
 
+    // schedule meeting button function
+    const [showScheduleBox, setShowScheduleBox] = useState(false)
+    const handleMeetingTime = () => {
+      setShowScheduleBox(!showScheduleBox)
+    }
+
+
   return (
     <section
       className={`h-186.75 p-0 w-full bg-cover bg-center bg-no-repeat overflow-hidden`}
       style={{ backgroundImage: `url(${creativeHero})` }}
     >
+
+
       <Container className={`relative`}>
         <div className="pt-40.25">
           <p className="font-roboto font-extrabold text-white text-70 leading-24">
@@ -196,11 +206,14 @@ const Hero = () => {
           </button>
             
           <Schedule
+            onClick={onScheduleClick}
             text={`Schedule A Meeting`}
             className={`block  mt-3.5`}
             calender={true}
             hover={true}
           />
+
+          
         </div>
         <p className="font-poppins font-medium text-2xl w-826 pb-6 text-white/90">
           Creative provides creative and technology-driven services that help
