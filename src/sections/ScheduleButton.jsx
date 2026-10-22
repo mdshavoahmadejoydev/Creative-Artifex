@@ -49,8 +49,8 @@ const SubmitMsg = ({onScheduleClick}) => {
   const [showCountries, setShowCountries] = useState(false);
 
   return (
-    <section className="absolute top-0 left-0 bg-black/70 w-screen h-screen z-20">
-      <Flex className=" w-[60vw] pt-[120px] mx-auto">
+    <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+      <Flex className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl mt-10 bg-white">
         <div className="relative w-full bg-white px-9 py-5 rounded-2xl">
         <IoClose onClick={onScheduleClick} className="absolute top-2 right-4 cursor-pointer text-4xl text-red-500!" />
         {/* Submit Message Form */}

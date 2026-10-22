@@ -43,7 +43,7 @@ const Home = () => {
     <>
       <Herro onScheduleClick={handleMeetingTime} />
       <WorkingWith />
-      <Experieance />
+      <Experieance onScheduleClick={handleMeetingTime} />
       <Services />
       <Portfolio />
       <CustomerReviews />
