@@ -271,3 +271,18 @@
       0 0 22px rgba(255, 255, 255, 0.5);
   }
 }
+
+
+
+/* workwith part animations  */
+@keyframes logo-scroll {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+.animation-logo-scroll {
+  animation: logo-scroll 25s linear infinite;
+}

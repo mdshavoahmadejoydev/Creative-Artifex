@@ -6,7 +6,7 @@ const WorkingWithLogosF = ({src, className}) => {
     <Image
       src={src}
       alt={`company logo`}
-      className={`h-14 object-cover object-center ${className}`}
+      className={`h-12 object-cover object-center ${className}`}
     />
   );
 };
