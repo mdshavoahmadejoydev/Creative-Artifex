@@ -11,7 +11,7 @@ import Schedule from '../components/Schedule'
 const Team = () => {
   return (
     <section>
-      <div className="h-94"></div>
+      <div className="h-94 bg-seagreen"></div>
       <div className="pt-4 bg-seagreen">
         <ReviewsPageTitle text={"<< Teams >>"} className={`text-center`} />
 

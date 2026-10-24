@@ -6,7 +6,7 @@ import P from '../components/P';
 const Contact = () => {
   return (
     <section>
-      <div className="h-94"></div>
+      <div className="h-94 bg-seagreen"></div>
       <div className="bg-seagreen">
         <ReviewsPageTitle
           text={"<< Discuss Your Project >>"}

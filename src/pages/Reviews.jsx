@@ -11,7 +11,7 @@ import Flex from '../components/Flex';
 
 const Reviews = () => {
   return (
-    <section className={`w-full`}>
+    <section className={`w-full bg-seagreen`}>
       <div className='h-94'></div>
       <div className="bg-seagreen">
         <ReviewsPageTitle

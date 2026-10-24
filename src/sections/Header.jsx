@@ -105,13 +105,36 @@ let handleGraphicD = () => {
     };
   }, []);
 
+
+
+
+  // scroll bg color transperent
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
    
 
 
 
 
   return (
-    <header className="bg-seagreen fixed top-0 w-full z-50 border-b border-white/50">
+    <header
+      className={`fixed top-0 w-full z-50 border-b border-white/30
+    transition-all duration-1000 ease-in-out
+    ${scrolled ? "bg-seagreen" : "bg-seagreen/0"}`}
+    >
       <Container className={`relative`}>
         <Flex>
           {/* logo container start */}
@@ -131,7 +154,11 @@ let handleGraphicD = () => {
           <Flex className="w-3/4 justify-end items-center">
             <nav>
               <ul className="flex gap-6">
-                <Link to={"/"} className="py-31 group" onClick={serviceTemplate}>
+                <Link
+                  to={"/"}
+                  className="py-31 group"
+                  onClick={serviceTemplate}
+                >
                   <Li text={`Home`} />
                 </Link>
 
@@ -168,16 +195,32 @@ let handleGraphicD = () => {
                 </div>
                 {/* Templates start */}
 
-                <Link to={"/reviews"} className="py-31 group" onClick={serviceTemplate}>
+                <Link
+                  to={"/reviews"}
+                  className="py-31 group"
+                  onClick={serviceTemplate}
+                >
                   <Li text={`Reviews`} />
                 </Link>
-                <Link to={"/products"} className="py-31 group" onClick={serviceTemplate}>
+                <Link
+                  to={"/products"}
+                  className="py-31 group"
+                  onClick={serviceTemplate}
+                >
                   <Li text={`Products`} />
                 </Link>
-                <Link to={"/team"} className="py-31 group" onClick={serviceTemplate}>
+                <Link
+                  to={"/team"}
+                  className="py-31 group"
+                  onClick={serviceTemplate}
+                >
                   <Li text={`Team`} />
                 </Link>
-                <Link to={"contact"} className="py-31 group" onClick={serviceTemplate}>
+                <Link
+                  to={"contact"}
+                  className="py-31 group"
+                  onClick={serviceTemplate}
+                >
                   <Li text={`Contact`} />
                 </Link>
               </ul>
