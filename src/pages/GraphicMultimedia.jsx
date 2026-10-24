@@ -1,6 +1,7 @@
 import React from 'react'
 import Flex from '../components/Flex';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 const GraphicMultimedia = () => {
 
@@ -41,6 +42,7 @@ const GraphicMultimedia = () => {
 
   return (
     <>
+      <ScrollToTop/>
       <div className="bg-seagreen py-2">
         <Flex
           className={`justify-center gap-x-6 gap-y-2 list-none text-white/70 font-poppins font-medium text-lg my-0.5 px-10 flex-wrap`}
