@@ -27,8 +27,8 @@ const Experieance = ({ onScheduleClick }) => {
 
     const interval = setInterval(() => {
       setCount500((prev) => Math.min(500, prev + 500 / steps));
-      setCount400((prev) => Math.min(400, prev + 400 / steps));
       setCount4((prev) => Math.min(4, prev + 4 / steps));
+      setCount400((prev) => Math.min(400, prev + 400 / steps));
     }, incrementTime);
 
     return () => clearInterval(interval);
