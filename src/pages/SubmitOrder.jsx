@@ -39,7 +39,7 @@ const SubmitOrder = () => {
 
   return (
     <section className="bg-[#EFF4F6]">
-      <div className="h-94"></div>
+      <div className="h-94 bg-seagreen"></div>
 
       <Container>
         <div className="py-6">
