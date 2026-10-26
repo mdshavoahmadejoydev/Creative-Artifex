@@ -17,13 +17,7 @@ import GraphicMultimedia from "../pages/GraphicMultimedia";
 
 const Header = () => {
 
-  // manu custom focus generation
-  const location = useLocation();
-  const [activeMenu, setActiveMenu] = useState("");
-  const serviceTemplate = ()=> {
-    setActiveMenu("");
-    setActiveMenu("");
-  }
+ 
 
 
 
@@ -114,7 +108,7 @@ let handleGraphicD = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -124,6 +118,15 @@ let handleGraphicD = () => {
     };
   }, []);
 
+
+   // manu custom focus generation
+  const location = useLocation();
+  const [activeMenu, setActiveMenu] = useState("");
+  const serviceTemplate = ()=> {
+    setActiveMenu("");
+    setActiveMenu("");
+  }
+
    
 
 
@@ -132,8 +135,13 @@ let handleGraphicD = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 border-b border-white/30
-    transition-all duration-1000 ease-in-out
-    ${scrolled ? "bg-seagreen" : "bg-seagreen/0"}`}
+    transition-all duration-600 ease-in-out
+    ${location.pathname == "/" 
+      ?
+      scrolled ?  
+       "bg-seagreen" : "bg-seagreen/0"
+       :
+        "bg-seagreen"  }`}
     >
       <Container className={`relative`}>
         <Flex>
@@ -159,7 +167,8 @@ let handleGraphicD = () => {
                   className="py-31 group"
                   onClick={serviceTemplate}
                 >
-                  <Li text={`Home`} />
+                  <Li text={`Home`} className={location.pathname == "/" && "text-red-500!"} />
+                  {console.log(location.pathname)}
                 </Link>
 
                 {/* Services start */}
@@ -170,7 +179,7 @@ let handleGraphicD = () => {
                   <Li
                     text={`Services`}
                     icon={true}
-                    className={`py-31 ${activeMenu === "services" ? "text-red-500!" : ""}`}
+                    className={`py-31 ${location.pathname.includes("/services") ? "text-red-500!" : ""}`}
                   />
                 </div>
                 {/* Services end */}
@@ -187,9 +196,7 @@ let handleGraphicD = () => {
                     <Li
                       text={`Templates`}
                       icon={true}
-                      className={` py-31 ${
-                        activeMenu === "templates" ? "text-red-500!" : ""
-                      }`}
+                      className={` py-31 ${location.pathname.includes("/templates") ? "text-red-500!" : ""}`}
                     />
                   </div>
                 </div>
@@ -198,30 +205,30 @@ let handleGraphicD = () => {
                 <Link
                   to={"/reviews"}
                   className="py-31 group"
-                  onClick={serviceTemplate}
+                  // onClick={serviceTemplate}
                 >
-                  <Li text={`Reviews`} />
+                  <Li text={`Reviews`} className={location.pathname == "/reviews" && "text-red-500!"}/>
                 </Link>
                 <Link
                   to={"/products"}
                   className="py-31 group"
-                  onClick={serviceTemplate}
+                  // onClick={serviceTemplate}
                 >
-                  <Li text={`Products`} />
+                  <Li text={`Products`} className={location.pathname == "/products" && "text-red-500!"}/>
                 </Link>
                 <Link
                   to={"/team"}
                   className="py-31 group"
-                  onClick={serviceTemplate}
+                  // onClick={serviceTemplate}
                 >
-                  <Li text={`Team`} />
+                  <Li text={`Team`} className={location.pathname == "/team" && "text-red-500!"}/>
                 </Link>
                 <Link
                   to={"contact"}
                   className="py-31 group"
-                  onClick={serviceTemplate}
+                  // onClick={serviceTemplate}
                 >
-                  <Li text={`Contact`} />
+                  <Li text={`Contact`} className={location.pathname == "/contact" && "text-red-500!"}/>
                 </Link>
               </ul>
             </nav>
