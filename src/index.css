@@ -287,6 +287,34 @@
   animation: logo-scroll 15s linear infinite;
 }
 
+/* portfolio 1 part animations  */
+@keyframes portfolio-scroll {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+.animation-portfolio-scroll {
+  animation: portfolio-scroll 35s linear infinite;
+}
+
+/* portfolio 2 part animations  */
+@keyframes portfolio2-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animation-portfolio2-scroll {
+  animation: portfolio2-scroll 35s linear infinite;
+}
+
+
 
 
 /* card animation border */

@@ -6,12 +6,14 @@ import Container from "../components/Container";
 import ReviewsFullCard from '../components/ReviewsFullCard';
 import Schedule from '../components/Schedule';
 import Flex from '../components/Flex';
+import ScrollToTop from '../components/ScrollToTop';
 
 
 
 const Reviews = () => {
   return (
     <section className={`w-full bg-seagreen`}>
+      <ScrollToTop/>
       <div className='h-94'></div>
       <div className="bg-seagreen">
         <ReviewsPageTitle
