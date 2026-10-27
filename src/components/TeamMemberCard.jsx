@@ -9,7 +9,7 @@ const TeamMemberCard = ({src, name, prof, proftop, className}) => {
         src={src}
         className={`w-full h-full object-center object-center ${className}`}
       />
-      <div className="absolute -bottom-80 group-hover:bottom-0 duration-200 ease-out left-0 w-full bg-[linear-gradient(180deg,rgba(16,112,222,0.2)_0%,rgba(12,86,171,0.7)_45%,rgba(9,60,120,1)_100%)] py-2 px-2">
+      <div className="absolute -bottom-80 group-hover:bottom-0 duration-200 ease-out left-0 w-full bg-[linear-gradient(180deg,rgba(0,254,42,0.2)_0%,rgba(0,254,42,0.7)_45%,rgba(0,254,42,1)_100%)] py-2 px-2">
         <p className="font-poppins font-bold text-3xl text-white">{name}</p>
         <p className="font-poppins font-medium text-lg text-white">{prof}</p>
       </div>

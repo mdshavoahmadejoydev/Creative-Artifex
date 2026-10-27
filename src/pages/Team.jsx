@@ -7,10 +7,12 @@ import Flex from '../components/Flex'
 import TeamMemberCard from '../components/TeamMemberCard'
 import CeoImage from '../assets/TeamMemberImgs/ceoImg.png'
 import Schedule from '../components/Schedule'
+import ScrollToTop from '../components/ScrollToTop'
 
 const Team = () => {
   return (
     <section>
+      <ScrollToTop/>
       <div className="h-94 bg-seagreen"></div>
       <div className="pt-4 bg-seagreen">
         <ReviewsPageTitle text={"<< Teams >>"} className={`text-center`} />

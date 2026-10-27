@@ -6,8 +6,12 @@ import Container from '../components/Container'
 import Flex from '../components/Flex'
 import TeamMemberCard from '../components/TeamMemberCard'
 import Schedule from '../components/Schedule'
+import { useNavigate } from 'react-router-dom'
 
 const TeamMember = () => {
+
+  let navigate = useNavigate();
+
   return (
     <section className='py-45'>
       <Title text={`Our Team Of experts`} className={`text-center`}/>
@@ -31,7 +35,9 @@ const TeamMember = () => {
 
         </Flex>
         <Flex className={`justify-center`}>
-          <Schedule text={`View more`}  className={`mt-10 bg-seagreen border-2 border-white hover:border-light-aqua duration-200`} />         
+          <Schedule onClick={() => setTimeout(() => {
+            navigate("/team")
+          }, 150) } text={`View more`}  className={`mt-10 bg-seagreen border-2 border-white hover:border-light-aqua duration-200`} />         
         </Flex>
       </Container>
     </section>
