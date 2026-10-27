@@ -14,10 +14,25 @@ import DropdownLi from "../components/DropdownLi";
 import Templates from "./Templates";
 import WebSoftware from "../pages/WebSoftware";
 import GraphicMultimedia from "../pages/GraphicMultimedia";
+import LiveMessage from "../components/LiveMessage";
+import PageScrollUp from "../components/PageScrollUp";
 
 const Header = () => {
 
- 
+//  message option code
+ useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowScheduleBox(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
 
 
@@ -445,6 +460,9 @@ let handleGraphicD = () => {
           )}
         </div>
       </Container>
+
+      <LiveMessage/>
+      <PageScrollUp/>
     </header>
   );
 };

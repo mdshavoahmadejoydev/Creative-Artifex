@@ -38,6 +38,7 @@ import BusinessCardDesignTem from './pages/BusinessCardDesignTem';
 import SubmitOrder from './pages/SubmitOrder';
 import OrderSubmited from './pages/OrderSubmited';
 import ScheduleButton from './sections/ScheduleButton'
+import LiveMessage from './components/LiveMessage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -93,7 +94,7 @@ const router = createBrowserRouter(
 
       <Route path="/order-submited" element={<OrderSubmited/>}></Route>
     </Route>
-    {/* <Route path="/meeting" element={<ScheduleButton/>}></Route> */}
+    <Route path="/livemessage" element={<LiveMessage/>}></Route>
     </>
   )
 );

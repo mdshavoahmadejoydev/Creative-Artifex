@@ -11,6 +11,7 @@ import TeamMember from "../sections/TeamMember";
 import SubmitMsg from "../sections/SubmitMsg";
 
 import ScheduleButton from "../sections/ScheduleButton";
+import LiveMessage from "../components/LiveMessage";
 
 const Home = () => {
   const [showScheduleBox, setShowScheduleBox] = useState(false);
@@ -22,20 +23,6 @@ const Home = () => {
   };
 
   // schedule meeting button function
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScheduleBox(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
 
 

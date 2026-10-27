@@ -63,7 +63,7 @@ const Footer = () => {
     </footer>
     <div className={`bg-seagreen py-30 relative`}>
       <div className='absolute top-1/2 -translate-y-1/2 left-[5%]'>
-        <FaChevronCircleUp className='text-white text-5xl ml-15'/>
+        {/* <FaChevronCircleUp className='text-white text-5xl ml-15'/> */}
       </div>
       
       <Container>
