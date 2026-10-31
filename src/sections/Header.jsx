@@ -183,7 +183,7 @@ let handleGraphicD = () => {
                   onClick={serviceTemplate}
                 >
                   <Li text={`Home`} className={location.pathname == "/" && "text-red-500!"} />
-                  {console.log(location.pathname)}
+                  {/* {console.log(location.pathname)} */}
                 </Link>
 
                 {/* Services start */}

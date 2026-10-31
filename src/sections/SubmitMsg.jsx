@@ -16,10 +16,22 @@ const SubmitMsg = () => {
   const [showOptions, setShowOptions] = useState(false);
 
   const options = [
-    "UI/UX design",
-    "graphic design",
-    "website development",
-    "website design",
+    "UI/UX Design",
+    "Website Development",
+    "Software Development",
+    "Mobile Application Development",
+    "WordPress Development",
+    "Shopify Store Design & Development",
+    "Video Animations",
+    "Logo Design",
+    "Cover Design",
+    "Ads Design",
+    "Thumbnail Design",
+    "Business Card Design",
+    "Apps Design",
+    "Website Design",
+    "Desktop Software- design",
+    "Apps Design",
   ];
 
   const filteredOptions = options.filter((option) =>
@@ -72,6 +84,55 @@ const SubmitMsg = () => {
   
 
 
+  // click submit here button 
+
+  const [name, setName] = useState("");
+  const [nameerror, setNameerror] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [emailerror, setEmailerror] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [description, setDescription] = useState("");
+
+  const [pressBtn, setPressBtn] = useState(false);
+
+  const [submitMsgArr, setSubmitMsgArr] = useState([])
+  console.log(submitMsgArr)
+  
+  let handleSubmitBtn = () => {
+
+    let submitMsg =[]
+    setSubmitMsgArr(submitMsg)
+
+    if(!name) {
+      setNameerror(true)
+    }
+    if(!name) {
+      setEmailerror(true)
+    }
+    
+    if(name && email) { 
+    submitMsg.push(name)
+    submitMsg.push(email)
+
+      const fullPhoneNumber = `${selectedCountry.code}${phoneNumber}`;
+    submitMsg.push(fullPhoneNumber);
+
+    submitMsg.push(search)
+    submitMsg.push(description)
+
+    setName("")
+    setEmail("")
+    setPhoneNumber("")
+    setSearch("")
+    setDescription("")
+    setPressBtn(true)
+
+    }
+  }
+
+ 
+
 
   return (
     <section className="bg-seagreen py-60">
@@ -86,20 +147,24 @@ const SubmitMsg = () => {
             <div className="mt-4">
               <SubmitP text={`Your Name`} requerment={true} />
 
-              <Input placeholder={`Enter Your Full Name ...`} />
+              <Input value={name} onChange = {(e) => {setName(e.target.value); setNameerror(false)}} placeholder={`Enter Your Full Name ...`} className={`${nameerror && "border-red-500 text-red-500"}`}/>
             </div>
 
             <div className="mt-4">
-              <SubmitP text={`Email Address`} requerment={true} />
+              <SubmitP requerment={true}  text={`Email Address`}/>
 
-              <Input placeholder={`Enter Your Email ...`} />
+              <Input value={email} onChange = {(e) => {setEmail(e.target.value); setEmailerror(false)}} placeholder={`Enter Your Email ...`}  className={`${emailerror && "border-red-500 text-red-500"}`}/>
+              {
+                emailerror && <p className="text-red-500 ml-6 text-sm font-roboto font-medium">enter your valid email</p>
+              }
             </div>
 
+            {/* phone number */}
             <div className="mt-4">
               <SubmitP text={`Phone number`} requerment={false} />
 
               <div ref={countryDropdownRef} className="relative shrink-0 mt-2">
-                <div className="flex w-full items-center rounded-full border-2 border-gray-300 px-4 py-1">
+                <div className="flex w-full items-center rounded-full border border-gray-300 px-4 py-1">
                   {/* Country Selector */}
                   <div className="relative shrink-0">
                     <button
@@ -161,6 +226,8 @@ const SubmitMsg = () => {
 
                   {/* Phone Number */}
                   <input
+                    onChange = {(e) => setPhoneNumber(e.target.value)}
+                    value={phoneNumber}
                     type="tel"
                     placeholder="Enter your phone number"
                     className="ml-3 w-full border-none bg-transparent py-1 text-base font-medium font-poppins outline-none text-black/90"
@@ -181,7 +248,7 @@ const SubmitMsg = () => {
                     setSearch(e.target.value);
                     setShowOptions(true);
                   }}
-                  className="w-full py-1 pr-10 text-base text-black/70 font-medium border-2 border-gray-300 rounded-full outline-none font-poppins px-4 mt-2"
+                  className={`w-full pr-10 text-base text-black/70 font-medium border border-gray-300 rounded-full outline-none font-poppins py-2 px-4 mt-2`}
                 />
 
                 <button
@@ -190,15 +257,15 @@ const SubmitMsg = () => {
                   className="absolute right-3 top-1/2 -translate-y-1/2 mt-1"
                 >
                   {showOptions ? (
-                    <MdKeyboardArrowUp className="text-2xl text-black/50" />
+                    <MdKeyboardArrowUp className="text-2xl text-black/50 cursor-pointer" />
                   ) : (
-                    <MdKeyboardArrowDown className="text-2xl text-black/50" />
+                    <MdKeyboardArrowDown className="text-2xl text-black/50 cursor-pointer" />
                   )}
                 </button>
 
                 {/* Dropdown */}
                 {showOptions && (
-                  <div className="absolute left-0 top-full z-20 mt-1 w-full rounded-md bg-white shadow-lg border border-gray-200">
+                  <div className="absolute max-h-76 overflow-y-scroll left-0 top-full z-20 mt-1 w-full rounded-md bg-white shadow-lg border border-gray-200">
                     {filteredOptions.length > 0 ? (
                       filteredOptions.map((option, index) => {
                         const matchIndex = option
@@ -248,17 +315,26 @@ const SubmitMsg = () => {
               <SubmitP text={`Description`} requerment={false} />
 
               <textarea
+                 onChange = {(e) => setDescription(e.target.value)} text={`Email Address`}
                 type="text"
+                value={description}
                 placeholder="Write about your project"
-                className="w-full py-1 text-base font-medium border-2 border-gray-300 rounded-2xl outline-none font-poppins italic h-32 px-4 mt-2"
+                className="w-full py-1 text-base font-medium border border-gray-300 rounded-2xl outline-none font-poppins italic h-32 px-4 mt-2"
               />
             </div>
 
-            <div className="flex justify-end">
-              <Schedule
-                text="submit here"
-                className={`bg-seagreen mt-6 hover:shadow-lg`}
-              />
+            <div className="flex justify-end items-center">
+
+              {
+                pressBtn ? 
+                <p className={`font-roboto font-bold text-xl text-black/70 mt-6`}>Our Teem Contact Within 20 minutes</p>
+                :
+                <Schedule
+                  onClick={handleSubmitBtn}
+                  text="submit here"
+                  className={`bg-seagreen mt-6 hover:shadow-lg`}
+                />               
+              }
             </div>
           </div>
 
