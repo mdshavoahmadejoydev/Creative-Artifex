@@ -84,7 +84,7 @@ const SubmitMsg = () => {
   
 
 
-  // click submit here button 
+  // click submit here button start
 
   const [name, setName] = useState("");
   const [nameerror, setNameerror] = useState(false);
@@ -96,30 +96,39 @@ const SubmitMsg = () => {
 
   const [pressBtn, setPressBtn] = useState(false);
 
-  const [submitMsgArr, setSubmitMsgArr] = useState([])
-  console.log(submitMsgArr)
+  const [submitMsgArr, setSubmitMsgArr] = useState(() => {
+    const savedData = localStorage.getItem("submitMsgArr");
+    return savedData ? JSON.parse(savedData) : [];
+  });
+
+
+  useEffect(() => {
+  localStorage.setItem("submitMsgArr", JSON.stringify(submitMsgArr));
+}, [submitMsgArr]);
+
   
   let handleSubmitBtn = () => {
-
-    let submitMsg =[]
-    setSubmitMsgArr(submitMsg)
 
     if(!name) {
       setNameerror(true)
     }
-    if(!name) {
+    if(!email) {
       setEmailerror(true)
     }
     
     if(name && email) { 
-    submitMsg.push(name)
-    submitMsg.push(email)
 
-      const fullPhoneNumber = `${selectedCountry.code}${phoneNumber}`;
-    submitMsg.push(fullPhoneNumber);
+      const PhoneNumber = `${selectedCountry.code}${phoneNumber}`;
 
-    submitMsg.push(search)
-    submitMsg.push(description)
+      let submitMsg = {
+        name: name,
+        email: email,
+        phoneNumber: PhoneNumber,
+        search:search,
+        description: description,
+      };
+      
+      setSubmitMsgArr((prev) => [...prev, submitMsg])
 
     setName("")
     setEmail("")
@@ -130,6 +139,18 @@ const SubmitMsg = () => {
 
     }
   }
+
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem("submitMsgArr"));
+
+    if (savedData && savedData.length > 0) {
+      console.log(savedData);
+    } else {
+      console.log(submitMsgArr);
+    }
+  }, [submitMsgArr]);
+
+   // click submit here button end
 
  
 
