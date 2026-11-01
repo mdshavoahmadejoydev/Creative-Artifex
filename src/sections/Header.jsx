@@ -20,19 +20,19 @@ import PageScrollUp from "../components/PageScrollUp";
 const Header = () => {
 
 //  message option code
- useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScheduleBox(false);
-      }
-    };
+//  useEffect(() => {
+//     const handleScroll = () => {
+//       if (window.scrollY > 200) {
+//         setShowScheduleBox(false);
+//       }
+//     };
 
-    window.addEventListener("scroll", handleScroll);
+//     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+//     return () => {
+//       window.removeEventListener("scroll", handleScroll);
+//     };
+//   }, []);
 
 
 
@@ -150,7 +150,7 @@ let handleGraphicD = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 border-b border-white/30
-    transition-all duration-600 ease-in-out
+    transition-all duration-400 ease-in-out
     ${location.pathname == "/" 
       ?
       scrolled ?  

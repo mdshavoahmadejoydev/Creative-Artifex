@@ -11,7 +11,7 @@ import ReactCountryFlag from "react-country-flag";
 import { FaAngleDown, FaImage } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-const SubmitMsg = ({onScheduleClick}) => {
+const ScheduleButton = ({onScheduleClick}) => {
 
   // date and time start
   const [showHour, setShowHour] = useState(false);
@@ -736,4 +736,4 @@ const SubmitMsg = ({onScheduleClick}) => {
   );
 };
 
-export default SubmitMsg;
+export default ScheduleButton;

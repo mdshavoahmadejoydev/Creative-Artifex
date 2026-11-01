@@ -128,6 +128,7 @@ const SubmitMsg = () => {
         phoneNumber: PhoneNumber,
         search:search,
         description: description,
+        image: image,
       };
       
       setSubmitMsgArr((prev) => [...prev, submitMsg])
@@ -153,7 +154,10 @@ const SubmitMsg = () => {
   }, [submitMsgArr]);
 
    // click submit here button end
-
+   
+   // image element
+   const fileInputRef = useRef(null);
+   const [image, setImage] = useState([]);
  
 
 
@@ -170,16 +174,34 @@ const SubmitMsg = () => {
             <div className="mt-4">
               <SubmitP text={`Your Name`} requerment={true} />
 
-              <Input value={name} onChange = {(e) => {setName(e.target.value); setNameerror(false)}} placeholder={`Enter Your Full Name ...`} className={`${nameerror && "border-red-500 text-red-500"}`}/>
+              <Input
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                  setNameerror(false);
+                }}
+                placeholder={`Enter Your Full Name ...`}
+                className={`${nameerror && "border-red-500 text-red-500"}`}
+              />
             </div>
 
             <div className="mt-4">
-              <SubmitP requerment={true}  text={`Email Address`}/>
+              <SubmitP requerment={true} text={`Email Address`} />
 
-              <Input value={email} onChange = {(e) => {setEmail(e.target.value); setEmailerror(false)}} placeholder={`Enter Your Email ...`}  className={`${emailerror && "border-red-500 text-red-500"}`}/>
-              {
-                emailerror && <p className="text-red-500 ml-6 text-sm font-roboto font-medium">enter your valid email</p>
-              }
+              <Input
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setEmailerror(false);
+                }}
+                placeholder={`Enter Your Email ...`}
+                className={`${emailerror && "border-red-500 text-red-500"}`}
+              />
+              {emailerror && (
+                <p className="text-red-500 ml-6 text-sm font-roboto font-medium">
+                  enter your valid email
+                </p>
+              )}
             </div>
 
             {/* phone number */}
@@ -249,7 +271,7 @@ const SubmitMsg = () => {
 
                   {/* Phone Number */}
                   <input
-                    onChange = {(e) => setPhoneNumber(e.target.value)}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                     value={phoneNumber}
                     type="tel"
                     placeholder="Enter your phone number"
@@ -329,16 +351,54 @@ const SubmitMsg = () => {
               </div>
             </div>
 
-            <div className="mt-4 cursor-pointer">
-              <SubmitP text={`Ubload Images`} requerment={false} className={`inline-block`} /> 
-              <FaImage className='text-2xl inline-block text-black/90 mx-2' />
+            <div
+              onClick={() => fileInputRef.current.click()}
+              className="mt-4 cursor-pointer"
+            >
+              <SubmitP
+                text={`Ubload Images`}
+                requerment={false}
+                className={`inline-block`}
+              />
+              <FaImage className="text-2xl inline-block text-black/90 mx-2" />
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => {
+                  const file = Array.from(e.target.files);
+
+                  if (file.length > 10) {
+                    alert("You can select maximum 10 images");
+                    e.target.value = "";
+                    return;
+                  }
+                  setImage(file.map((file) => URL.createObjectURL(file)));
+                }}
+              />
+
+              {image.length > 0 && (
+                <div className="flex gap-2 ml-3">
+                  {image.map((img, index) => (
+                    <span
+                      key={index}
+                      className="text-sm text-gray-500 truncate"
+                    >
+                      {img}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="mt-4">
               <SubmitP text={`Description`} requerment={false} />
 
               <textarea
-                 onChange = {(e) => setDescription(e.target.value)} text={`Email Address`}
+                onChange={(e) => setDescription(e.target.value)}
+                text={`Email Address`}
                 type="text"
                 value={description}
                 placeholder="Write about your project"
@@ -347,17 +407,19 @@ const SubmitMsg = () => {
             </div>
 
             <div className="flex justify-end items-center">
-
-              {
-                pressBtn ? 
-                <p className={`font-roboto font-bold text-xl text-black/70 mt-6`}>Our Teem Contact Within 20 minutes</p>
-                :
+              {pressBtn ? (
+                <p
+                  className={`font-roboto font-bold text-xl text-black/70 mt-6`}
+                >
+                  Our Teem Contact Within 20 minutes
+                </p>
+              ) : (
                 <Schedule
                   onClick={handleSubmitBtn}
                   text="submit here"
                   className={`bg-seagreen mt-6 hover:shadow-lg`}
-                />               
-              }
+                />
+              )}
             </div>
           </div>
 

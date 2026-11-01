@@ -17,11 +17,27 @@ const Home = () => {
   const [showScheduleBox, setShowScheduleBox] = useState(false);
   // find item on search input
   const handleMeetingTime = () => {
+    
     setTimeout(() => {
       setShowScheduleBox(!showScheduleBox);   
     }, 150);
   };
 
+
+   useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 200) {
+          setShowScheduleBox(false);
+        }
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+  
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+  
   // schedule meeting button function
 
 
