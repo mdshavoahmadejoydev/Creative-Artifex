@@ -103,10 +103,10 @@ const SubmitMsg = () => {
 
 
   useEffect(() => {
-  localStorage.setItem("submitMsgArr", JSON.stringify(submitMsgArr));
-}, [submitMsgArr]);
+    localStorage.setItem("submitMsgArr", JSON.stringify(submitMsgArr));
+  }, [submitMsgArr]);
 
-  
+  let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   let handleSubmitBtn = () => {
 
     if(!name) {
@@ -114,9 +114,11 @@ const SubmitMsg = () => {
     }
     if(!email) {
       setEmailerror(true)
+    } else if (!emailregex.test(email)) {
+      setEmailerror(true);
     }
     
-    if(name && email) { 
+    if(name && email && emailregex.test(email)) { 
 
       const PhoneNumber = `${selectedCountry.code}${phoneNumber}`;
 
