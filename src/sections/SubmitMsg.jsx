@@ -275,7 +275,7 @@ const SubmitMsg = () => {
                     value={phoneNumber}
                     type="tel"
                     placeholder="Enter your phone number"
-                    className="ml-3 w-full border-none bg-transparent py-1 text-base font-medium font-poppins outline-none text-black/90"
+                    className="ml-3 w-full border-none bg-transparent py-1 text-base tracking-[2px] font-medium font-poppins outline-none text-black/90"
                   />
                 </div>
               </div>

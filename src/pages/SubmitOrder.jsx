@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReviewsPageTitle from "../components/ReviewsPageTitle";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
@@ -19,23 +19,43 @@ import OrderPageInput from "../components/OrderPageInput";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const SubmitOrder = () => {
-
-
   const location = useLocation();
   const price = location.state?.pricemoney;
   const packagename = location.state?.packagename;
   const deliverytime = location.state?.time;
   const servidesname = location.state?.servidesname;
-  console.log(servidesname)
-
+  console.log(servidesname);
 
   let navigate = useNavigate();
-  
+
+  let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const [name, setName] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState(false);
+
+  const [agree, setAgree] = useState(false);
+  const [agreeError, setAgreeError] = useState(false);
+
   const orderedSuccessfully = () => {
-    navigate("/order-submited")
-  }
-
-
+    if (!name) {
+      setNameError(true);
+    }
+    if (!emailregex.test(email)) {
+      setEmailError(true);
+    }
+    if (!phone || isNaN(phone)) {
+      setPhoneError(true);
+    }
+    if (!agree) {
+      setAgreeError(true);
+    }
+    if (name && emailregex.test(email) && phone && !isNaN(phone) && agree) {
+      navigate("/order-submited");
+    }
+  };
 
   return (
     <section className="bg-[#EFF4F6]">
@@ -69,24 +89,53 @@ const SubmitOrder = () => {
 
               <div className="grid grid-cols-3 gap-4">
                 <OrderPageInput
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    setNameError(false);
+                  }}
                   fullName={`Full Name`}
                   placeholder={`Enter Your Full Name`}
                   id={`fullName`}
                   icon={true}
+                  className={nameError && "border-red-500! text-red-500!"}
                 />
 
-                <OrderPageInput
-                  fullName={`Email`}
-                  placeholder={`Enter Your Email address`}
-                  id={`email`}
-                  icon={true}
-                />
+                <div>
+                  <OrderPageInput
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError(false);
+                    }}
+                    fullName={`Email`}
+                    placeholder="Enter Your Email address"
+                    id={`email`}
+                    icon={true}
+                    className={emailError && "border-red-500! text-red-500!"}
+                  />
+                  {emailError && (
+                    <p className="font-roboto font-medium text-sm text-red-500">
+                      Enter your valid email
+                    </p>
+                  )}
+                </div>
 
-                <OrderPageInput
-                  fullName={`Phone Number`}
-                  placeholder={`Enter Your Phone Number`}
-                  id={`phone`}
-                />
+                <div>
+                  <OrderPageInput
+                    onChange={(e) => {
+                      setPhone(e.target.value);
+                      setPhoneError(false);
+                    }}
+                    fullName={`Phone Number`}
+                    placeholder={`Enter Your Phone Number`}
+                    id={`phone`}
+                    phoneError={phoneError}
+                  />
+                  {isNaN(phone) && (
+                    <p className="font-roboto font-medium text-sm text-red-500">
+                      Enter Your Phone Number
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -151,8 +200,8 @@ const SubmitOrder = () => {
                         {price}
                       </p>
                       <p className="flex items-center gap-1 text-sm text-slate-600 font-roboto">
-                        <FiClock className="text-base" />{" "}
-                        {deliverytime}-day delivery
+                        <FiClock className="text-base" /> {deliverytime}-day
+                        delivery
                       </p>
                     </div>
                   </div>
@@ -174,9 +223,19 @@ const SubmitOrder = () => {
               </label>
 
               {/* Agreement */}
-              <label className="flex items-center gap-2 mt-5 text-sm text-roboto text-slate-700 cursor-pointer">
-                <input type="checkbox" className="accent-cyan-600 w-4 h-4" />I
-                agree to be contacted about this project.
+              <label
+                className={`flex items-center gap-2 mt-5 text-sm text-roboto ${agreeError ? "text-red-500" : "text-slate-700"} cursor-pointer `}
+              >
+                <input
+                  type="checkbox"
+                  checked={agree}
+                  onChange={(e) => {
+                    setAgree(e.target.checked);
+                    setAgreeError(false);
+                  }}
+                  className={`accent-cyan-600 w-4 h-4`}
+                />
+                I agree to be contacted about this project.
               </label>
 
               {/* Submit Button */}
@@ -243,9 +302,7 @@ const SubmitOrder = () => {
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Price:</span>
-                  <span className="font-semibold text-[#123B5B]">
-                    {price}
-                  </span>
+                  <span className="font-semibold text-[#123B5B]">{price}</span>
                 </div>
 
                 <div className="flex justify-between pt-3">

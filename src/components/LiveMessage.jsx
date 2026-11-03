@@ -1,38 +1,37 @@
-
-import React, { useEffect, useState } from 'react'
-import Image from './Image'
-import LiveMesenger from '../assets/livemassageicon/message.png'
-import messenger from '../assets/livemassageicon/messenger.png'
-import whatsapp from '../assets/livemassageicon/whatsapp.png'
+import React, { useEffect, useState } from "react";
+import Image from "./Image";
+import LiveMesenger from "../assets/livemassageicon/message.png";
+import messenger from "../assets/livemassageicon/messenger.png";
+import whatsapp from "../assets/livemassageicon/whatsapp.png";
+import { IoClose } from "react-icons/io5";
 
 const LiveMessage = () => {
-  const [showMessages, setShowMessages] = useState(false)
+  const [showMessages, setShowMessages] = useState(false);
 
   useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > 300) {
-          setShowMessages(false);
-        }
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-  
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowMessages(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-
       {/* Messenger & WhatsApp */}
       <div
-        className={`absolute bottom-22 right-10 flex flex-col gap-2.5
+        className={`absolute bottom-[77px] right-10 flex flex-col gap-2
         transition-all duration-500 ease-out
         ${
           showMessages
-            ? 'translate-y-0 opacity-100'
-            : 'translate-y-12 opacity-0 pointer-events-none'
+            ? "translate-y-0 opacity-100"
+            : "translate-y-12 opacity-0 pointer-events-none"
         }`}
       >
         <a
@@ -40,23 +39,17 @@ const LiveMessage = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <div className='w-16 h-16'>
+          <div className="w-14 h-14">
             <Image
-            src={messenger}
-            alt="Messenger"
-            className="w-full h-full cursor-pointer hover:scale-110 transition-transform duration-300"
-          />
+              src={messenger}
+              alt="Messenger"
+              className="w-full h-full cursor-pointer hover:scale-110 transition-transform duration-300"
+            />
           </div>
-          
         </a>
 
-        <a
-          href="https://wa.me/8801602282313"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className='w-16 h-16'>
-
+        <a href="https://wa.me/8801602282313" target="_blank" rel="noreferrer">
+          <div className="w-14 h-14">
             <Image
               src={whatsapp}
               alt="WhatsApp"
@@ -72,21 +65,30 @@ const LiveMessage = () => {
         onClick={() => setShowMessages(!showMessages)}
         aria-label="Toggle contact options"
         aria-expanded={showMessages}
+        className="mr-9"
       >
-        <div className=' w-16 h-16 mr-10'>
-
+        <div className="relative w-14 h-14">
+          {/* Message Icon */}
           <Image
             src={LiveMesenger}
             alt="Live Message"
-            className={`w-full h-full cursor-pointer transition-transform duration-350 ${
-              showMessages ? 'rotate-180 scale-110' : ''
+            className={`absolute inset-0 w-full h-full object-contain transition-all cursor-pointer duration-350 ${
+              showMessages ? "rotate-360 scale-0" : "rotate-0 scale-100"
             }`}
           />
+
+          {/* Cross Icon */}
+          <div
+            className={`absolute inset-0 flex items-center justify-center rounded-full bg-[#3EB90C] transition-all duration-350 ${
+              showMessages ? "rotate-360 scale-100" : "rotate-0 scale-0"
+            }`}
+          >
+            <IoClose className="w-10 h-10 text-white cursor-pointer" />
+          </div>
         </div>
       </button>
-
     </div>
-  )
-}
+  );
+};
 
-export default LiveMessage
+export default LiveMessage;
