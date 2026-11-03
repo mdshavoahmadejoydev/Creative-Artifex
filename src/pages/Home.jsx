@@ -54,7 +54,7 @@ const Home = () => {
       <Faq />
       <TeamMember />
       <SubmitMsg />
-      {showScheduleBox && <ScheduleButton onScheduleClick={handleMeetingTime}/>}
+      {showScheduleBox && <ScheduleButton onScheduleClick={handleMeetingTime} showScheduleBox={showScheduleBox} setShowScheduleBox={setShowScheduleBox}/>}
     </>
   );
 };

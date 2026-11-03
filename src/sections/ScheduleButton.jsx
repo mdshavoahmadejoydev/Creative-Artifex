@@ -11,7 +11,7 @@ import ReactCountryFlag from "react-country-flag";
 import { FaAngleDown, FaImage } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-const ScheduleButton = ({ onScheduleClick }) => {
+const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox }) => {
   // date and time start
   const [showHour, setShowHour] = useState(false);
   const [showMinute, setShowMinute] = useState(false);
@@ -75,6 +75,7 @@ const ScheduleButton = ({ onScheduleClick }) => {
     }
     if (name && email && emailregex.test(email)) {
       setTimeout(() => {
+        setShowScheduleBox(false)
         setShowScheduletemplate(true);
       }, 150);
     }
