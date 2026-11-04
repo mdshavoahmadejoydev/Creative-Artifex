@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import headerLogo from "../assets/creativeArtifexLogo.png";
 import headerLogoTagline from "../assets/creativeArtifexLogoTagline.png";
@@ -16,30 +16,27 @@ import WebSoftware from "../pages/WebSoftware";
 import GraphicMultimedia from "../pages/GraphicMultimedia";
 import LiveMessage from "../components/LiveMessage";
 import PageScrollUp from "../components/PageScrollUp";
+import ProfileTemplate from "../sections/ProfileTemplate";
 
 const Header = () => {
+  //  message option code
+  //  useEffect(() => {
+  //     const handleScroll = () => {
+  //       if (window.scrollY > 200) {
+  //         setShowScheduleBox(false);
+  //       }
+  //     };
 
-//  message option code
-//  useEffect(() => {
-//     const handleScroll = () => {
-//       if (window.scrollY > 200) {
-//         setShowScheduleBox(false);
-//       }
-//     };
+  //     window.addEventListener("scroll", handleScroll);
 
-//     window.addEventListener("scroll", handleScroll);
-
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, []);
-
-
-
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll);
+  //     };
+  //   }, []);
 
   const [showServices, setShowServices] = useState(false);
   const [showTemplates, setShowTemplates] = useState(false);
-  
+
   const [ShowGraphicD, setShowGraphicD] = useState(false);
   const [ShowUiuxD, setShowUiuxd] = useState(false);
 
@@ -50,8 +47,6 @@ const Header = () => {
     setShowUiuxd(false);
   };
 
-  
-
   let handleServicesD = () => {
     setShowServices(true);
     setShowGraphicD(false);
@@ -59,14 +54,13 @@ const Header = () => {
     setShowTemplates(false);
     setShowUiuxd(false);
 
-
     setActiveMenu("services");
   };
 
-let handleGraphicD = () => {
-  setShowServices(true);
-  setShowGraphicD(true);
-};
+  let handleGraphicD = () => {
+    setShowServices(true);
+    setShowGraphicD(true);
+  };
 
   let showTemplatesItems = () => {
     setShowTemplates(true);
@@ -75,9 +69,8 @@ let handleGraphicD = () => {
     setShowServices(false);
     setShowGraphicD(false);
 
-
     setActiveMenu("templates");
-  }
+  };
 
   let showUiuxItems = () => {
     setShowUiuxd(true);
@@ -89,33 +82,33 @@ let handleGraphicD = () => {
     setShowGraphicD(false);
     setShowTemplates(false);
     setShowUiuxd(false);
-  }
+  };
 
+  const profileRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         !event.target.closest(".dropdown-area") &&
-        !event.target.closest(".dropdown-area-tem")
+        !event.target.closest(".dropdown-area-tem") &&
+        !event.target.closest(".profile-area")
       ) {
         setShowServices(false);
         setShowGraphicD(false);
         setShowTemplates(false);
         setShowUiuxd(false);
+        setShowprofile(false);
       }
     };
 
     document.addEventListener("click", handleClickOutside);
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-
-
 
   // scroll bg color transperent
 
@@ -133,30 +126,46 @@ let handleGraphicD = () => {
     };
   }, []);
 
-
-   // manu custom focus generation
+  // manu custom focus generation
   const location = useLocation();
   const [activeMenu, setActiveMenu] = useState("");
-  const serviceTemplate = ()=> {
+  const serviceTemplate = () => {
     setActiveMenu("");
     setActiveMenu("");
-  }
+  };
 
-   
+  // profileTemplate function start
+  const [showprofile, setShowprofile] = useState(false);
+  let handleProfile = () => {
+    setShowprofile(!showprofile);
+  };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setShowprofile(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  // profileTemplate function end
 
   return (
     <header
       className={`fixed top-0 w-full z-50 border-b border-white/30
     transition-all duration-400 ease-in-out
-    ${location.pathname == "/" 
-      ?
-      scrolled ?  
-       "bg-seagreen" : "bg-seagreen/0"
-       :
-        "bg-seagreen"  }`}
+    ${
+      location.pathname == "/"
+        ? scrolled
+          ? "bg-seagreen"
+          : "bg-seagreen/0"
+        : "bg-seagreen"
+    }`}
     >
       <Container className={`relative`}>
         <Flex>
@@ -182,7 +191,10 @@ let handleGraphicD = () => {
                   className="py-31 group"
                   onClick={serviceTemplate}
                 >
-                  <Li text={`Home`} className={location.pathname == "/" && "text-red-500!"} />
+                  <Li
+                    text={`Home`}
+                    className={location.pathname == "/" && "text-red-500!"}
+                  />
                   {/* {console.log(location.pathname)} */}
                 </Link>
 
@@ -222,33 +234,57 @@ let handleGraphicD = () => {
                   className="py-31 group"
                   // onClick={serviceTemplate}
                 >
-                  <Li text={`Reviews`} className={location.pathname == "/reviews" && "text-red-500!"}/>
+                  <Li
+                    text={`Reviews`}
+                    className={
+                      location.pathname == "/reviews" && "text-red-500!"
+                    }
+                  />
                 </Link>
                 <Link
                   to={"/products"}
                   className="py-31 group"
                   // onClick={serviceTemplate}
                 >
-                  <Li text={`Products`} className={location.pathname == "/products" && "text-red-500!"}/>
+                  <Li
+                    text={`Products`}
+                    className={
+                      location.pathname == "/products" && "text-red-500!"
+                    }
+                  />
                 </Link>
                 <Link
                   to={"/team"}
                   className="py-31 group"
                   // onClick={serviceTemplate}
                 >
-                  <Li text={`Team`} className={location.pathname == "/team" && "text-red-500!"}/>
+                  <Li
+                    text={`Team`}
+                    className={location.pathname == "/team" && "text-red-500!"}
+                  />
                 </Link>
                 <Link
                   to={"contact"}
                   className="py-31 group"
                   // onClick={serviceTemplate}
                 >
-                  <Li text={`Contact`} className={location.pathname == "/contact" && "text-red-500!"}/>
+                  <Li
+                    text={`Contact`}
+                    className={
+                      location.pathname == "/contact" && "text-red-500!"
+                    }
+                  />
                 </Link>
               </ul>
             </nav>
-            <button className="group">
-              <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue group-focus:text-red-500! duration-200" />
+            <button
+              ref={profileRef}
+              onClick={handleProfile}
+              className="group relative profile-area"
+            >
+              <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue duration-200" />
+
+              {showprofile && <ProfileTemplate />}
             </button>
           </Flex>
           {/* nav container end */}
@@ -461,8 +497,8 @@ let handleGraphicD = () => {
         </div>
       </Container>
 
-      <LiveMessage/>
-      <PageScrollUp/>
+      <LiveMessage />
+      <PageScrollUp />
     </header>
   );
 };

@@ -26,7 +26,7 @@ const LiveMessage = () => {
     <div className="fixed bottom-6 right-6 z-50">
       {/* Messenger & WhatsApp */}
       <div
-        className={`absolute bottom-[77px] right-10 flex flex-col gap-2
+        className={`absolute bottom-19.25 right-10 flex flex-col gap-2
         transition-all duration-500 ease-out
         ${
           showMessages

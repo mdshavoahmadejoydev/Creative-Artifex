@@ -39,6 +39,7 @@ import SubmitOrder from './pages/SubmitOrder';
 import OrderSubmited from './pages/OrderSubmited';
 import ScheduleButton from './sections/ScheduleButton'
 import LiveMessage from './components/LiveMessage';
+// import ProfileTemplate from './sections/ProfileTemplate'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -95,6 +96,7 @@ const router = createBrowserRouter(
       <Route path="/order-submited" element={<OrderSubmited/>}></Route>
     </Route>
     <Route path="/livemessage" element={<LiveMessage/>}></Route>
+    {/* <Route path="/profile" element={<ProfileTemplate/>}></Route> */}
     </>
   )
 );

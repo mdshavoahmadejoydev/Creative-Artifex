@@ -11,7 +11,11 @@ import ReactCountryFlag from "react-country-flag";
 import { FaAngleDown, FaImage } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox }) => {
+const ScheduleButton = ({
+  onScheduleClick,
+  showScheduleBox,
+  setShowScheduleBox,
+}) => {
   // date and time start
   const [showHour, setShowHour] = useState(false);
   const [showMinute, setShowMinute] = useState(false);
@@ -46,7 +50,6 @@ const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox })
 
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [showCountries, setShowCountries] = useState(false);
-  
 
   // schedule meeting sent massage
   const [name, setName] = useState("");
@@ -57,6 +60,9 @@ const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox })
 
   const [date, setDate] = useState("");
   const [dateError, setDateError] = useState("");
+
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [description, setDescription] = useState("");
 
   const [showScheduletemplate, setShowScheduletemplate] = useState(false);
   let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -75,9 +81,18 @@ const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox })
     }
     if (name && email && emailregex.test(email)) {
       setTimeout(() => {
-        setShowScheduleBox(false)
+        setShowScheduleBox(false);
         setShowScheduletemplate(true);
       }, 150);
+      // console.log({
+      //   name: name,
+      //   email: email,
+      //   phoneNumber: selectedCountry.code + phoneNumber,
+      //   date: date,
+      //   hour: hour,
+      //   minute: minute,
+      //   description: description,
+      // });
     }
   };
 
@@ -218,8 +233,10 @@ const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox })
                   {/* Phone Input */}
                   <input
                     type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                     placeholder="Enter your phone number"
-                    className="ml-3 w-full min-w-0 border-none bg-transparent py-1 text-sm font-medium font-poppins text-black/90 outline-none"
+                    className="ml-3 w-full min-w-0 border-none bg-transparent tracking-[1px] text-base font-medium font-poppins text-black/70 outline-none"
                   />
                 </div>
               </div>
@@ -324,6 +341,8 @@ const ScheduleButton = ({ onScheduleClick,showScheduleBox, setShowScheduleBox })
             <SubmitP text="Description" requerment={false} />
 
             <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               placeholder="Write about your project"
               className="mt-2 h-32 w-full rounded-2xl border-2 border-gray-300 px-4 py-2 text-base font-medium font-poppins italic outline-none"
             />

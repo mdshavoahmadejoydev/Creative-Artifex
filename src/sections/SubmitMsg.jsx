@@ -1,17 +1,22 @@
-import React from 'react'
-import Container from '../components/Container';
-import Flex from '../components/Flex';
-import Schedule from '../components/Schedule';
-import SubmitP from '../components/SubmitP';
-import Input from '../components/Input';
-import { useState, useEffect, useRef } from 'react';
-import { MdAddCall, MdEmail, MdLocationOn, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import React from "react";
+import Container from "../components/Container";
+import Flex from "../components/Flex";
+import Schedule from "../components/Schedule";
+import SubmitP from "../components/SubmitP";
+import Input from "../components/Input";
+import { useState, useEffect, useRef } from "react";
+import {
+  MdAddCall,
+  MdEmail,
+  MdLocationOn,
+  MdKeyboardArrowDown,
+  MdKeyboardArrowUp,
+} from "react-icons/md";
 
 import ReactCountryFlag from "react-country-flag";
-import { FaImage } from 'react-icons/fa';
+import { FaImage } from "react-icons/fa";
 
 const SubmitMsg = () => {
-  
   const [search, setSearch] = useState("");
   const [showOptions, setShowOptions] = useState(false);
 
@@ -62,8 +67,6 @@ const SubmitMsg = () => {
     };
   }, []);
 
-
-
   const countries = [
     { name: "BAN", code: "+880", countryCode: "BD" },
     { name: "USA", code: "+1", countryCode: "US" },
@@ -78,11 +81,8 @@ const SubmitMsg = () => {
     { name: "FRA", code: "+33", countryCode: "FR" },
   ];
 
-
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [showCountries, setShowCountries] = useState(false);
-  
-
 
   // click submit here button start
 
@@ -96,70 +96,44 @@ const SubmitMsg = () => {
 
   const [pressBtn, setPressBtn] = useState(false);
 
-  const [submitMsgArr, setSubmitMsgArr] = useState(() => {
-    const savedData = localStorage.getItem("submitMsgArr");
-    return savedData ? JSON.parse(savedData) : [];
-  });
-
-
-  useEffect(() => {
-    localStorage.setItem("submitMsgArr", JSON.stringify(submitMsgArr));
-  }, [submitMsgArr]);
-
   let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  let handleSubmitBtn = () => {
+  const PhoneNumber = `${selectedCountry.code}${phoneNumber}`;
 
-    if(!name) {
-      setNameerror(true)
+  let handleSubmitBtn = () => {
+    if (!name) {
+      setNameerror(true);
     }
-    if(!email) {
-      setEmailerror(true)
+    if (!email) {
+      setEmailerror(true);
     } else if (!emailregex.test(email)) {
       setEmailerror(true);
     }
-    
-    if(name && email && emailregex.test(email)) { 
 
-      const PhoneNumber = `${selectedCountry.code}${phoneNumber}`;
+    if (name && email && emailregex.test(email)) {
+      setName("");
+      setEmail("");
+      setPhoneNumber("");
+      setSearch("");
+      setDescription("");
+      setPressBtn(true);
 
-      let submitMsg = {
-        name: name,
-        email: email,
-        phoneNumber: PhoneNumber,
-        search:search,
-        description: description,
-        image: image,
-      };
-      
-      setSubmitMsgArr((prev) => [...prev, submitMsg])
-
-    setName("")
-    setEmail("")
-    setPhoneNumber("")
-    setSearch("")
-    setDescription("")
-    setPressBtn(true)
-
+      // console.log({
+      //   name: name,
+      //   email: email,
+      //   phoneNumber: PhoneNumber,
+      //   search: search,
+      //   description: description,
+      //   image: image,
+      // });
     }
-  }
+  };
 
-  useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem("submitMsgArr"));
+  
+  // click submit here button end
 
-    if (savedData && savedData.length > 0) {
-      console.log(savedData);
-    } else {
-      console.log(submitMsgArr);
-    }
-  }, [submitMsgArr]);
-
-   // click submit here button end
-   
-   // image element
-   const fileInputRef = useRef(null);
-   const [image, setImage] = useState([]);
- 
-
+  // image element
+  const fileInputRef = useRef(null);
+  const [image, setImage] = useState([]);
 
   return (
     <section className="bg-seagreen py-60">
@@ -459,6 +433,6 @@ const SubmitMsg = () => {
       </Container>
     </section>
   );
-}
+};
 
-export default SubmitMsg
+export default SubmitMsg;

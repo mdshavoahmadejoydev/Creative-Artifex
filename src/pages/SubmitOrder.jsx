@@ -24,7 +24,7 @@ const SubmitOrder = () => {
   const packagename = location.state?.packagename;
   const deliverytime = location.state?.time;
   const servidesname = location.state?.servidesname;
-  console.log(servidesname);
+  // console.log(servidesname);
 
   let navigate = useNavigate();
 
@@ -38,6 +38,8 @@ const SubmitOrder = () => {
 
   const [agree, setAgree] = useState(false);
   const [agreeError, setAgreeError] = useState(false);
+
+  const [description, setDescription] = useState("");
 
   const orderedSuccessfully = () => {
     if (!name) {
@@ -54,6 +56,19 @@ const SubmitOrder = () => {
     }
     if (name && emailregex.test(email) && phone && !isNaN(phone) && agree) {
       navigate("/order-submited");
+      const orderDetails = {
+        name: name,
+        email: email,
+        phoneNumber: phone,
+        description: description,
+        serviceName: servidesname,
+        packageName: packagename,
+        price: price,
+        deliveryTime: deliverytime,
+        agree: agree,
+      };
+
+      console.log(orderDetails);
     }
   };
 
@@ -163,6 +178,8 @@ const SubmitOrder = () => {
 
               <textarea
                 id="textarea"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 rows="4"
                 placeholder="Describe your idea, goals, required features, preferred style, timeline, and any references..."
                 className="w-full placeholder:text-black/70 placeholder:font-roboto placeholder:font-medium  border border-slate-400 rounded-lg p-3 outline-none resize-y focus:border-cyan-500"

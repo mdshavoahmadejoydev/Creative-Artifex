@@ -35,7 +35,7 @@ const OrderPageInput = ({ fullName, placeholder, id, icon,onChange, className, v
     };
   }, []);
 
-  console.log(phoneError)
+  // console.log(phoneError)
   return (
     <div>
       <label
