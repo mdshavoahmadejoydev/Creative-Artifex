@@ -16,23 +16,11 @@ import WebSoftware from "../pages/WebSoftware";
 import GraphicMultimedia from "../pages/GraphicMultimedia";
 import LiveMessage from "../components/LiveMessage";
 import PageScrollUp from "../components/PageScrollUp";
-import ProfileTemplate from "../sections/ProfileTemplate";
+import Login from "./Login";
+import Registration from "./Registration";
 
-const Header = () => {
-  //  message option code
-  //  useEffect(() => {
-  //     const handleScroll = () => {
-  //       if (window.scrollY > 200) {
-  //         setShowScheduleBox(false);
-  //       }
-  //     };
+const Header = ({}) => {
 
-  //     window.addEventListener("scroll", handleScroll);
-
-  //     return () => {
-  //       window.removeEventListener("scroll", handleScroll);
-  //     };
-  //   }, []);
 
   const [showServices, setShowServices] = useState(false);
   const [showTemplates, setShowTemplates] = useState(false);
@@ -84,20 +72,18 @@ const Header = () => {
     setShowUiuxd(false);
   };
 
-  const profileRef = useRef(null);
+  // const profileRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         !event.target.closest(".dropdown-area") &&
-        !event.target.closest(".dropdown-area-tem") &&
-        !event.target.closest(".profile-area")
+        !event.target.closest(".dropdown-area-tem") 
       ) {
         setShowServices(false);
         setShowGraphicD(false);
         setShowTemplates(false);
         setShowUiuxd(false);
-        setShowprofile(false);
       }
     };
 
@@ -135,25 +121,32 @@ const Header = () => {
   };
 
   // profileTemplate function start
-  const [showprofile, setShowprofile] = useState(false);
-  let handleProfile = () => {
-    setShowprofile(!showprofile);
+  const [loginshow, setLoginshow] = useState(null);
+  const [signupshow, setSignupshow] = useState(null);
+
+  // login
+  let handleLoginicon = () => {
+    setLoginshow(true);
+  };
+  
+  // signup link
+  let signuplink = () => {
+    setSignupshow(true);
+  };
+  
+  // login link
+  let loginlink = () => {
+    setSignupshow(false);
+    setLoginshow(true);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setShowprofile(false);
-      }
-    };
+  // crosIcon setup
+  let handlecloseicon = () => {
+    setLoginshow(false);
+    setSignupshow(false);
+  }
 
-    window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  // profileTemplate function end
 
   return (
     <header
@@ -277,15 +270,22 @@ const Header = () => {
                 </Link>
               </ul>
             </nav>
+
+            {/* Profile button start */}
             <button
-              ref={profileRef}
-              onClick={handleProfile}
-              className="group relative profile-area"
+              // ref={profileRef}
+              onClick={handleLoginicon}
+              className="group"
             >
               <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue duration-200" />
 
-              {showprofile && <ProfileTemplate />}
             </button>
+              
+            
+              {loginshow && <Login handlecloseicon={handlecloseicon} signuplink={signuplink}/>}
+              {signupshow && <Registration handlecloseicon={handlecloseicon} loginlink={loginlink}/>}
+            {/* Profile button end */}
+
           </Flex>
           {/* nav container end */}
         </Flex>
