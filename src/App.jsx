@@ -39,6 +39,7 @@ import SubmitOrder from './pages/SubmitOrder';
 import OrderSubmited from './pages/OrderSubmited';
 import ScheduleButton from './sections/ScheduleButton'
 import LiveMessage from './components/LiveMessage';
+import Deshboard from './pages/Dashboard'
 // import ProfileTemplate from './sections/ProfileTemplate'
 
 const router = createBrowserRouter(
@@ -90,6 +91,11 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Products/>}></Route>
       <Route path="/team" element={<Team/>}></Route>
       <Route path="/contact" element={<Contact/>}></Route>
+
+      
+
+        <Route path='/deshboard' element={<Deshboard/>}>
+        </Route>
 
       <Route path="/order" element={<SubmitOrder/>}></Route>
 

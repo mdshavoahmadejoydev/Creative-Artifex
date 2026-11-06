@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ handlecloseicon, signuplink }) => {
   const [email, setEmail] = useState("");
@@ -12,6 +13,8 @@ const Login = ({ handlecloseicon, signuplink }) => {
 
   let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   let length_character = /[A-Za-z\d@$!%*?&]{8,}$/;
+
+  let navigate = useNavigate();
 
   let handleLoginBtn = () => {
     if (!email) {
@@ -30,7 +33,8 @@ const Login = ({ handlecloseicon, signuplink }) => {
       emailregex.test(email) &&
       length_character.test(password)
     ) {
-      console.log("clicked");
+      handlecloseicon()
+      navigate("/deshboard")
     }
   };
 

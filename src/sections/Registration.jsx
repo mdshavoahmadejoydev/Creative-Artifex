@@ -37,7 +37,6 @@ const Registration = ({ handlecloseicon, loginlink }) => {
       length_character.test(password)
     ) {
       loginlink();
-      console.log("clicked");
     }
   };
 
