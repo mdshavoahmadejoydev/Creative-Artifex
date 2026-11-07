@@ -274,6 +274,7 @@ const Header = ({}) => {
             {/* Profile button start */}
             <button
               // ref={profileRef}
+              disabled={location.pathname=="/deshboard"}
               onClick={handleLoginicon}
               className="group"
             >
