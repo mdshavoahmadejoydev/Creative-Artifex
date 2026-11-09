@@ -10,6 +10,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 // firebase code end
 
@@ -24,6 +25,12 @@ const Login = ({ handlecloseicon, signuplink }) => {
   const [passwordError, setPasswordError] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
+
+  // for reset email start
+  const [resetEmail, setResetEmail] = useState(false) 
+  const [resetemailerror, setResetEmailError] = useState("");
+  const[popup, setPopup] = useState(false)
+  // for reset email end
 
   let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   let length_character = /[A-Za-z\d@$!%*?&]{8,}$/;
@@ -85,6 +92,30 @@ const Login = ({ handlecloseicon, signuplink }) => {
       });
   };
   // sign in with google end
+
+  
+  // let submitResetEmail = () => {
+  //   if (resetEmail) {
+  //     if (!emailregex.test(resetEmail)) {
+  //       setResetEmailError("Enter Your Verified Email");
+  //     } else {
+  //       console.log("clicked");
+  //       sendPasswordResetEmail(auth, resetEmail)
+  //         .then(() => {
+  //           toast.info("Check Yout Email for Reset");
+  //         })
+  //         .catch((error) => {
+  //           const errorCode = error.code;
+  //         });
+  //       console.log("clicked");
+  //       setTimeout(() => {
+  //         setPopup(false);
+  //       }, 200);
+  //     }
+  //   } else {
+  //     setResetEmailError("Enter Your Verified Email");
+  //   }
+  // };
 
   return (
     <div className="w-screen h-screen fixed top-0 left-0 bg-black/70">
@@ -185,9 +216,61 @@ const Login = ({ handlecloseicon, signuplink }) => {
               Remember me
             </label>
 
-            <p className="text-red-500 hover:underline cursor-pointer">
+            <p
+              // onClick={submitResetEmail}
+              className="text-red-500 hover:underline cursor-pointer"
+            >
               Forgot password?
             </p>
+
+            {/* forget part */}
+            
+            {/* {popup && (
+              <div className="absolute top-0 left-0 w-full h-screen bg-black/70 z-20 flex justify-center items-center">
+                <div className="h-[400px] w-[600px] bg-white rounded-2xl flex flex-col justify-center items-center">
+                  <h2 className="text-34 text-primary font-bold font-nonito">
+                    Forget Password
+                  </h2>
+                  <p className="text-sm text-red-700 font-medium mt-4">
+                    Enter your email for reset your password
+                  </p>
+
+                  <CssTextField
+                    id="outlined-basic"
+                    label="Email Address"
+                    variant="outlined"
+                    className="mt-4!"
+                    onChange={(e) => {
+                      setResetEmail(e.target.value);
+                      setResetEmailError("");
+                    }}
+                  />
+                  {resetemailerror && (
+                    <p className="bg-red-500 text-white rounded py-2 px-3 w-[70%] mt-2">
+                      {resetemailerror}
+                    </p>
+                  )}
+
+                  <div className="flex gap-2 mt-4">
+                    <button
+                      className="bg-primary text-xl text-white font-Opensans font-medium rounded-2xl py-1 px-3 cursor-pointer"
+                      onClick={() => setPopup(false)}
+                    >
+                      cancel
+                    </button>
+
+                    <button
+                      className="bg-primary text-xl text-white font-Opensans font-medium rounded-2xl py-1 px-3 cursor-pointer"
+                      onClick={submitResetEmail}
+                    >
+                      submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )} */}
+            {/* forget part end */}
+
           </div>
 
           <div className="flex justify-center">

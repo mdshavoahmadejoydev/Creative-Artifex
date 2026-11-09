@@ -235,10 +235,6 @@ const Registration = ({ handlecloseicon, loginlink }) => {
               />
               Remember me
             </label>
-
-            <p className="text-red-500 hover:underline cursor-pointer">
-              Forgot password?
-            </p>
           </div>
 
           <div className="flex justify-center">
