@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+
+import { useDispatch } from "react-redux";
+
+import { activeuser } from "../../slices/activeUserSlice";
 
 // firebase code start
 import {
@@ -19,6 +23,8 @@ const Login = ({ handlecloseicon, signuplink }) => {
   const auth = getAuth();
   // firebase code end
 
+  let dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
@@ -27,9 +33,9 @@ const Login = ({ handlecloseicon, signuplink }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   // for reset email start
-  const [resetEmail, setResetEmail] = useState(false) 
+  const [resetEmail, setResetEmail] = useState(false);
   const [resetemailerror, setResetEmailError] = useState("");
-  const[popup, setPopup] = useState(false)
+  const [popup, setPopup] = useState(false);
   // for reset email end
 
   let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -61,12 +67,20 @@ const Login = ({ handlecloseicon, signuplink }) => {
           const user = userCredential.user;
           // console.log(user)
 
+          // set data redux s
+          dispatch(activeuser(userCredential.user));
+          localStorage.setItem(
+            "activeuser",
+            JSON.stringify(userCredential.user),
+          );
+          // set data redux e
+
           handlecloseicon();
           navigate("/deshboard");
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
+          // const errorMessage = error.message;
           errorCode.includes("invalid-credential") &&
             setPasswordError("invalid username or password");
         });
@@ -93,7 +107,6 @@ const Login = ({ handlecloseicon, signuplink }) => {
   };
   // sign in with google end
 
-  
   // let submitResetEmail = () => {
   //   if (resetEmail) {
   //     if (!emailregex.test(resetEmail)) {
@@ -224,7 +237,7 @@ const Login = ({ handlecloseicon, signuplink }) => {
             </p>
 
             {/* forget part */}
-            
+
             {/* {popup && (
               <div className="absolute top-0 left-0 w-full h-screen bg-black/70 z-20 flex justify-center items-center">
                 <div className="h-[400px] w-[600px] bg-white rounded-2xl flex flex-col justify-center items-center">
@@ -270,7 +283,6 @@ const Login = ({ handlecloseicon, signuplink }) => {
               </div>
             )} */}
             {/* forget part end */}
-
           </div>
 
           <div className="flex justify-center">

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import headerLogo from "../assets/creativeArtifexLogo.png";
 import headerLogoTagline from "../assets/creativeArtifexLogoTagline.png";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Container from "../components/Container";
 import Flex from "../components/Flex";
@@ -18,9 +18,13 @@ import LiveMessage from "../components/LiveMessage";
 import PageScrollUp from "../components/PageScrollUp";
 import Login from "./Login";
 import Registration from "./Registration";
+import { useSelector } from "react-redux";
 
 const Header = ({}) => {
+  const activeUserRedux = useSelector((state) => state.activeuser.value);
+  // console.log(activeUserRedux);
 
+  const navigate = useNavigate();
 
   const [showServices, setShowServices] = useState(false);
   const [showTemplates, setShowTemplates] = useState(false);
@@ -78,7 +82,7 @@ const Header = ({}) => {
     const handleClickOutside = (event) => {
       if (
         !event.target.closest(".dropdown-area") &&
-        !event.target.closest(".dropdown-area-tem") 
+        !event.target.closest(".dropdown-area-tem")
       ) {
         setShowServices(false);
         setShowGraphicD(false);
@@ -126,14 +130,18 @@ const Header = ({}) => {
 
   // login
   let handleLoginicon = () => {
-    setLoginshow(true);
+    if (activeUserRedux != null) {
+      navigate("/deshboard");
+    } else {
+      setLoginshow(true);
+    }
   };
-  
+
   // signup link
   let signuplink = () => {
     setSignupshow(true);
   };
-  
+
   // login link
   let loginlink = () => {
     setSignupshow(false);
@@ -144,9 +152,7 @@ const Header = ({}) => {
   let handlecloseicon = () => {
     setLoginshow(false);
     setSignupshow(false);
-  }
-
-
+  };
 
   return (
     <header
@@ -274,19 +280,28 @@ const Header = ({}) => {
             {/* Profile button start */}
             <button
               // ref={profileRef}
-              disabled={location.pathname=="/deshboard"}
+              disabled={location.pathname == "/deshboard"}
               onClick={handleLoginicon}
               className="group"
             >
               <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue duration-200" />
-
             </button>
-              
-            
-              {loginshow && <Login handlecloseicon={handlecloseicon} signuplink={signuplink}/>}
-              {signupshow && <Registration handlecloseicon={handlecloseicon} loginlink={loginlink}/>}
-            {/* Profile button end */}
 
+            {loginshow && (
+              <Login
+                handlecloseicon={handlecloseicon}
+                signuplink={signuplink}
+              />
+            )}
+
+            {signupshow && (
+              <Registration
+                handlecloseicon={handlecloseicon}
+                loginlink={loginlink}
+              />
+            )}
+
+            {/* Profile button end */}
           </Flex>
           {/* nav container end */}
         </Flex>

@@ -1,22 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const activeUserSlice = createSlice({
-  name: "counter",
+  name: "activeuser",
   initialState: {
-    value: null,
+    value: localStorage.getItem("activeuser")
+      ? JSON.parse(localStorage.getItem("activeuser"))
+      : null,
   },
   reducers: {
-    activeuser: ({state, actions}) => {
-      console.log(state.value)
-      console.log(actions.payload)
+    activeuser: (state, actions) => {
+      state.value = actions.payload;
     },
-
 
     // decrement: (state) => {
     //   state.value -= 1;
     // },
   },
 });
-export const { increment } = activeUserSlice.actions;
+export const { activeuser } = activeUserSlice.actions;
 
 export default activeUserSlice.reducer;
