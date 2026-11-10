@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { getAuth, signOut } from "firebase/auth";
+
+
+import { activeuser } from "../../slices/activeUserSlice";
+
 import {
   FiShoppingCart,
   FiCheckCircle,
@@ -17,30 +22,64 @@ import {
   FiX,
 } from "react-icons/fi";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   const activeUserRedux = useSelector((state) => state.activeuser.value);
-  console.log(activeUserRedux);
+  // console.log(activeUserRedux);
 
   useEffect(() => {
     activeUserRedux == null && navigate("/");
   }, []);
 
   const [activeMenu, setActiveMenu] = useState("Your Order List");
-  
 
-const menuItems = [
-  { name: "Dashboard", icon: <FiHome />, path: "/deshboard" },
-  { name: "Your Order List", icon: <FiBox />, path: "/deshboard/orderlist" },
-  { name: "Settings", icon: <FiSettings />, path: "/deshboard/Setting" },
-  { name: "Notifications", icon: <FiBell />, path: "/deshboard/Notifications", notification: true },
-  { name: "Support", icon: <FiHeadphones />, path: "/deshboard/support" },
-  { name: "Logout", icon: <FiLogOut /> },
-];
+  const menuItems = [
+    { name: "Dashboard", icon: <FiHome />, path: "/deshboard" },
+    { name: "Your Order List", icon: <FiBox />, path: "/deshboard/orderlist" },
+    { name: "Settings", icon: <FiSettings />, path: "/deshboard/Setting" },
+    {
+      name: "Notifications",
+      icon: <FiBell />,
+      path: "/deshboard/Notifications",
+      notification: true,
+    },
+    { name: "Support", icon: <FiHeadphones />, path: "/deshboard/support" },
+    { name: "Logout", icon: <FiLogOut /> },
+  ];
+
+
+
+  const dispatch = useDispatch();
+  const auth = getAuth();
+ const handleLogout = () => {
+  signOut(auth)
+    .then(() => {
+      console.log("logout");
+
+      localStorage.removeItem("activeuser");
+
+      dispatch(activeuser(null));
+
+      navigate("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+  const handleMenuClick = (item) => {
+  if (item.name === "Logout") {
+    handleLogout();
+  } else {
+    setActiveMenu(item.name);
+  }
+};
+
+
 
   const statistics = [
     {
@@ -73,8 +112,6 @@ const menuItems = [
     },
   ];
 
-
-
   return (
     <div className="min-h-screen bg-[#f7f8fc] p-3 mt-94">
       <div className="flex flex-col lg:flex-row gap-4 max-w-[1500px] mx-auto">
@@ -103,30 +140,30 @@ const menuItems = [
 
           {/* Menu */}
           <nav className="mt-3 flex flex-col gap-1">
-  {menuItems.map((item, index) => (
-    <Link
-      key={index}
-      to={item.path}
-      onClick={() => setActiveMenu(item.name)}
-      className={`relative flex items-center gap-4 px-4 py-3 rounded-lg text-[13px] font-medium transition-all cursor-pointer
-        ${
-          activeMenu === item.name
-            ? "bg-[#fff0f1] text-red-500 border-l-4 border-red-500"
-            : "text-[#17233d] hover:bg-gray-50"
-        }`}
-    >
-      <span className="text-xl">{item.icon}</span>
+            {menuItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                onClick={() => handleMenuClick(item)}
+                className={`relative flex items-center gap-4 px-4 py-3 rounded-lg text-[13px] font-medium transition-all cursor-pointer
+                ${
+                  activeMenu === item.name
+                    ? "bg-[#fff0f1] text-red-500 border-l-4 border-red-500"
+                    : "text-[#17233d] hover:bg-gray-50"
+                }`}
+              >
+                <span className="text-xl">{item.icon}</span>
 
-      <span>{item.name}</span>
+                <span>{item.name}</span>
 
-      {item.notification && (
-        <span className="ml-auto bg-red-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-[11px]">
-          3
-        </span>
-      )}
-    </Link>
-  ))}
-</nav>
+                {item.notification && (
+                  <span className="ml-auto bg-red-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-[11px]">
+                    3
+                  </span>
+                )}
+              </Link>
+            ))}
+          </nav>
 
           {/* Help Card */}
           <div className="mt-4 bg-[#d9f8ef] rounded-xl p-3 flex gap-2 items-start">
@@ -160,12 +197,10 @@ const menuItems = [
               </p>
             </div>
 
-
             <button className="absolute top-0 right-0 bg-white rounded-bl-lg p-2 text-gray-700">
               <FiX />
             </button>
           </div>
-
           {/* Statistics Cards */}
           <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
             {statistics.map((item, index) => (
@@ -191,9 +226,7 @@ const menuItems = [
               </div>
             ))}
           </div>
-
-          <Outlet/> {/* for other pages */}
-
+          <Outlet /> {/* for other pages */}
         </main>
       </div>
     </div>

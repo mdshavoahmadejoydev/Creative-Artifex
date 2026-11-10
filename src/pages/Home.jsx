@@ -12,12 +12,20 @@ import SubmitMsg from "../sections/SubmitMsg";
 
 import ScheduleButton from "../sections/ScheduleButton";
 import LiveMessage from "../components/LiveMessage";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+
   const [showScheduleBox, setShowScheduleBox] = useState(false);
   // find item on search input
   const handleMeetingTime = () => {
-    
     setTimeout(() => {
       setShowScheduleBox(!showScheduleBox);   
     }, 150);
