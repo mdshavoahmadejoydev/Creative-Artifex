@@ -35,7 +35,7 @@ const Dashboard = () => {
     activeUserRedux == null && navigate("/");
   }, []);
 
-  const [activeMenu, setActiveMenu] = useState("Your Order List");
+  const [activeMenu, setActiveMenu] = useState("Dashboard");
 
   const menuItems = [
     { name: "Dashboard", icon: <FiHome />, path: "/deshboard" },
