@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import {
   FiShoppingCart,
   FiCheckCircle,
@@ -15,25 +17,30 @@ import {
   FiX,
 } from "react-icons/fi";
 
-
- 
-
+import { useSelector } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
 
+  const activeUserRedux = useSelector((state) => state.activeuser.value);
+  console.log(activeUserRedux);
+
+  useEffect(() => {
+    activeUserRedux == null && navigate("/");
+  }, []);
+
+  const [activeMenu, setActiveMenu] = useState("Your Order List");
   
 
-
-
-  const menuItems = [
-    { name: "Dashboard", icon: <FiHome />, active: true },
-    { name: "Your Order List", icon: <FiBox /> },
-    { name: "Settings", icon: <FiSettings /> },
-    { name: "Payment Methods", icon: <FiCreditCard /> },
-    { name: "Notifications", icon: <FiBell />, notification: true },
-    { name: "Support", icon: <FiHeadphones /> },
-    { name: "Logout", icon: <FiLogOut /> },
-  ];
+const menuItems = [
+  { name: "Dashboard", icon: <FiHome />, path: "/deshboard" },
+  { name: "Your Order List", icon: <FiBox />, path: "/deshboard/orderlist" },
+  { name: "Settings", icon: <FiSettings />, path: "/deshboard/Setting" },
+  { name: "Notifications", icon: <FiBell />, path: "/deshboard/Notifications", notification: true },
+  { name: "Support", icon: <FiHeadphones />, path: "/deshboard/support" },
+  { name: "Logout", icon: <FiLogOut /> },
+];
 
   const statistics = [
     {
@@ -66,32 +73,7 @@ const Dashboard = () => {
     },
   ];
 
-  const orders = [
-    {
-      id: 1,
-      service: "Website Development",
-      package: "Standard",
-      amount: "$500",
-      status: "Completed",
-      date: "Oct 28, 2025",
-    },
-    {
-      id: 2,
-      service: "Graphic Design",
-      package: "Basic",
-      amount: "$150",
-      status: "Pending",
-      date: "Nov 02, 2025",
-    },
-    {
-      id: 3,
-      service: "Software Development",
-      package: "Premium",
-      amount: "$800",
-      status: "Processing",
-      date: "Nov 04, 2025",
-    },
-  ];
+
 
   return (
     <div className="min-h-screen bg-[#f7f8fc] p-3 mt-94">
@@ -121,28 +103,30 @@ const Dashboard = () => {
 
           {/* Menu */}
           <nav className="mt-3 flex flex-col gap-1">
-            {menuItems.map((item, index) => (
-              <button
-                key={index}
-                className={`relative flex items-center gap-4 px-4 py-3 rounded-lg text-[13px] font-medium transition-all
-                ${
-                  item.active
-                    ? "bg-[#fff0f1] text-red-500 border-l-4 border-red-500"
-                    : "text-[#17233d] hover:bg-gray-50"
-                }`}
-              >
-                <span className="text-xl">{item.icon}</span>
+  {menuItems.map((item, index) => (
+    <Link
+      key={index}
+      to={item.path}
+      onClick={() => setActiveMenu(item.name)}
+      className={`relative flex items-center gap-4 px-4 py-3 rounded-lg text-[13px] font-medium transition-all cursor-pointer
+        ${
+          activeMenu === item.name
+            ? "bg-[#fff0f1] text-red-500 border-l-4 border-red-500"
+            : "text-[#17233d] hover:bg-gray-50"
+        }`}
+    >
+      <span className="text-xl">{item.icon}</span>
 
-                <span>{item.name}</span>
+      <span>{item.name}</span>
 
-                {item.notification && (
-                  <span className="ml-auto bg-red-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-[11px]">
-                    3
-                  </span>
-                )}
-              </button>
-            ))}
-          </nav>
+      {item.notification && (
+        <span className="ml-auto bg-red-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-[11px]">
+          3
+        </span>
+      )}
+    </Link>
+  ))}
+</nav>
 
           {/* Help Card */}
           <div className="mt-4 bg-[#d9f8ef] rounded-xl p-3 flex gap-2 items-start">
@@ -176,7 +160,6 @@ const Dashboard = () => {
               </p>
             </div>
 
-            <div className="text-white/30 text-4xl font-bold italic">CA</div>
 
             <button className="absolute top-0 right-0 bg-white rounded-bl-lg p-2 text-gray-700">
               <FiX />
@@ -209,81 +192,8 @@ const Dashboard = () => {
             ))}
           </div>
 
-          {/* Order List */}
-          <div className="bg-white border border-gray-100 rounded-xl p-3 shadow-sm">
-            {/* Heading */}
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-3">
-                <FiBox className="text-2xl text-[#101b35]" />
+          <Outlet/> {/* for other pages */}
 
-                <h2 className="font-bold text-[15px] text-[#101b35]">
-                  Your Order List
-                </h2>
-              </div>
-
-              <button className="border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full hover:bg-red-500 hover:text-white transition-all">
-                View All →
-              </button>
-            </div>
-
-            {/* Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[650px] text-left">
-                <thead>
-                  <tr className="bg-[#f0f2f6] text-[11px] text-[#263653]">
-                    <th className="p-3 rounded-tl-lg">#</th>
-                    <th className="p-3">Service</th>
-                    <th className="p-3">Package</th>
-                    <th className="p-3">Amount</th>
-                    <th className="p-3">Status</th>
-                    <th className="p-3">Date</th>
-                    <th className="p-3 rounded-tr-lg">Action</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {orders.map((order) => (
-                    <tr
-                      key={order.id}
-                      className="border-b border-gray-100 text-[11px] text-[#17233d]"
-                    >
-                      <td className="p-3 font-semibold">{order.id}</td>
-
-                      <td className="p-3 whitespace-nowrap">{order.service}</td>
-
-                      <td className="p-3">{order.package}</td>
-
-                      <td className="p-3 font-medium">{order.amount}</td>
-
-                      <td className="p-3">
-                        <span
-                          className={`px-3 py-1 rounded-full font-semibold whitespace-nowrap
-                          ${
-                            order.status === "Completed"
-                              ? "bg-green-100 text-green-600"
-                              : order.status === "Pending"
-                                ? "bg-blue-100 text-blue-600"
-                                : "bg-purple-100 text-purple-600"
-                          }`}
-                        >
-                          {order.status}
-                        </span>
-                      </td>
-
-                      <td className="p-3 whitespace-nowrap">{order.date}</td>
-
-                      <td className="p-3">
-                        <button className="flex items-center gap-1 border border-gray-200 rounded-full px-3 py-1 hover:bg-gray-100">
-                          <FiEye />
-                          View
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
         </main>
       </div>
     </div>
