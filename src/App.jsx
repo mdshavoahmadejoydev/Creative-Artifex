@@ -45,6 +45,7 @@ import Dashboarditems from "./pages/Dashboarditems";
 import Notifications from "./pages/Notifications";
 import Support from "./pages/Support";
 import Setting from "./pages/Setting";
+import Error from "./sections/Error"
 // import ProfileTemplate from './sections/ProfileTemplate'
 
 const router = createBrowserRouter(
@@ -128,6 +129,7 @@ const router = createBrowserRouter(
         <Route path="/order" element={<SubmitOrder />}></Route>
 
         <Route path="/order-submited" element={<OrderSubmited />}></Route>
+        <Route path="/*" element={<Error />}></Route>
       </Route>
       <Route path="/livemessage" element={<LiveMessage />}></Route>
       {/* <Route path="/profile" element={<ProfileTemplate/>}></Route> */}

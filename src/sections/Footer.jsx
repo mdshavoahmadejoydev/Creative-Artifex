@@ -68,7 +68,7 @@ const Footer = () => {
       
       <Container>
         <Flex className={`items-center justify-around`}>
-          <p className='font-poppins font-medium text-white/50 text-base'>© 2024 creative artifex</p>
+          <p className='font-poppins font-medium text-white/50 text-base'> © {new Date().getFullYear()} creative artifex</p>
           <Flex className='items-center gap-10'>
             <p className='font-poppins font-medium text-white text-lg'>Folllow us on</p>
             <Flex className={`gap-6`}>
