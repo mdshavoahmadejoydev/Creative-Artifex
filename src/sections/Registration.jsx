@@ -75,7 +75,7 @@ const Registration = ({ handlecloseicon, loginlink }) => {
             set(push(ref(db, "alluser/")), {
               name: name,
               email: userCredential.user.email,
-              userid: userCredential.user.uid,
+              uid: userCredential.user.uid,
               profilepick: userCredential.user.photoURL,
             });
           });

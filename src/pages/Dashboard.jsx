@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+// firebase s
 import { getAuth, signOut } from "firebase/auth";
-
+import { getDatabase, ref, onValue } from "firebase/database";
+// firebase e
 
 import { activeuser } from "../../slices/activeUserSlice";
+import Image from "../components/Image";
 
 import {
   FiShoppingCart,
@@ -31,6 +34,27 @@ const Dashboard = () => {
   const activeUserRedux = useSelector((state) => state.activeuser.value);
   // console.log(activeUserRedux);
 
+  // firebase read operation s
+  const db = getDatabase();
+
+  const [alluser, setAlluser] = useState([]);
+
+  useEffect(() => {
+    const starCountRef = ref(db, "alluser/");
+    onValue(starCountRef, (snapshot) => {
+      let arr = [];
+      snapshot.forEach((item) => {
+        if (activeUserRedux.uid == item.val().uid) {
+          arr.push(item.val());
+        }
+      });
+      setAlluser(arr);
+    });
+  }, []);
+  console.log(alluser);
+
+  // firebase read operation e
+
   useEffect(() => {
     activeUserRedux == null && navigate("/");
   }, []);
@@ -51,35 +75,32 @@ const Dashboard = () => {
     { name: "Logout", icon: <FiLogOut /> },
   ];
 
-
-
   const dispatch = useDispatch();
   const auth = getAuth();
- const handleLogout = () => {
-  signOut(auth)
-    .then(() => {
-      console.log("logout");
 
-      localStorage.removeItem("activeuser");
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("logout");
 
-      dispatch(activeuser(null));
+        localStorage.removeItem("activeuser");
 
-      navigate("/");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+        dispatch(activeuser(null));
+
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleMenuClick = (item) => {
-  if (item.name === "Logout") {
-    handleLogout();
-  } else {
-    setActiveMenu(item.name);
-  }
-};
-
-
+    if (item.name === "Logout") {
+      handleLogout();
+    } else {
+      setActiveMenu(item.name);
+    }
+  };
 
   const statistics = [
     {
@@ -113,30 +134,32 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f7f8fc] p-3 mt-94">
+    <div className="bg-[#f7f8fc] p-3 mt-94">
       <div className="flex flex-col lg:flex-row gap-4 max-w-[1500px] mx-auto">
         {/* Sidebar */}
         <aside className="w-full lg:w-[300px] shrink-0 bg-white rounded-2xl border border-gray-200 p-4">
           {/* Profile */}
-          <div className="flex flex-col items-center border-b border-gray-100 pb-5">
-            <div className="relative">
-              <div className="w-[100px] h-[100px] rounded-full border-[5px] border-[#e7f5f3] p-1">
-                <img
-                  src="https://i.pravatar.cc/150?img=12"
-                  alt="Profile"
-                  className="w-full h-full rounded-full object-cover"
-                />
+          {alluser.map((item) => (
+            <div className="flex flex-col items-center border-b border-gray-100 pb-5">
+              <div className="relative">
+                <div className="w-[100px] h-[100px] rounded-full border-[5px] border-[#e7f5f3] p-1">
+                  <Image
+                    src={`https://i.ibb.co.com/4w0hWck8/joy-for-fiverr-2.png`}
+                    alt={`profile`}
+                    className={`w-full h-full object-cover rounded-full`}
+                  />
+                </div>
+
+                <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
               </div>
 
-              <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+              <h3 className="font-bold text-[14px] text-[#101b35] mt-3">
+                {item.name}
+              </h3>
+
+              <p className="text-xs text-gray-500 mt-1">{item.email}</p>
             </div>
-
-            <h3 className="font-bold text-[14px] text-[#101b35] mt-3">
-              Md Shavo Ahmade Joy
-            </h3>
-
-            <p className="text-xs text-gray-500 mt-1">joydev@example.com</p>
-          </div>
+          ))}
 
           {/* Menu */}
           <nav className="mt-3 flex flex-col gap-1">
@@ -202,11 +225,11 @@ const Dashboard = () => {
             </button>
           </div>
           {/* Statistics Cards */}
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
+          <div className="flex flex-wrap gap-3">
             {statistics.map((item, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-100 rounded-2xl p-3 flex items-center gap-3 shadow-sm"
+                className="flex-1 min-w-[140px] bg-white border border-gray-100 rounded-2xl p-3 flex items-center gap-3 shadow-sm"
               >
                 <div
                   className={`${item.bg} ${item.color} w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0`}
