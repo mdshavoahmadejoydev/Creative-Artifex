@@ -117,18 +117,17 @@ const SubmitMsg = () => {
       setDescription("");
       setPressBtn(true);
 
-      // console.log({
-      //   name: name,
-      //   email: email,
-      //   phoneNumber: PhoneNumber,
-      //   search: search,
-      //   description: description,
-      //   image: image,
-      // });
+      console.log({
+        name: name,
+        email: email,
+        phoneNumber: PhoneNumber,
+        search: search,
+        description: description,
+        image: image,
+      });
     }
   };
 
-  
   // click submit here button end
 
   // image element
@@ -325,6 +324,7 @@ const SubmitMsg = () => {
               </div>
             </div>
 
+            {/* file input start */}
             <div
               onClick={() => fileInputRef.current.click()}
               className="mt-4 cursor-pointer"
@@ -366,6 +366,7 @@ const SubmitMsg = () => {
                 </div>
               )}
             </div>
+            {/* file input end */}
 
             <div className="mt-4">
               <SubmitP text={`Description`} requerment={false} />

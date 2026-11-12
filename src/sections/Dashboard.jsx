@@ -32,7 +32,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const activeUserRedux = useSelector((state) => state.activeuser.value);
-  // console.log(activeUserRedux);
+  // console.log(activeUserRedux.photoURL);
 
   // firebase read operation s
   const db = getDatabase();
@@ -51,7 +51,7 @@ const Dashboard = () => {
       setAlluser(arr);
     });
   }, []);
-  console.log(alluser);
+  // console.log(alluser);
 
   // firebase read operation e
 
@@ -142,22 +142,22 @@ const Dashboard = () => {
           {alluser.map((item) => (
             <div className="flex flex-col items-center border-b border-gray-100 pb-5">
               <div className="relative">
-                <div className="w-[100px] h-[100px] rounded-full border-[5px] border-[#e7f5f3] p-1">
+                <div className="w-[100px] h-[100px] hover:bg-black rounded-full border-[5px] border-[#e7f5f3] p-1">
                   <Image
-                    src={`https://i.ibb.co.com/4w0hWck8/joy-for-fiverr-2.png`}
+                    src={item.profilepick}
                     alt={`profile`}
                     className={`w-full h-full object-cover rounded-full`}
                   />
                 </div>
 
-                <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+                {/* <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span> */}
               </div>
 
-              <h3 className="font-bold text-[14px] text-[#101b35] mt-3">
+              <h3 className="font-bold font-roboto text-xl text-[#101b35] mt-2">
                 {item.name}
               </h3>
 
-              <p className="text-xs text-gray-500 mt-1">{item.email}</p>
+              <p className="text-xs text-gray-500">{item.email}</p>
             </div>
           ))}
 
@@ -220,9 +220,9 @@ const Dashboard = () => {
               </p>
             </div>
 
-            <button className="absolute top-0 right-0 bg-white rounded-bl-lg p-2 text-gray-700">
+            {/* <button className="absolute top-0 right-0 bg-white rounded-bl-lg p-2 text-gray-700">
               <FiX />
-            </button>
+            </button> */}
           </div>
           {/* Statistics Cards */}
           <div className="flex flex-wrap gap-3">

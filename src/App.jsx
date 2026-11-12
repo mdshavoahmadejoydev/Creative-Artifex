@@ -39,12 +39,12 @@ import SubmitOrder from "./pages/SubmitOrder";
 import OrderSubmited from "./pages/OrderSubmited";
 import ScheduleButton from "./sections/ScheduleButton";
 import LiveMessage from "./components/LiveMessage";
-import Deshboard from "./pages/Dashboard";
-import OrderList from "./pages/OrderList";
-import Dashboarditems from "./pages/Dashboarditems";
-import Notifications from "./pages/Notifications";
-import Support from "./pages/Support";
-import Setting from "./pages/Setting";
+import Deshboard from "./sections/Dashboard";
+import OrderList from "./sections/OrderList";
+import Dashboarditems from "./sections/Dashboarditems";
+import Notifications from "./sections/Notifications";
+import Support from "./sections/Support";
+import Setting from "./sections/Setting";
 import Error from "./sections/Error"
 // import ProfileTemplate from './sections/ProfileTemplate'
 

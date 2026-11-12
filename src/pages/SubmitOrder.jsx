@@ -2,73 +2,138 @@ import React, { useState } from "react";
 import ReviewsPageTitle from "../components/ReviewsPageTitle";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import ReactCountryFlag from "react-country-flag";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
-import {
-  FaUser,
-  FaFileAlt,
-  FaPaperclip,
-  FaHeadset,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaPaperclip, FaHeadset } from "react-icons/fa";
+
 import { FiClipboard, FiPackage, FiClock } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import OrderPageInput from "../components/OrderPageInput";
 import { FaArrowRightLong } from "react-icons/fa6";
 
+// firebase start
+import { getDatabase, push, ref, set } from "firebase/database";
+// firebase end
+
+const countries = [
+  { name: "BAN", code: "+880", countryCode: "BD" },
+  { name: "USA", code: "+1", countryCode: "US" },
+  { name: "GBR", code: "+44", countryCode: "GB" },
+  { name: "CAN", code: "+1", countryCode: "CA" },
+  { name: "AUS", code: "+61", countryCode: "AU" },
+  { name: "IND", code: "+91", countryCode: "IN" },
+  { name: "PAK", code: "+92", countryCode: "PK" },
+  { name: "SAU", code: "+966", countryCode: "SA" },
+  { name: "ARE", code: "+971", countryCode: "AE" },
+  { name: "DEU", code: "+49", countryCode: "DE" },
+  { name: "FRA", code: "+33", countryCode: "FR" },
+];
+
 const SubmitOrder = () => {
+  // firebase start
+  const db = getDatabase();
+  // firebase end
   const location = useLocation();
+  const navigate = useNavigate();
+
   const price = location.state?.pricemoney;
   const packagename = location.state?.packagename;
   const deliverytime = location.state?.time;
   const servidesname = location.state?.servidesname;
-  // console.log(servidesname);
 
-  let navigate = useNavigate();
+  const emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  let emailregex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState(false);
+
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
+
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState(false);
+
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [showCountries, setShowCountries] = useState(false);
 
   const [agree, setAgree] = useState(false);
   const [agreeError, setAgreeError] = useState(false);
 
   const [description, setDescription] = useState("");
 
+  const PhoneNumber = `${selectedCountry.code}${phone}`;
+
   const orderedSuccessfully = () => {
-    if (!name) {
+    const phoneDigits = phone.replace(/\D/g, "");
+
+    if (!name.trim()) {
       setNameError(true);
     }
+
     if (!emailregex.test(email)) {
       setEmailError(true);
     }
-    if (!phone || isNaN(phone)) {
+
+    if (phoneDigits.length < 7 || phoneDigits.length > 15) {
       setPhoneError(true);
     }
+
     if (!agree) {
       setAgreeError(true);
     }
-    if (name && emailregex.test(email) && phone && !isNaN(phone) && agree) {
-      navigate("/order-submited");
-      const orderDetails = {
+
+    if (
+      name.trim() &&
+      emailregex.test(email) &&
+      phoneDigits.length >= 7 &&
+      phoneDigits.length <= 15 &&
+      agree
+    ) {
+      // const orderDetails = {
+      //   name: name,
+      //   email: email,
+      //   phoneNumber: PhoneNumber,
+      //   countryCode: selectedCountry.code,
+      //   description: description,
+      //   serviceName: servidesname,
+      //   packageName: packagename,
+      //   price: price,
+      //   deliveryTime: deliverytime,
+      //   agree: agree,
+      // };
+
+      // console.log(orderDetails);
+
+      // firebase start
+      let date = new Date().getDate()
+      let month = new Date().getMonth()
+      let year = new Date().getFullYear()
+      // console.log(year) 
+      // console.log(month) 
+      // console.log(date) 
+
+      set(push(ref(db, "orderlist/")), {
         name: name,
         email: email,
-        phoneNumber: phone,
+        phoneNumber: PhoneNumber,
+        countryCode: selectedCountry.code,
         description: description,
         serviceName: servidesname,
         packageName: packagename,
         price: price,
         deliveryTime: deliverytime,
         agree: agree,
-      };
+        timezoon: {
+          date: date,
+          month: month,
+          year: year,
+        }
+      });
+      // firebase end
 
-      console.log(orderDetails);
+      navigate("/order-submited");
     }
   };
 
@@ -97,6 +162,7 @@ const SubmitOrder = () => {
                 <div className="w- h- rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
                   <CgProfile className="text-4xl" />
                 </div>
+
                 <h2 className="text-xl font-bold text-slate-800">
                   Your Details
                 </h2>
@@ -127,6 +193,7 @@ const SubmitOrder = () => {
                     icon={true}
                     className={emailError && "border-red-500! text-red-500!"}
                   />
+
                   {emailError && (
                     <p className="font-roboto font-medium text-sm text-red-500">
                       Enter your valid email
@@ -134,20 +201,106 @@ const SubmitOrder = () => {
                   )}
                 </div>
 
+                {/* Phone Number with Country Selector */}
                 <div>
-                  <OrderPageInput
-                    onChange={(e) => {
-                      setPhone(e.target.value);
-                      setPhoneError(false);
-                    }}
-                    fullName={`Phone Number`}
-                    placeholder={`Enter Your Phone Number`}
-                    id={`phone`}
-                    phoneError={phoneError}
-                  />
-                  {isNaN(phone) && (
-                    <p className="font-roboto font-medium text-sm text-red-500">
-                      Enter Your Phone Number
+                  <label className="block text-base font-poppins font-semibold mb-2 text-black/80">
+                    Phone Number
+                  </label>
+
+                  <div
+                    className={`relative flex items-center border rounded-lg px-2 py-[12px] bg-white focus-within:border-cyan-500! ${
+                      phoneError ? "border-red-500" : "border-slate-400"
+                    }`}
+                  >
+                    {/* Country Selector */}
+                    <div className="relative shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => setShowCountries(!showCountries)}
+                        className="flex items-center gap-1 cursor-pointer outline-none"
+                      >
+                        <ReactCountryFlag
+                          countryCode={selectedCountry.countryCode}
+                          svg
+                          style={{
+                            width: "1em",
+                            height: "1em",
+                          }}
+                        />
+
+                        <span className="text-sm font-roboto font-semibold text-slate-700">
+                          {selectedCountry.name}
+                        </span>
+
+                        {showCountries ? (
+                          <MdKeyboardArrowUp className="text-2xl text-slate-600" />
+                        ) : (
+                          <MdKeyboardArrowDown className="text-2xl text-slate-600" />
+                        )}
+                      </button>
+
+                      {/* Country Dropdown */}
+                      {showCountries && (
+                        <div className="absolute left-0 top-full z-50 mt-2 w-48 max-h-56 overflow-y-auto bg-white shadow-lg rounded-lg border border-slate-200">
+                          {countries.map((country) => (
+                            <button
+                              type="button"
+                              key={country.countryCode}
+                              onClick={() => {
+                                setSelectedCountry(country);
+                                setShowCountries(false);
+                                setPhoneError(false);
+                              }}
+                              className={`w-full flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-cyan-50 duration-150 ${
+                                selectedCountry.countryCode ===
+                                country.countryCode
+                                  ? "bg-cyan-50"
+                                  : ""
+                              }`}
+                            >
+                              <ReactCountryFlag
+                                countryCode={country.countryCode}
+                                svg
+                                style={{
+                                  width: "1.3em",
+                                  height: "1.3em",
+                                }}
+                              />
+
+                              <span className="text-sm font-roboto text-slate-700">
+                                {country.name}
+                              </span>
+
+                              <span className="ml-auto text-base font-roboto text-slate-500">
+                                {country.code}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Country Calling Code */}
+                    <span className="ml-0 border-l border-slate-300 pl-0.5 text-base font-roboto font-semibold text-slate-700 whitespace-nowrap">
+                      {selectedCountry.code}
+                    </span>
+
+                    {/* Phone Input */}
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => {
+                        setPhone(e.target.value);
+                        setPhoneError(false);
+                      }}
+                      placeholder="X X X X X X X X X"
+                      className="min-w-0 w-full ml-1 outline-none text-base font-medium font-roboto text-slate-700 placeholder:text-slate-400 bg-transparent"
+                    />
+                  </div>
+
+                  {phoneError && (
+                    <p className="font-roboto font-medium text-sm text-red-500 mt-1">
+                      Enter a valid phone number
                     </p>
                   )}
                 </div>
@@ -163,6 +316,7 @@ const SubmitOrder = () => {
                 <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center text-seagreen">
                   <CgProfile className="text-4xl" />
                 </div>
+
                 <h2 className="text-xl font-bold font-roboto text-slate-800">
                   Project Brief
                 </h2>
@@ -182,7 +336,7 @@ const SubmitOrder = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 rows="4"
                 placeholder="Describe your idea, goals, required features, preferred style, timeline, and any references..."
-                className="w-full placeholder:text-black/70 placeholder:font-roboto placeholder:font-medium  border border-slate-400 rounded-lg p-3 outline-none resize-y focus:border-cyan-500"
+                className="w-full placeholder:text-black/70 placeholder:font-roboto placeholder:font-medium border border-slate-400 rounded-lg p-3 outline-none resize-y focus:border-cyan-500"
               />
 
               {/* Service and Package */}
@@ -213,9 +367,11 @@ const SubmitOrder = () => {
                       <h3 className="font-bold text-sm text-slate-800 font-roboto">
                         {packagename}
                       </h3>
-                      <p className=" text-cyan-600 font-bold font-roboto">
+
+                      <p className="text-cyan-600 font-bold font-roboto">
                         {price}
                       </p>
+
                       <p className="flex items-center gap-1 text-sm text-slate-600 font-roboto">
                         <FiClock className="text-base" /> {deliverytime}-day
                         delivery
@@ -228,9 +384,11 @@ const SubmitOrder = () => {
               {/* File Upload */}
               <label className="flex items-center gap-3 border border-dashed border-slate-400 rounded-lg p-4 mt-5 cursor-pointer hover:bg-slate-50">
                 <FaPaperclip className="text-slate-600" size={20} />
+
                 <span className="text-sm font-roboto text-slate-500">
                   Attach references (optional) — PDF, PNG, JPG
                 </span>
+
                 <input
                   type="file"
                   accept=".pdf,.png,.jpg,.jpeg"
@@ -241,7 +399,9 @@ const SubmitOrder = () => {
 
               {/* Agreement */}
               <label
-                className={`flex items-center gap-2 mt-5 text-sm text-roboto ${agreeError ? "text-red-500" : "text-slate-700"} cursor-pointer `}
+                className={`flex items-center gap-2 mt-5 text-sm text-roboto ${
+                  agreeError ? "text-red-500" : "text-slate-700"
+                } cursor-pointer`}
               >
                 <input
                   type="checkbox"
@@ -290,7 +450,7 @@ const SubmitOrder = () => {
                       {packagename}
                     </h3>
 
-                    <p className="text-sm font-roboto font-bold text-cyan-600 mt-1 ">
+                    <p className="text-sm font-roboto font-bold text-cyan-600 mt-1">
                       {price}
                     </p>
                   </div>
@@ -305,6 +465,7 @@ const SubmitOrder = () => {
               <div className="mt-4 text-sm font-roboto text-[#294963]">
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Service:</span>
+
                   <span className="font-semibold text-[#123B5B] uppercase">
                     {servidesname}
                   </span>
@@ -312,6 +473,7 @@ const SubmitOrder = () => {
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Package:</span>
+
                   <span className="font-semibold text-[#123B5B]">
                     {packagename}
                   </span>
@@ -319,11 +481,13 @@ const SubmitOrder = () => {
 
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Price:</span>
+
                   <span className="font-semibold text-[#123B5B]">{price}</span>
                 </div>
 
                 <div className="flex justify-between pt-3">
                   <span>Delivery:</span>
+
                   <span className="font-semibold text-[#123B5B]">
                     {deliverytime} days
                   </span>

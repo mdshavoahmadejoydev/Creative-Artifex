@@ -22,7 +22,7 @@ const Registration = ({ handlecloseicon, loginlink }) => {
   const db = getDatabase();
   // firebase code end
 
-    let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [name, setname] = useState("");
   const [nameError, setNameError] = useState("");
@@ -93,25 +93,24 @@ const Registration = ({ handlecloseicon, loginlink }) => {
     }
   };
 
+  // sign in with google start
+  let handleGoogle = () => {
+    const provider = new GoogleAuthProvider();
 
-    // sign in with google start
-    let handleGoogle = () => {
-      const provider = new GoogleAuthProvider();
-  
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // console.log("Success:", result.user);
-  
-          handlecloseicon();
-          navigate("/deshboard");
-        })
-        .catch((error) => {
-          // console.log("Error Code:", error.code);
-          // console.log("Error Message:", error.message);
-          // console.log(error)
-        });
-    };
-    // sign in with google end
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // console.log("Success:", result.user);
+
+        handlecloseicon();
+        navigate("/deshboard");
+      })
+      .catch((error) => {
+        // console.log("Error Code:", error.code);
+        // console.log("Error Message:", error.message);
+        // console.log(error)
+      });
+  };
+  // sign in with google end
 
   return (
     <div className="w-screen h-screen fixed top-0 left-0 bg-black/70">
@@ -139,7 +138,33 @@ const Registration = ({ handlecloseicon, loginlink }) => {
           </div>
           {/* Login with Google end */}
 
-          <div>
+          <div className="">
+            <label
+              htmlFor="nameid"
+              className="block text-sm font-poppins font-semibold text-gray-700 text-start cursor-pointer"
+            >
+              Username
+            </label>
+
+            <input
+              type="text"
+              id="nameid"
+              placeholder="Enter your Name"
+              value={name}
+              onChange={(e) => {
+                setname(e.target.value);
+                setNameError(false);
+              }}
+              className="w-full border border-black/30 rounded-lg px-3 py-2 outline-none focus:border-blue-500"
+            />
+          </div>
+          {nameError && (
+            <p className="font-roboto font-medium text-ms text-red-500">
+              {nameError}
+            </p>
+          )}
+
+          <div className="mt-4">
             <label
               htmlFor="emailid"
               className="block text-sm font-poppins font-semibold text-gray-700 text-start mb-0.5 cursor-pointer"
@@ -165,31 +190,6 @@ const Registration = ({ handlecloseicon, loginlink }) => {
             </p>
           )}
 
-          <div className="mt-4">
-            <label
-              htmlFor="nameid"
-              className="block text-sm font-poppins font-semibold text-gray-700 text-start cursor-pointer"
-            >
-              Username
-            </label>
-
-            <input
-              type="text"
-              id="nameid"
-              placeholder="Enter your Name"
-              value={name}
-              onChange={(e) => {
-                setname(e.target.value);
-                setNameError(false);
-              }}
-              className="w-full border border-black/30 rounded-lg px-3 py-2 outline-none focus:border-blue-500"
-            />
-          </div>
-          {nameError && (
-            <p className="font-roboto font-medium text-ms text-red-500">
-              {nameError}
-            </p>
-          )}
 
           <div className="mt-4">
             <label

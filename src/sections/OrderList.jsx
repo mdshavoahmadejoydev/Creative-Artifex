@@ -24,23 +24,7 @@ import {
       amount: "$500",
       status: "Completed",
       date: "Oct 28, 2025",
-    },
-    {
-      id: 2,
-      service: "Graphic Design",
-      package: "Basic",
-      amount: "$150",
-      status: "Pending",
-      date: "Nov 02, 2025",
-    },
-    {
-      id: 3,
-      service: "Software Development",
-      package: "Premium",
-      amount: "$800",
-      status: "Processing",
-      date: "Nov 04, 2025",
-    },
+    }
   ];
 
 const OrderList = () => {
@@ -79,16 +63,15 @@ const OrderList = () => {
           <tbody>
             {orders.map((order) => (
               <tr
-                key={order.id}
                 className="border-b border-gray-100 text-[11px] text-[#17233d]"
               >
-                <td className="p-3 font-semibold">{order.id}</td>
+                <td className="p-3 font-semibold">{`1`}</td>
 
-                <td className="p-3 whitespace-nowrap">{order.service}</td>
+                <td className="p-3 whitespace-nowrap">graphic design</td>
 
-                <td className="p-3">{order.package}</td>
+                <td className="p-3">{`basic`}</td>
 
-                <td className="p-3 font-medium">{order.amount}</td>
+                <td className="p-3 font-medium">{`500`}</td>
 
                 <td className="p-3">
                   <span
@@ -105,7 +88,7 @@ const OrderList = () => {
                   </span>
                 </td>
 
-                <td className="p-3 whitespace-nowrap">{order.date}</td>
+                <td className="p-3 whitespace-nowrap">{`12/5/2004`}</td>
 
                 <td className="p-3">
                   <button className="flex items-center gap-1 border border-gray-200 rounded-full px-3 py-1 hover:bg-gray-100">
