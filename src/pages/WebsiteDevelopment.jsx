@@ -23,7 +23,7 @@ const WebsiteDevelopment = () => {
               servidesname={`Website Development`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="9000 tk"
+            pricemoney="9000"
             aboutPackage={`One Page Website Design and Development W/ Static Functionality | Need something specific? | DM Now`}
             provide1="Functional website"
             provide2="1 pages"
@@ -52,7 +52,7 @@ const WebsiteDevelopment = () => {
               servidesname={`Website Development`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="25000 tk"
+            pricemoney="25000"
             aboutPackage={`5 Page website development, Basic API integrations | Figma to React, Clean Code + Payment Integrate`}
             provide1="Functional website"
             provide2="5 pages"
@@ -79,7 +79,7 @@ const WebsiteDevelopment = () => {
               servidesname={`Website Development`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="45000 tk"
+            pricemoney="45000"
             aboutPackage={`Up to 8 Pages Custom Website Design and Development + Backend Setup + API Integration (Customizable)`}
             provide1="Functional website"
             provide2="10 pages"

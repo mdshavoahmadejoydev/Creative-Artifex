@@ -45,7 +45,8 @@ import Dashboarditems from "./sections/Dashboarditems";
 import Notifications from "./sections/Notifications";
 import Support from "./sections/Support";
 import Setting from "./sections/Setting";
-import Error from "./sections/Error"
+import Error from "./sections/Error";
+import OrderPrintablePage from "./pages/OrderPrintablePage";
 // import ProfileTemplate from './sections/ProfileTemplate'
 
 const router = createBrowserRouter(
@@ -116,6 +117,8 @@ const router = createBrowserRouter(
         <Route path="/products" element={<Products />}></Route>
         <Route path="/team" element={<Team />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+
+        <Route path="/OrderPrintablePage" element={<OrderPrintablePage />}></Route>
 
         <Route path="/deshboard" element={<Deshboard />}>
           <Route index element={<Dashboarditems />} />

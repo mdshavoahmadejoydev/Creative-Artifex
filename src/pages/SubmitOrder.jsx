@@ -18,6 +18,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { getDatabase, push, ref, set } from "firebase/database";
 // firebase end
 
+import { useSelector } from "react-redux";
+
 const countries = [
   { name: "BAN", code: "+880", countryCode: "BD" },
   { name: "USA", code: "+1", countryCode: "US" },
@@ -33,6 +35,11 @@ const countries = [
 ];
 
 const SubmitOrder = () => {
+
+
+    const activeUserRedux = useSelector((state) => state.activeuser.value);
+    
+
   // firebase start
   const db = getDatabase();
   // firebase end
@@ -129,7 +136,8 @@ const SubmitOrder = () => {
           date: date,
           month: month,
           year: year,
-        }
+        },
+        uid: activeUserRedux.uid
       });
       // firebase end
 

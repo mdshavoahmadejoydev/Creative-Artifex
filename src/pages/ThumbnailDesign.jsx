@@ -25,7 +25,7 @@ const ThumbnailDesign = () => {
               servidesname={`Thumbnail Design`}
               
             packagename="BASIC PACKAGE"
-            pricemoney="500 tk"
+            pricemoney="500"
             aboutPackage={`x1 Professional thumbnail within 24hrs`}
             provide1="1 thumbnail"
             provide2="Image sourcing"
@@ -42,7 +42,7 @@ const ThumbnailDesign = () => {
               servidesname={`Thumbnail Design`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="990 tk"
+            pricemoney="990"
             aboutPackage={`x1 ULTRA thumbnail with bold visuals and high-converting design`}
             provide1="4 thumbnail"
             provide2="Image sourcing"
@@ -58,7 +58,7 @@ const ThumbnailDesign = () => {
               servidesname={`Thumbnail Design`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="1600 tk"
+            pricemoney="1600"
             aboutPackage={`x10 Ultra Thumbnails - Bundle Deal`}
             provide1="8 thumbnail"
             provide2="Image sourcing"

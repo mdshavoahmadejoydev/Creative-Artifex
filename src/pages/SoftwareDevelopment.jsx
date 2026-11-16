@@ -43,7 +43,7 @@ const SoftwareDevelopment = () => {
               servidesname={`Software Development`}
               
             packagename="STANDARD PACKAGE"
-            pricemoney="50000 tk"
+            pricemoney="50000"
             aboutPackage={`Complete software module with frontend, backend, database, API integrations, and responsive UI`}
             provide1="6 pages"
             provide2="Design customization"
@@ -62,7 +62,7 @@ const SoftwareDevelopment = () => {
             servidesname={`Software Development`}
               
             packagename="PREMIUM PACKAGE"
-            pricemoney="90000 tk"
+            pricemoney="90000"
             aboutPackage={`Custom software with frontend, backend, database, API integrations, and core features`}
             provide1="10 pages"
             provide2="Design customization"

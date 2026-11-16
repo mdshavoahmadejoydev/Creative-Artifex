@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // firebase s
 import { getAuth, signOut } from "firebase/auth";
@@ -59,19 +59,50 @@ const Dashboard = () => {
     activeUserRedux == null && navigate("/");
   }, []);
 
-  const [activeMenu, setActiveMenu] = useState("Dashboard");
+  // console.log(pathname.includes("orderlist"))
+
+  const location = useLocation();
+  const pathname = location.pathname;
+  let itemname = pathname.split("/").at(-1);
+
+  const [activeMenu, setActiveMenu] = useState(itemname);
+
+  useEffect(() => {
+    setActiveMenu(itemname);
+  }, [pathname]);
 
   const menuItems = [
-    { name: "Dashboard", icon: <FiHome />, path: "/deshboard" },
-    { name: "Your Order List", icon: <FiBox />, path: "/deshboard/orderlist" },
-    { name: "Settings", icon: <FiSettings />, path: "/deshboard/Setting" },
+    {
+      name: "Dashboard",
+      key: "deshboard",
+      icon: <FiHome />,
+      path: "/deshboard",
+    },
+    {
+      name: "Your Order List",
+      key: "orderlist",
+      icon: <FiBox />,
+      path: "/deshboard/orderlist",
+    },
+    {
+      name: "Settings",
+      key: "Setting",
+      icon: <FiSettings />,
+      path: "/deshboard/Setting",
+    },
     {
       name: "Notifications",
+      key: "Notifications",
       icon: <FiBell />,
       path: "/deshboard/Notifications",
       notification: true,
     },
-    { name: "Support", icon: <FiHeadphones />, path: "/deshboard/support" },
+    {
+      name: "Support",
+      key: "support",
+      icon: <FiHeadphones />,
+      path: "/deshboard/support",
+    },
     { name: "Logout", icon: <FiLogOut /> },
   ];
 
@@ -170,7 +201,7 @@ const Dashboard = () => {
                 onClick={() => handleMenuClick(item)}
                 className={`relative flex items-center gap-4 px-4 py-3 rounded-lg text-[13px] font-medium transition-all cursor-pointer
                 ${
-                  activeMenu === item.name
+                  activeMenu === item.key
                     ? "bg-[#fff0f1] text-red-500 border-l-4 border-red-500"
                     : "text-[#17233d] hover:bg-gray-50"
                 }`}
