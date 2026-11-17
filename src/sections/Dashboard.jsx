@@ -31,6 +31,13 @@ import { Outlet, useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const navigate = useNavigate();
 
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const activeUserRedux = useSelector((state) => state.activeuser.value);
   // console.log(activeUserRedux.photoURL);
 
@@ -61,8 +68,8 @@ const Dashboard = () => {
 
   // console.log(pathname.includes("orderlist"))
 
-  const location = useLocation();
-  const pathname = location.pathname;
+  // const location = useLocation();
+  // const pathname = location.pathname;
   let itemname = pathname.split("/").at(-1);
 
   const [activeMenu, setActiveMenu] = useState(itemname);

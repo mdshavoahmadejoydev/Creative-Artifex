@@ -1,362 +1,370 @@
-
 import React from "react";
-import { FaGlobeAfrica, FaPhoneAlt, FaRegCheckCircle, FaRegClock, FaRegEnvelopeOpen, FaRegUserCircle, FaUserAlt } from "react-icons/fa";
+import LogoIcon from "../assets/creativeArtifexLogo.png";
+import LogoTagline from "../assets/creativeArtifexLogoTaglineBlack.png";
+import Image from "../components/Image";
+
 import {
-  // FaCheckCircle,
-  FaRegFileLines,
-  FaRegCalendarDays,
+  FaRegCalendarAlt,
+  FaRegFileAlt,
   FaUser,
   FaRegUser,
   FaRegEnvelope,
-  FaPhone,
-  FaBoxOpen,
-  FaGear,
+  FaPhoneAlt,
+  FaCube,
+  FaCogs,
   FaCoins,
-  FaClock,
+  FaRegClock,
+  FaPaperclip,
   FaGlobe,
-  FaBitcoinSign,
-  FaGears,
-} from "react-icons/fa6";
+  FaEnvelope,
+  FaPhone,
+} from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const OrderConfirmation = () => {
+
+  
+  const location = useLocation();
+
+  const data = location.state?.order;
+
+  const orderArray = data ? [data] : [];
+  console.log(orderArray[0].uid)
+
+
   return (
-    <div className="w-full mt-94  bg-gray-100 py-8 px-3 flex justify-center">
-
+    <div className="w-full mt-94 min-h-screen bg-gray-100 flex justify-center items-start py-8 px-3">
       {/* A4 PAGE */}
-      <div
-        id="order-confirmation-page"
-        className="relative w-full max-w-[794px] min-h-[1123px] bg-white overflow-hidden shadow-xl px-8 py-8 flex flex-col"
-      >
+      <div className="relative w-[794px]  max-h-[1123px] overflow-hidden bg-white overflow-hidden shadow-xl flex flex-col font-poppins text-[#172331]">
+        {/* HEADER AND FOOTER SVG CURVES */}
 
-        {/* TOP CORNER DESIGN */}
-        <div className="absolute top-0 left-0 w-[120px] h-[120px] bg-red-600 rounded-br-full" />
+        {/* <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 794 1123"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          HEADER LIGHT GRAY CURVE
+          <path
+            d="M0 0 H160
+       C125 25 75 75 0 145
+       Z"
+            fill="#E9EDF2"
+          />
 
-        <div className="absolute top-0 left-0 w-[150px] h-[150px] border-r-[15px] border-b-[15px] border-gray-100 rounded-br-full" />
+          HEADER RED CURVE
+          <path
+            d="M0 0 H100
+       C76 20 40 60 0 100
+       Z"
+            fill="#F00018"
+          />
 
-        {/* HEADER LOGO */}
-        <div className="relative flex justify-center items-center mb-8 mt-2">
+          FOOTER LIGHT GRAY CURVE
+          <path
+            d="M794 970
+       C750 1005 705 1065 640 1123
+       H794 Z"
+            fill="#E9EDF2"
+          />
 
-          <div className="flex items-center gap-4">
+          FOOTER RED CURVE
+          <path
+            d="M794 1015
+       C760 1045 720 1090 680 1123
+       H794 Z"
+            fill="#F00018"
+          />
 
-            <img
-              src="/demo-logo.png"
-              alt="Logo"
-              className="w-[105px] h-[105px] object-contain"
-            />
+          BOTTOM RED BORDER
+          <path d="M0 1107 H794 V1123 H0 Z" fill="#F00018" />
+        </svg> */}
 
-            <div className="flex flex-col items-center">
-
-              <h1 className="font-poppins text-[37px] font-extrabold text-red-600 leading-tight">
-                Creative Artifex
-              </h1>
-
-              <div className="flex items-center gap-2 w-full">
-                <div className="h-[2px] bg-red-500 flex-1" />
-
-                <p className="font-poppins text-[15px] italic font-semibold text-[#172333] whitespace-nowrap">
-                  where creativity meets future
-                </p>
-
-                <div className="h-[2px] bg-red-500 flex-1" />
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* MAIN TITLE */}
-        <div className="flex flex-col items-center mb-6">
-
-          <h1 className="font-poppins text-[40px] font-extrabold text-center leading-tight">
-            <span className="text-[#172333]">ORDER </span>
-            <span className="text-red-600">CONFIRMATION</span>
-          </h1>
-
-          <div className="flex items-center gap-5 mt-3 w-full">
-
-            <div className="h-[2px] bg-red-500 flex-1" />
-
-            <div className="flex items-center gap-2 border border-green-500 bg-green-50 rounded-full px-4 py-2">
-              <FaRegCheckCircle className="text-green-600 text-xl" />
-              <span className="font-poppins font-bold text-green-600 text-[15px]">
-                ORDER RECEIVED
-              </span>
+        {/* PAGE CONTENT */}
+        <div className="relative z-10 flex flex-col px-6 pt-9 pb-8 gap-3">
+          {/* HEADER */}
+          <div className="flex flex-col items-center">
+            {/* DEMO COMPANY LOGO */}
+            <div className="flex items-center justify-center gap-4 mt-1">
+              <Image src={LogoIcon} className={`h-17.5`} />
+              <Image src={LogoTagline} className={`h-12`} />
             </div>
 
-            <div className="h-[2px] bg-red-500 flex-1" />
+            {/* ORDER RECEIVED */}
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <div className="w-[185px] h-[1px] bg-green-500" />
 
-          </div>
-        </div>
+              <div className="flex items-center gap-1 bg-green-50 border border-green-400 rounded-full px-3 py-0.5">
+                <span className="w-4 h-4 rounded-full bg-green-500 text-white flex items-center justify-center text-[11px] font-bold">
+                  ✓
+                </span>
 
-        {/* ORDER ID AND DATE */}
-        <div className="border-2 border-[#e2e7ee] rounded-2xl p-5 flex items-center gap-6 mb-4">
-
-          <div className="flex-1 flex items-center gap-5 min-w-0">
-            <FaRegFileLines className="text-red-600 text-[30px] shrink-0" />
-
-            <div className="flex-1 min-w-0">
-              <p className="font-poppins font-bold text-[#172333] mb-2">
-                Order ID
-              </p>
-              <div className="bg-[#eef1f5] rounded-lg min-h-[36px] px-3 py-2 font-poppins text-sm font-semibold">
-                CA-2026-001
-              </div>
-            </div>
-          </div>
-
-          <div className="w-[2px] h-[65px] bg-[#dce2ea]" />
-
-          <div className="flex-1 flex items-center gap-5 min-w-0">
-            <FaRegCalendarDays className="text-red-600 text-[30px] shrink-0" />
-
-            <div className="flex-1 min-w-0">
-              <p className="font-poppins font-bold text-[#172333] mb-2">
-                Order Date
-              </p>
-              <div className="bg-[#eef1f5] rounded-lg min-h-[36px] px-3 py-2 font-poppins text-sm font-semibold">
-                17 November, 2026
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* CLIENT DETAILS */}
-        <div className="border-2 border-[#e2e7ee] rounded-2xl p-5 mb-4">
-
-          <div className="flex items-center gap-4 mb-6">
-            <FaUserAlt className="text-red-600 text-[29px]" />
-
-            <h2 className="font-poppins text-[21px] font-bold text-[#172333] whitespace-nowrap">
-              CLIENT DETAILS
-            </h2>
-
-            <div className="h-[2px] bg-[#dce2ea] flex-1" />
-          </div>
-
-          <div className="flex gap-7">
-
-            <div className="flex flex-col flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-2">
-                <FaRegUserCircle className="text-red-600 text-[23px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Client Full Name
+                <span className="text-[12px] font-bold text-green-600">
+                  ORDER PAINDING
                 </span>
               </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                John Smith
-              </div>
+
+              <div className="w-[185px] h-[1px] bg-green-500" />
             </div>
-
-            <div className="flex flex-col flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-2">
-                <FaRegEnvelopeOpen className="text-red-600 text-[23px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Email Address
-                </span>
-              </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                john@example.com
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-2">
-                <FaPhoneAlt className="text-red-600 text-[23px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Phone Number
-                </span>
-              </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                +880 1234-567890
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* ORDER DETAILS */}
-        <div className="border-2 border-[#e2e7ee] rounded-2xl p-5 mb-4">
-
-          <div className="flex items-center gap-4 mb-6">
-            <FaBoxOpen className="text-red-600 text-[29px]" />
-
-            <h2 className="font-poppins text-[21px] font-bold text-[#172333] whitespace-nowrap">
-              ORDER DETAILS
-            </h2>
-
-            <div className="h-[2px] bg-[#dce2ea] flex-1" />
           </div>
 
-          <div className="flex flex-wrap gap-x-7 gap-y-7">
+          {/* ORDER ID AND DATE */}
+          <div className="flex items-center gap-3 border border-[#DFE5EC] rounded-xl bg-[#FBFCFD] px-5 py-4">
+            <div className="flex items-center gap-3 flex-1">
+              <FaRegFileAlt className="text-[#F00018] text-[23px] shrink-0" />
 
-            <div className="flex flex-col flex-1 min-w-[180px]">
-              <div className="flex items-center gap-3 mb-2">
-                <FaGears className="text-red-600 text-[25px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Service Requested
-                </span>
-              </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                Logo Design
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-1 min-w-[180px]">
-              <div className="flex items-center gap-3 mb-2">
-                <FaBoxOpen className="text-red-600 text-[25px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Selected Package
-                </span>
-              </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                Premium Package
+              <div className="flex flex-col gap-2 flex-1">
+                <p className="text-[13px] font-bold">Order ID</p>
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].uid}
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col flex-1 min-w-[180px]">
-              <div className="flex items-center gap-3 mb-2">
-                <FaBitcoinSign className="text-red-600 text-[25px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Package Price
-                </span>
-              </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                ৳ 1,500 TK
-              </div>
-            </div>
+            <div className="w-[1px] h-12 bg-[#E2E6EB]" />
 
-            <div className="flex flex-col flex-1 min-w-[180px]">
-              <div className="flex items-center gap-3 mb-2">
-                <FaRegClock className="text-red-600 text-[25px]" />
-                <span className="font-poppins text-[14px] font-semibold text-[#172333]">
-                  Delivery Time
-                </span>
-              </div>
-              <div className="bg-[#eef1f5] h-[38px] rounded-lg px-3 py-2 text-sm font-poppins">
-                5 Days
+            <div className="flex items-center gap-3 flex-1">
+              <FaRegCalendarAlt className="text-[#F00018] text-[23px] shrink-0" />
+
+              <div className="flex flex-col gap-2 flex-1">
+                <p className="text-[13px] font-bold">Order Date</p>
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].timezoon.date +
+                    "/" +
+                    orderArray[0].timezoon.month +
+                    "/" +
+                    orderArray[0].timezoon.year}
+                </div>
               </div>
             </div>
-
-          </div>
-        </div>
-
-        {/* PROJECT BRIEF */}
-        <div className="border-2 border-[#e2e7ee] rounded-2xl p-5 flex-1">
-
-          <div className="flex items-center gap-4 mb-6">
-            <FaRegFileLines className="text-red-600 text-[29px]" />
-
-            <h2 className="font-poppins text-[21px] font-bold text-[#172333] whitespace-nowrap">
-              PROJECT BRIEF
-            </h2>
-
-            <div className="h-[2px] bg-[#dce2ea] flex-1" />
           </div>
 
-          <div className="border-2 border-[#e2e7ee] rounded-xl p-3">
+          {/* CLIENT DETAILS */}
+          <div className="border border-[#DFE5EC] rounded-xl p-5 flex flex-col gap-4">
+            {/* SECTION TITLE */}
+            <div className="flex items-center gap-3">
+              <FaUser className="text-[#F00018] text-[20px]" />
 
-            <p className="font-poppins text-[15px] font-semibold text-[#172333] mb-3">
-              Tell us about your project
-            </p>
+              <h3 className="text-base font-bold whitespace-nowrap">
+                CLIENT DETAILS
+              </h3>
 
-            <div className="min-h-[125px] border-t border-[#dce2ea]">
-              <div className="h-[30px] border-b border-[#dce2ea]" />
-              <div className="h-[30px] border-b border-[#dce2ea]" />
-              <div className="h-[30px] border-b border-[#dce2ea]" />
-              <div className="h-[30px] border-b border-[#dce2ea]" />
+              <div className="h-[1px] bg-[#DDE3E9] flex-1" />
             </div>
 
+            {/* CLIENT INFORMATION */}
+            <div className="flex items-center gap-6">
+              {/* NAME */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaRegUser className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Client Full Name</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].name}
+                </div>
+              </div>
+
+              {/* EMAIL */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaRegEnvelope className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Email Address</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].email}
+                </div>
+              </div>
+
+              {/* PHONE */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaPhoneAlt className="text-[#F00018] text-[19px]" />
+                  <p className="text-[12px] font-semibold">Phone Number</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].phoneNumber}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* FOOTER */}
-        <div className="flex items-center justify-between gap-5 mt-7 px-5 pb-4">
+          {/* ORDER DETAILS */}
+          <div className="border border-[#DFE5EC] rounded-xl p-5 flex flex-col gap-5">
+            {/* SECTION TITLE */}
+            <div className="flex items-center gap-3">
+              <FaCube className="text-[#F00018] text-[20px]" />
 
-          {/* BOTTOM LOGO */}
-          <div className="flex-1 flex flex-col items-center">
+              <h3 className="text-base font-bold whitespace-nowrap">
+                ORDER DETAILS
+              </h3>
 
-            <p className="font-poppins italic text-[24px] text-[#172333]">
-              Thank you for choosing
-            </p>
+              <div className="h-[1px] bg-[#DDE3E9] flex-1" />
+            </div>
 
-            <img
-              src="/demo-logo.png"
-              alt="Logo"
-              className="w-[270px] h-[65px] object-contain"
-            />
+            {/* FIRST ROW */}
+            <div className="flex items-center gap-6">
+              {/* SERVICE */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaCogs className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Service Name</p>
+                </div>
 
-            <div className="flex items-center gap-2 w-full justify-center mt-1">
-              <div className="h-[2px] w-12 bg-red-500" />
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].serviceName}
+                </div>
+              </div>
 
-              <p className="font-poppins italic text-[13px] font-semibold text-[#172333] whitespace-nowrap">
-                where creativity meets future
+              {/* PACKAGE */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaCube className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Selected Package</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].packageName}
+                </div>
+              </div>
+
+              {/* PRICE */}
+              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaCoins className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Package Price</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].price} TK
+                </div>
+              </div>
+            </div>
+
+            <div className="flex gap-5">
+              {/* DELIVERY TIME */}
+              <div className="w-[31.5%] flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaRegClock className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Delivery Time</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {Number(orderArray[0].timezoon.date) +
+                    Number(orderArray[0].deliveryTime) +
+                    "/" +
+                    orderArray[0].timezoon.month +
+                    "/" +
+                    orderArray[0].timezoon.year}
+                </div>
+              </div>
+
+              {/* Ordering TIME */}
+              <div className="w-[31.5%] flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaRegClock className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Ordering Time</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].timezoon.date + "/" + orderArray[0].timezoon.month + "/" + orderArray[0].timezoon.year }
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PROJECT BRIEF */}
+          <div className="border border-[#DFE5EC] rounded-xl p-5 flex flex-col gap-3">
+            {/* SECTION TITLE */}
+            <div className="flex items-center gap-3">
+              <FaRegFileAlt className="text-[#F00018] text-[20px]" />
+
+              <h3 className="text-base font-bold whitespace-nowrap">
+                PROJECT BRIEF
+              </h3>
+            </div>
+
+            {/* PROJECT DESCRIPTION */}
+            <div className="flex flex-col gap-2">
+              <p className="text-[12px] font-semibold">
+                Tell us about your project
               </p>
 
-              <div className="h-[2px] w-12 bg-red-500" />
+              <textarea
+                value={orderArray[0].description}
+                readOnly
+                className="border max-h-[187px] overflow-y-scroll h-[130px] outline-0 border-[#E2E7ED] rounded-md px-3 py-2 flex flex-col justify-between"
+              ></textarea>
             </div>
-
           </div>
 
-          <div className="w-[2px] h-[125px] bg-[#dce2ea]" />
+          {/* FOOTER */}
+          <div className="flex items-center justify-between px-3 pt-2 pb-4 mt-1">
+            {/* THANK YOU LOGO */}
+            <div className="flex flex-col justify-center items-center w-[48%]">
+              <p className="text-xl italic font-bold font-allura text-[#172331]">
+                Thank you for choosing
+              </p>
 
-          {/* AUTHORIZED TEAM */}
-          <div className="flex-1 flex flex-col items-center">
+              <div className="flex items-center justify-center gap-4 mt-1">
+                <Image src={LogoTagline} className={`h-10`} />
+              </div>
 
-            <p className="font-serif italic text-[38px] text-[#172333]">
-              Creative
-            </p>
+              <div className="flex items-center gap-1 mt-4">
+                <FaGlobe className="text-[#F00018] text-[13px]" />
+                <span className="text-[10px]">www.creativeartifex.com</span>
+              </div>
+            </div>
 
-            <div className="border-t-2 border-[#dce2ea] w-[145px] mt-1" />
+            {/* VERTICAL DIVIDER */}
+            <div className="w-[1px] h-[105px] bg-[#DDE3E9]" />
 
-            <p className="font-poppins text-[13px] font-bold text-[#172333] mt-2">
-              Authorized Team
-            </p>
-
-            <p className="font-poppins text-[12px] text-[#172333]">
-              Creative Artifex
-            </p>
-
-            <div className="flex items-center gap-4 mt-5">
-
-              <div className="flex items-center gap-2">
-                <FaGlobeAfrica className="text-red-600" />
-                <span className="font-poppins text-[11px] text-[#172333]">
-                  Website
+            {/* AUTHORIZED TEAM */}
+            <div className="flex flex-col items-center w-[43%]">
+              {/* SIGNATURE */}
+              <div className="w-[125px] h-[47px] flex items-center justify-center">
+                <span className="text-[29px] font-allura italic text-[#172331]">
+                  Artifex
                 </span>
               </div>
 
-              <div className="w-[1px] h-5 bg-[#dce2ea]" />
+              <p className="text-[11px] font-extrabold">Authorized Team</p>
 
-              <div className="flex items-center gap-2">
-                <FaRegEnvelopeOpen className="text-red-600" />
-                <span className="font-poppins text-[11px] text-[#172333]">
-                  Email
-                </span>
+              <p className="text-[10px] text-gray-500">Creative Artifex</p>
+
+              {/* CONTACT INFORMATION */}
+              <div className="flex items-center justify-center gap-4 mt-4">
+                <div className="flex items-center gap-1">
+                  <FaEnvelope className="text-[#F00018] text-[13px]" />
+                  <span className="text-[10px]">
+                    creativeartifexofficial@gmail.com
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <FaPhone className="text-[#F00018] text-[13px]" />
+                  <span className="text-[10px]">+8801887002276</span>
+                </div>
               </div>
-
-              <div className="w-[1px] h-5 bg-[#dce2ea]" />
-
-              <div className="flex items-center gap-2">
-                <FaPhoneAlt className="text-red-600" />
-                <span className="font-poppins text-[11px] text-[#172333]">
-                  Phone
-                </span>
-              </div>
-
             </div>
           </div>
         </div>
-
-        {/* BOTTOM CORNER DESIGN */}
-        <div className="absolute bottom-0 right-0 w-[120px] h-[120px] bg-red-600 rounded-tl-full" />
-
-        <div className="absolute bottom-0 right-0 w-[150px] h-[150px] border-l-[15px] border-t-[15px] border-gray-100 rounded-tl-full" />
-
       </div>
     </div>
   );
 };
 
 export default OrderConfirmation;
-

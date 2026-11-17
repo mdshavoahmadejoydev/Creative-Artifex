@@ -4,6 +4,7 @@ import { FiBox, FiEye } from "react-icons/fi";
 // firebase code s
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 // import { activeuser } from "../../slices/activeUserSlice";
 // firebase code e
 
@@ -22,6 +23,8 @@ const OrderList = () => {
 
   const activeUserRedux = useSelector((state) => state.activeuser.value);
   // console.log(activeUserRedux.email)
+  
+  const navigate = useNavigate();
 
   // firebase code s
   const db = getDatabase();
@@ -42,9 +45,8 @@ const OrderList = () => {
 
 
   // view order button
-
   let handleViewOrder = (order) => {
-    console.log(order)
+    navigate("/OrderPrintablePage", {state: {order}})
   }
 
   return (
