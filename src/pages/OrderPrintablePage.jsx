@@ -33,7 +33,7 @@ const OrderConfirmation = () => {
 
 
   return (
-    <div className="w-full mt-94 min-h-screen bg-gray-100 flex justify-center items-start py-8 px-3">
+    <div className="w-full mt-94 bg-gray-100 flex justify-center items-start py-8 px-3">
       {/* A4 PAGE */}
       <div className="relative w-[794px]  max-h-[1123px] overflow-hidden bg-white overflow-hidden shadow-xl flex flex-col font-poppins text-[#172331]">
         {/* HEADER AND FOOTER SVG CURVES */}
@@ -131,11 +131,11 @@ const OrderConfirmation = () => {
                 <p className="text-[13px] font-bold">Order Date</p>
                 <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
                   {" "}
-                  {orderArray[0].timezoon.date +
-                    "/" +
-                    orderArray[0].timezoon.month +
-                    "/" +
-                    orderArray[0].timezoon.year}
+                  {new Date(
+                    Number(orderArray[0].timezoon.year),
+                    Number(orderArray[0].timezoon.month),
+                    Number(orderArray[0].timezoon.date),
+                  ).toLocaleDateString("en-GB")}
                 </div>
               </div>
             </div>
@@ -253,36 +253,61 @@ const OrderConfirmation = () => {
             </div>
 
             <div className="flex gap-5">
+              {/* project durations */}
+              <div className="w-[31.5%] flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaRegClock className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Project Duration</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {orderArray[0].deliveryTime} Days
+                </div>
+              </div>
+
+
+              <div className="w-[31.5%] flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <FaRegClock className="text-[#F00018] text-[20px]" />
+                  <p className="text-[12px] font-semibold">Ordering Date</p>
+                </div>
+
+                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
+                  {" "}
+                  {new Date(
+                    Number(orderArray[0].timezoon.year),
+                    Number(orderArray[0].timezoon.month),
+                    Number(orderArray[0].timezoon.date),
+                  ).toLocaleDateString("en-GB")}
+                </div>
+              </div>
+
               {/* DELIVERY TIME */}
               <div className="w-[31.5%] flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <FaRegClock className="text-[#F00018] text-[20px]" />
-                  <p className="text-[12px] font-semibold">Delivery Time</p>
+                  <p className="text-[12px] font-semibold">Delivery Date</p>
                 </div>
 
                 <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
                   {" "}
-                  {Number(orderArray[0].timezoon.date) +
+                  {/* {Number(orderArray[0].timezoon.date) +
                     Number(orderArray[0].deliveryTime) +
                     "/" +
                     orderArray[0].timezoon.month +
                     "/" +
-                    orderArray[0].timezoon.year}
+                    orderArray[0].timezoon.year} */}
+                  {new Date(
+                    Number(orderArray[0].timezoon.year),
+                    Number(orderArray[0].timezoon.month),
+                    Number(orderArray[0].timezoon.date) +
+                      Number(orderArray[0].deliveryTime),
+                  ).toLocaleDateString("en-GB")}
                 </div>
               </div>
 
-              {/* Ordering TIME */}
-              <div className="w-[31.5%] flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <FaRegClock className="text-[#F00018] text-[20px]" />
-                  <p className="text-[12px] font-semibold">Ordering Time</p>
-                </div>
-
-                <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
-                  {" "}
-                  {orderArray[0].timezoon.date + "/" + orderArray[0].timezoon.month + "/" + orderArray[0].timezoon.year }
-                </div>
-              </div>
+              
             </div>
           </div>
 

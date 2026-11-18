@@ -20,10 +20,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 // ];
 
 const OrderList = () => {
-
   const activeUserRedux = useSelector((state) => state.activeuser.value);
   // console.log(activeUserRedux.email)
-  
+
   const navigate = useNavigate();
 
   // firebase code s
@@ -36,21 +35,20 @@ const OrderList = () => {
     onValue(starCountRef, (snapshot) => {
       let arr = [];
       snapshot.forEach((item) => {
-        activeUserRedux.uid == item.val().uid && arr.push(item.val());
+        activeUserRedux.uid == item.val().uid && arr.unshift(item.val());
       });
       setOrders(arr);
     });
   }, []);
   // firebase code e
 
-
   // view order button
   let handleViewOrder = (order) => {
-    navigate("/OrderPrintablePage", {state: {order}})
-  }
+    navigate("/OrderPrintablePage", { state: { order } });
+  };
 
   return (
-    <div className="bg-white border border-gray-100 rounded-xl p-3 shadow-sm">
+    <div className="bg-white relative h-[525px] overflow-y-scroll border border-gray-100 rounded-xl p-3 shadow-sm">
       {/* Heading */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-3">
@@ -92,7 +90,7 @@ const OrderList = () => {
 
             <div className="w-[14%] p-3">{order.packageName}</div>
 
-            <div className="w-[12%] p-3 font-medium">{order.price}</div>
+            <div className="w-[12%] p-3 font-medium">{order.price} TK</div>
 
             <div className="w-[16%] p-3">
               <span
@@ -109,7 +107,13 @@ const OrderList = () => {
               </span>
             </div>
 
-            <div className="w-[17%] p-3 whitespace-nowrap">{`${order.timezoon.date} / ${order.timezoon.month} / ${order.timezoon.year}`}</div>
+            <div className="w-[17%] p-3 whitespace-nowrap">
+              {new Date(
+                order.timezoon.date,
+                order.timezoon.month,
+                order.timezoon.year,
+              ).toLocaleDateString("en-GB")}
+            </div>
 
             <div className="w-[13%] p-3">
               <button

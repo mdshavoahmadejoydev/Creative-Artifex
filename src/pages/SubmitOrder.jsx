@@ -377,7 +377,7 @@ const SubmitOrder = () => {
                       </h3>
 
                       <p className="text-cyan-600 font-bold font-roboto">
-                        {price}
+                        {price} TK
                       </p>
 
                       <p className="flex items-center gap-1 text-sm text-slate-600 font-roboto">
@@ -459,7 +459,7 @@ const SubmitOrder = () => {
                     </h3>
 
                     <p className="text-sm font-roboto font-bold text-cyan-600 mt-1">
-                      {price}
+                      {price} TK
                     </p>
                   </div>
                 </div>
@@ -490,7 +490,7 @@ const SubmitOrder = () => {
                 <div className="flex justify-between py-3 border-b border-slate-100">
                   <span>Price:</span>
 
-                  <span className="font-semibold text-[#123B5B]">{price}</span>
+                  <span className="font-semibold text-[#123B5B]">{price} TK</span>
                 </div>
 
                 <div className="flex justify-between pt-3">
