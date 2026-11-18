@@ -205,7 +205,7 @@ const Header = ({}) => {
                   <Li
                     text={`Services`}
                     icon={true}
-                    className={`py-31 ${location.pathname.includes("/services") ? "text-red-500!" : ""}`}
+                    className={`py-31 ${location.pathname.includes("/services") || location.pathname.includes("/order") ? "text-red-500!" : ""}`}
                   />
                 </div>
                 {/* Services end */}
@@ -284,7 +284,7 @@ const Header = ({}) => {
               onClick={handleLoginicon}
               className="group"
             >
-              <RiAccountCircleFill className="text-white text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue duration-200" />
+              <RiAccountCircleFill className={`${location.pathname.includes("/deshboard") || location.pathname.includes("/OrderPrintablePage") ? "text-red-500" :"text-white"} text-4xl ml-10 py-29 cursor-pointer box-content hover:text-skyblue duration-200`} />
             </button>
 
             {loginshow && (
