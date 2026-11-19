@@ -205,7 +205,7 @@ const Header = ({}) => {
                   <Li
                     text={`Services`}
                     icon={true}
-                    className={`py-31 ${location.pathname.includes("/services") || location.pathname.includes("/order") ? "text-red-500!" : ""}`}
+                    className={`py-31 ${location.pathname.includes("/services") || location.pathname == "/order" || location.pathname == "/order-submited"  ? "text-red-500!" : ""}`}
                   />
                 </div>
                 {/* Services end */}

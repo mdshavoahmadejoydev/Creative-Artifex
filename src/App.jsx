@@ -47,6 +47,9 @@ import Support from "./sections/Support";
 import Setting from "./sections/Setting";
 import Error from "./sections/Error";
 import OrderPrintablePage from "./pages/OrderPrintablePage";
+import AdminDeshboard from "./pages/AdminDeshboard"
+import AdminDashboarditems from "./pages/AdminDashboarditems"
+import AdminOrderList from "./sections/AdminOrderList";
 // import ProfileTemplate from './sections/ProfileTemplate'
 
 const router = createBrowserRouter(
@@ -118,7 +121,10 @@ const router = createBrowserRouter(
         <Route path="/team" element={<Team />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
 
-        <Route path="/OrderPrintablePage" element={<OrderPrintablePage />}></Route>
+        <Route
+          path="/OrderPrintablePage"
+          element={<OrderPrintablePage />}
+        ></Route>
 
         <Route path="/deshboard" element={<Deshboard />}>
           <Route index element={<Dashboarditems />} />
@@ -127,14 +133,23 @@ const router = createBrowserRouter(
           <Route path="Notifications" element={<Notifications />} />
           <Route path="support" element={<Support />} />
         </Route>
-        
+
+        {/* for admin */}
+        <Route path="/admindeshboard" element={<AdminDeshboard />}>
+          <Route index element={<AdminDashboarditems />} />
+          <Route path="adminorderlist" element={<AdminOrderList />} />
+          {/* <Route path="adminSetting" element={<Setting />} />
+          <Route path="adminNotifications" element={<Notifications />} />
+          <Route path="adminsupport" element={<Support />} /> */}
+        </Route>
 
         <Route path="/order" element={<SubmitOrder />}></Route>
 
         <Route path="/order-submited" element={<OrderSubmited />}></Route>
+
         <Route path="/*" element={<Error />}></Route>
+
       </Route>
-      <Route path="/livemessage" element={<LiveMessage />}></Route>
       {/* <Route path="/profile" element={<ProfileTemplate/>}></Route> */}
     </>,
   ),

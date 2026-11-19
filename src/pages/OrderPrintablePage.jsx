@@ -92,19 +92,59 @@ const OrderConfirmation = () => {
 
             {/* ORDER RECEIVED */}
             <div className="flex items-center justify-center gap-2 mt-3">
-              <div className="w-[185px] h-[1px] bg-green-500" />
+              <div
+                className={`w-[185px] h-[1px] ${
+                  orderArray[0].status === "Completed"
+                    ? "bg-green-500"
+                    : orderArray[0].status === "Accepted"
+                      ? "bg-purple-500"
+                      : "bg-blue-500"
+                }`}
+              />
 
-              <div className="flex items-center gap-1 bg-green-50 border border-green-400 rounded-full px-3 py-0.5">
-                <span className="w-4 h-4 rounded-full bg-green-500 text-white flex items-center justify-center text-[11px] font-bold">
+              <div
+                className={`flex items-center gap-1 rounded-full px-3 py-0.5 border ${
+                  orderArray[0].status === "Completed"
+                    ? "bg-green-50 border-green-400"
+                    : orderArray[0].status === "Accepted"
+                      ? "bg-purple-50 border-purple-400"
+                      : "bg-blue-50 border-blue-400"
+                }`}
+              >
+                <span
+                  className={`w-4 h-4 rounded-full text-white flex items-center justify-center text-[11px] font-bold ${
+                    orderArray[0].status === "Completed"
+                      ? "bg-green-500"
+                      : orderArray[0].status === "Accepted"
+                        ? "bg-purple-500"
+                        : "bg-blue-500"
+                  }`}
+                >
                   ✓
                 </span>
 
-                <span className="text-[12px] font-bold text-green-600">
-                  ORDER PAINDING
+                <span
+                  className={`text-[12px] font-bold ${
+                    orderArray[0].status === "Completed"
+                      ? "text-green-600"
+                      : orderArray[0].status === "Accepted"
+                        ? "text-purple-600"
+                        : "text-blue-600"
+                  }`}
+                >
+                  {orderArray[0].status || "Pending"}
                 </span>
               </div>
 
-              <div className="w-[185px] h-[1px] bg-green-500" />
+              <div
+                className={`w-[185px] h-[1px] ${
+                  orderArray[0].status === "Completed"
+                    ? "bg-green-500"
+                    : orderArray[0].status === "Accepted"
+                      ? "bg-purple-500"
+                      : "bg-blue-500"
+                }`}
+              />
             </div>
           </div>
 
@@ -117,7 +157,7 @@ const OrderConfirmation = () => {
                 <p className="text-[13px] font-bold">Order ID</p>
                 <div className="w-full text-sm py-1 px-2 bg-[#EDF0F4] rounded-md">
                   {" "}
-                  {orderArray[0].uid}
+                  {orderArray[0].id}
                 </div>
               </div>
             </div>
@@ -266,7 +306,6 @@ const OrderConfirmation = () => {
                 </div>
               </div>
 
-
               <div className="w-[31.5%] flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <FaRegClock className="text-[#F00018] text-[20px]" />
@@ -306,8 +345,6 @@ const OrderConfirmation = () => {
                   ).toLocaleDateString("en-GB")}
                 </div>
               </div>
-
-              
             </div>
           </div>
 

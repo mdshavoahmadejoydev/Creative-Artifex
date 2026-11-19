@@ -72,7 +72,7 @@ const Support = () => {
               </h3>
 
               <p className="text-gray-500 mt-2 break-all">
-                mdshavoahmadejoy@gmail.com
+                creativeartifexofficial@gmail.com
               </p>
 
               <p className="text-[#5F35F5] text-sm font-semibold mt-4 flex items-center gap-2">

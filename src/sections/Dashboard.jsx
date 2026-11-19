@@ -175,7 +175,7 @@ const Dashboard = () => {
       color: "text-emerald-500",
     },
     {
-      title: "Processing",
+      title: "Working Project",
       value: 0,
       icon: <FaSpinner />,
       bg: "bg-orange-100",
@@ -263,9 +263,9 @@ const Dashboard = () => {
                 Our support team is here for you 24/7.
               </p>
 
-              <button className="bg-teal-700 text-white text-[10px] px-3 py-1 rounded-full mt-2">
+              <Link to={"/contact"} className="bg-teal-700 text-white text-[10px] px-3 py-1 rounded-full mt-2">
                 Contact Us →
-              </button>
+              </Link>
             </div>
           </div>
         </aside>

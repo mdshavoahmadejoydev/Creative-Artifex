@@ -137,7 +137,8 @@ const SubmitOrder = () => {
           month: month,
           year: year,
         },
-        uid: activeUserRedux.uid
+        uid: activeUserRedux.uid,
+        status: "Pending",
       });
       // firebase end
 
