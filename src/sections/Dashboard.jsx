@@ -28,6 +28,7 @@ import { FaSpinner } from "react-icons/fa";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
+import { MdOutlinePhotoCamera } from "react-icons/md";
 
 const Dashboard = () => {
 
@@ -207,7 +208,12 @@ const Dashboard = () => {
           {alluser.map((item) => (
             <div className="flex flex-col items-center border-b border-gray-100 pb-5">
               <div className="relative">
-                <div className="w-[100px] h-[100px] hover:bg-black rounded-full border-[5px] border-[#e7f5f3] p-1">
+                <div className="w-[100px] h-[100px]  rounded-full border-[5px] border-black/50">
+
+                  <div className="absolute top-0 left-0 w-full h-full hover:bg-black/70 group duration-200 rounded-full cursor-pointer">
+                    <MdOutlinePhotoCamera className="absolute top-1/2 left-1/2 -translate-1/2 text-3xl text-transparent group-hover:text-white duration-200" />
+                  </div>
+
                   <Image
                     src={item.profilepick}
                     alt={`profile`}
