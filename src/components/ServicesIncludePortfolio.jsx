@@ -21,12 +21,12 @@ const ServicesIncludePortfolio = ({ images = [] }) => {
         {images.slice(0, visibleCount).map((img, index) => (
           <div
             key={index}
-            className="w-300 h-44.75 bg-black/30 rounded-xl hover:scale-110 duration-200 cursor-pointer overflow-hidden"
+            className="w-300 h-44.75 bg-black/30 rounded-md border-2 border-sky-500 border-solid    hover:scale-110 duration-200 cursor-pointer overflow-hidden"
           >
             <Image
               src={img}
               alt={`Portfolio ${index + 1}`}
-              className="w-full h-full rounded-xl object-cover object-center"
+              className="w-full h-full rounded-md object-cover object-center"
             />
           </div>
         ))}
