@@ -3,7 +3,7 @@ import React from "react";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import PackageItemCard from "../components/PackageItemCard";
-import ServicesIncludePortfolio from "../sections/ServicesIncludePortfolio";
+import ServicesIncludePortfolio from "../components/ServicesIncludePortfolio";
 
 import { useNavigate } from "react-router-dom";
 

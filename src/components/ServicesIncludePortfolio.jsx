@@ -1,6 +1,6 @@
 
-import Flex from "../components/Flex";
-import Image from "../components/Image";
+import Flex from "./Flex";
+import Image from "./Image";
 import { useState } from "react";
 
 const ServicesIncludePortfolio = ({ images = [] }) => {
@@ -10,11 +10,14 @@ const ServicesIncludePortfolio = ({ images = [] }) => {
 
   return (
     <div className="mt-10">
-      <div className="font-poppins font-bold text-45 text-center">
+      <div className="font-poppins font-bold text-45 text-center text-black/80">
         Our Portfolio Projects
       </div>
+      <div className="font-roboto font-semibold text-base w-[900px] mx-auto text-center text-black/80">
+        Explore our creative work and successful projects, showcasing our expertise in graphic design, branding, and web development. Every project reflects our creativity, quality, and commitment to excellence.
+      </div>
 
-      <Flex className="justify-around mt-4 flex-wrap gap-y-4">
+      <Flex className="justify-around mt-8 flex-wrap gap-y-4">
         {images.slice(0, visibleCount).map((img, index) => (
           <div
             key={index}

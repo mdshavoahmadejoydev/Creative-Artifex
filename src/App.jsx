@@ -15,7 +15,7 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import GraphicMultimedia from "./pages/GraphicMultimedia";
 import WebSoftware from "./pages/WebSoftware";
-import LogoDesign from "./pages/LogoDesign";
+import LogoDesign from "./sections/LogoDesign";
 import UiUxDesign from "./pages/UiUxDesign";
 import VideoAnimations from "./pages/VideoAnimations";
 import CoverDesign from "./pages/CoverDesign";
