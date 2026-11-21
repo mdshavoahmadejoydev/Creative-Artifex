@@ -98,20 +98,20 @@ const ScheduleButton = ({
 
   return (
     <section
-      className={`fixed inset-0 z-50 flex ${showScheduletemplate && "hidden"}  items-center justify-center bg-black/70 p-4`}
+      className={` fixed inset-0 z-50 flex ${showScheduletemplate && "hidden"}  items-center justify-center bg-black/70 p-4`}
     >
-      <Flex className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl mt-10 bg-white">
+      <Flex className="w-[90vw] xl:w-full max-w-4xl xl:max-h-[90vh] overflow-y-auto rounded-2xl mt-10 bg-white">
         <div className="relative w-full bg-white px-9 py-5 rounded-2xl">
           <IoClose
             onClick={onScheduleClick}
             className="absolute top-2 right-4 cursor-pointer text-4xl text-red-500!"
           />
           {/* Submit Message Form */}
-          <SubmitP text="Submit message" className="text-2xl! font-bold!" />
+          <SubmitP text="Submit message" className="text-xl xl:text-2xl! font-bold!" />
 
-          <Flex className={`justify-between gap-8 mt-1 `}>
+          <div className={`block xl:flex justify-between gap-8 mt-1 `}>
             {/* Name */}
-            <div className="w-1/2">
+            <div className="w-full xl:w-1/2">
               <SubmitP
                 text="Your Name"
                 requerment={true}
@@ -129,7 +129,7 @@ const ScheduleButton = ({
             </div>
 
             {/* Email */}
-            <div className="w-1/2">
+            <div className="w-full xl:w-1/2">
               <SubmitP
                 text="Email Address"
                 requerment={true}
@@ -150,11 +150,11 @@ const ScheduleButton = ({
                 </p>
               )}
             </div>
-          </Flex>
+          </div>
 
-          <Flex className={`justify-between gap-8 mt-2`}>
+          <div className={`block xl:flex justify-between gap-8 mt-2`}>
             {/* Phone Number */}
-            <div className="w-1/2">
+            <div className="w-full xl:w-1/2">
               <SubmitP
                 text="Phone number"
                 requerment={false}
@@ -179,7 +179,7 @@ const ScheduleButton = ({
                         }}
                       />
 
-                      <span className="text-black/70">
+                      <span className=" hidden xl:text-black/70">
                         {selectedCountry.name}
                       </span>
 
@@ -244,7 +244,7 @@ const ScheduleButton = ({
 
             {/* Upload scheduleDate */}
 
-            <div className="w-1/2">
+            <div className="w-full xl:w-1/2">
               <SubmitP
                 text="Set Your Meeting Date and Time"
                 requerment={true}
@@ -334,7 +334,7 @@ const ScheduleButton = ({
                 </Flex>
               </Flex>
             </div>
-          </Flex>
+          </div>
 
           {/* Description */}
           <div className="mt-4">
@@ -344,7 +344,7 @@ const ScheduleButton = ({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Write about your project"
-              className="mt-2 h-32 w-full rounded-2xl border-2 border-gray-300 px-4 py-2 text-base font-medium font-poppins italic outline-none"
+              className="mt-2 h-32 w-[100vw] xl:w-full rounded-2xl border-2 border-gray-300 px-4 py-2 text-base font-medium font-poppins italic outline-none"
             />
           </div>
 
