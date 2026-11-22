@@ -186,12 +186,12 @@ const Hero = ({onScheduleClick}) => {
                     setSearch(e.target.value);
                     setShowOptions(true);
                   }}
-                  className="w-[200px] bg-white pl-4 py-2 rounded-l-full outline-none text-base xl:text-2xl font-poppins font-medium text-gray-700 placeholder:text-gray-700"
+                  className="w-[200px] bg-white pl-4 py-1 rounded-l-full outline-none text-base  font-poppins font-medium text-gray-700 placeholder:text-gray-700"
                 />
 
                 <FaSearch
                   onClick={serchFindItem}
-                  className="w-[45px] text-xl text-gray-600 bg-white py-3 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer"
+                  className="w-[45px] text-base text-gray-600 bg-white py-2.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer"
                 />
               </div>
 
@@ -255,7 +255,7 @@ const Hero = ({onScheduleClick}) => {
                     block: "start",
                   });
                 }}
-                class="text-base mt-2 font-poppins font-bold px-5 py-1 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
+                class="text-sm mt-1 font-poppins font-bold px-5 py-1 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
               >
                 ORDER NOW
               </button>
@@ -266,14 +266,14 @@ const Hero = ({onScheduleClick}) => {
 
       <Container className={`relative`}>
         <div className="pt-2 xl:pt-40.25 px-2 xl:px-0 text-center xl:text-start  xl:px-0 w-screen xl:w-full">
-          <p className="font-roboto font-extrabold text-white text-3xl xl:text-70 xl:leading-24">
+          <p className="font-roboto font-extrabold text-white text-2xl xl:text-70 xl:leading-24">
             A Clean and Smart Solution{" "}
           </p>
-          <p className="font-roboto font-extrabold text-white text-3xl xl:text-70 xl:leading-24">
+          <p className="font-roboto font-extrabold text-white text-2xl xl:text-70 xl:leading-24">
             Designed to <span className="text-74 grow-glow">Grow</span> Your
           </p>
           <p
-            className={`relative inline-block font-roboto font-extrabold text-white text-4xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+            className={`relative inline-block font-roboto font-extrabold text-white text-3xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
           after:w-1 after:h-30 after:bg-white
           after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
           `}
@@ -289,7 +289,7 @@ const Hero = ({onScheduleClick}) => {
                 block: "start",
               });
             }}
-            className="px-30 font-poppins py-1 xl:py-2 te bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-xl xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
+            className="px-30 font-poppins py-1 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-base xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
           >
             Hire Us
           </button>
@@ -303,7 +303,7 @@ const Hero = ({onScheduleClick}) => {
           />
         </div>
 
-        <p className="font-poppins font-medium text-base xl:text-2xl w-screen xl:w-826 text-center xl:text-start px-2 xl:px-0 pb-6 text-white/90">
+        <p className="font-poppins font-medium text-xs xl:text-2xl w-screen xl:w-826 text-center xl:text-start px-2 xl:px-0 pb-3 xl:pb-6 text-white/90">
           Creative provides creative and technology-driven services that help
           businesses grow through impactful design, powerful software, and
           engaging digital experiences.{" "}
