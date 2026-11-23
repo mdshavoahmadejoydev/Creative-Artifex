@@ -186,12 +186,12 @@ const Hero = ({onScheduleClick}) => {
                     setSearch(e.target.value);
                     setShowOptions(true);
                   }}
-                  className="w-[200px] bg-white pl-4 py-1 rounded-l-full outline-none text-base  font-poppins font-medium text-gray-700 placeholder:text-gray-700"
+                  className="w-[200px] bg-white pl-4 py-1 rounded-l-full outline-none text-xl  font-poppins font-medium text-gray-700 placeholder:text-gray-700"
                 />
 
                 <FaSearch
                   onClick={serchFindItem}
-                  className="w-[45px] text-base text-gray-600 bg-white py-2.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer"
+                  className="w-[45px] text-xl text-gray-600 bg-white py-2.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer"
                 />
               </div>
 
@@ -255,7 +255,7 @@ const Hero = ({onScheduleClick}) => {
                     block: "start",
                   });
                 }}
-                class="text-sm mt-1 font-poppins font-bold px-5 py-1 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
+                class="text-sm mt-2 font-poppins font-bold px-5 py-1.5 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
               >
                 ORDER NOW
               </button>
@@ -265,15 +265,15 @@ const Hero = ({onScheduleClick}) => {
 
 
       <Container className={`relative`}>
-        <div className="pt-2 xl:pt-40.25 px-2 xl:px-0 text-center xl:text-start  xl:px-0 w-screen xl:w-full">
-          <p className="font-roboto font-extrabold text-white text-2xl xl:text-70 xl:leading-24">
+        <div className="pt-6 xl:pt-40.25 px-3.5 xl:px-0 text-center xl:text-start  xl:px-0 w-screen xl:w-full">
+          <p className="font-roboto font-extrabold text-white text-3xl xl:text-70 xl:leading-24">
             A Clean and Smart Solution{" "}
           </p>
-          <p className="font-roboto font-extrabold text-white text-2xl xl:text-70 xl:leading-24">
+          <p className="font-roboto font-extrabold text-white text-3xl xl:text-70 xl:leading-24">
             Designed to <span className="text-74 grow-glow">Grow</span> Your
           </p>
           <p
-            className={`relative inline-block font-roboto font-extrabold text-white text-3xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+            className={`relative inline-block font-roboto font-extrabold text-white text-4xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
           after:w-1 after:h-30 after:bg-white
           after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
           `}
@@ -281,7 +281,7 @@ const Hero = ({onScheduleClick}) => {
             {displayText || "\u00A0"}
           </p>
         </div>
-        <div className="ml-4 xl:ml-23 my-3 xl:my-7">
+        <div className="ml-4 xl:ml-23 mt-8 mb-5 xl:my-7">
           <button
             onClick={() => {
               document.getElementById("servidesSection")?.scrollIntoView({
@@ -289,7 +289,7 @@ const Hero = ({onScheduleClick}) => {
                 block: "start",
               });
             }}
-            className="px-30 font-poppins py-1 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-base xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
+            className="px-30 font-poppins py-1 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-xl xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
           >
             Hire Us
           </button>
@@ -297,18 +297,19 @@ const Hero = ({onScheduleClick}) => {
           <Schedule
             onClick={onScheduleClick}
             text={`Schedule A Meeting`}
-            className={`block mt-1.5 xl:mt-3.5`}
+            className={`block mt-2.5 xl:mt-3.5`}
             calender={true}
             hover={true}
           />
         </div>
 
-        <p className="font-poppins font-medium text-xs xl:text-2xl w-screen xl:w-826 text-center xl:text-start px-2 xl:px-0 pb-3 xl:pb-6 text-white/90">
+        <p className="font-poppins font-medium text-base xl:text-2xl w-screen xl:w-826 text-center xl:text-start px-3.5 xl:px-0 pb-3 xl:pb-6 text-white/90">
           Creative provides creative and technology-driven services that help
           businesses grow through impactful design, powerful software, and
           engaging digital experiences.{" "}
         </p>
 
+        {/* for desktop */}
         <div class="searchBox hidden xl:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/8 ">
           <div class="w-93.75">
             <div className="relative w-full mb-2">
