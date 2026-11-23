@@ -173,107 +173,104 @@ const Hero = ({onScheduleClick}) => {
       className={`xl:h-186.75 p-0 w-screen xl:w-full bg-cover bg-center bg-no-repeat overflow-x-hidden xl:overflow-hidden`}
       style={{ backgroundImage: `url(${creativeHero})` }}
     >
-        <div class="searchBox block xl:hidden mt-[110px] ">
-          <div class="w-93.75">
-            <div className="relative w-screen">
-              {/* Search Input */}
-              <div className="w-full flex justify-center">
-                <input
-                  type="text"
-                  placeholder="Search your services..."
-                  value={search}
-                  onChange={(e) => {
-                    setSearch(e.target.value);
-                    setShowOptions(true);
-                  }}
-                  className="w-[200px] bg-white pl-4 py-1 rounded-l-full outline-none text-xl  font-poppins font-medium text-gray-700 placeholder:text-gray-700"
-                />
-
-                <FaSearch
-                  onClick={serchFindItem}
-                  className="w-[45px] text-xl text-gray-600 bg-white py-2.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer"
-                />
-              </div>
-
-              {/* Dropdown */}
-              {showOptions && search && (
-                <div className="absolute left-1/2  -translate-x-1/2 top-12 z-50 w-[75vw] rounded-xl overflow-hidden bg-white">
-                  <div className="max-h-77.75 overflow-y-scroll">
-                    {filteredServices.length > 0 ? (
-                      filteredServices.map((service, index) => {
-                        const matchIndex = service
-                          .toLowerCase()
-                          .indexOf(search.toLowerCase());
-
-                        const beforeMatch = service.slice(0, matchIndex);
-
-                        const matchText = service.slice(
-                          matchIndex,
-                          matchIndex + search.length,
-                        );
-
-                        const afterMatch = service.slice(
-                          matchIndex + search.length,
-                        );
-
-                        return (
-                          <div
-                            key={index}
-                            onClick={() => {
-                              setSearch(service);
-                              setShowOptions(false);
-                            }}
-                            className="cursor-pointer px-4 py-2 text-base font-poppins font-medium hover:bg-gray-100"
-                          >
-                            <span className="text-gray-600/50">
-                              {beforeMatch}
-                            </span>
-
-                            <span className="text-gray-600">{matchText}</span>
-
-                            <span className="text-gray-600/50">
-                              {afterMatch}
-                            </span>
-                          </div>
-                        );
-                      })
-                    ) : (
-                      <div className="px-6 py-3 text-xl font-poppins text-gray-600/50">
-                        No service found
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div class="w-screen flex justify-center">
-              <button
-                onClick={() => {
-                  document.getElementById("servidesSection")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
+      <div class="searchBox block xl:hidden mt-[110px] ">
+        <div class="w-93.75">
+          <div className="relative w-screen">
+            {/* Search Input */}
+            <div className="w-[80%] mx-auto flex justify-center shrink-0">
+              <input
+                type="text"
+                placeholder="Search your services..."
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setShowOptions(true);
                 }}
-                class="text-sm mt-2 font-poppins font-bold px-5 py-1.5 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
-              >
-                ORDER NOW
-              </button>
+                className=" min-w-[150px] flex-1 max-w-[433px] shrink-0 bg-white pl-4 py-1 rounded-l-full outline-none text-xl font-poppins font-medium text-gray-700 placeholder:text-gray-700"
+              />
+
+              <FaSearch
+                onClick={serchFindItem}
+                className="w-[45px] text-xl text-gray-600 bg-white py-2.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer shrink-0"
+              />
             </div>
+
+            {/* Dropdown */}
+            {showOptions && search && (
+              <div className="absolute left-1/2  -translate-x-1/2 top-12 z-50 w-[75vw] rounded-xl overflow-hidden bg-white">
+                <div className="max-h-77.75 overflow-y-scroll">
+                  {filteredServices.length > 0 ? (
+                    filteredServices.map((service, index) => {
+                      const matchIndex = service
+                        .toLowerCase()
+                        .indexOf(search.toLowerCase());
+
+                      const beforeMatch = service.slice(0, matchIndex);
+
+                      const matchText = service.slice(
+                        matchIndex,
+                        matchIndex + search.length,
+                      );
+
+                      const afterMatch = service.slice(
+                        matchIndex + search.length,
+                      );
+
+                      return (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setSearch(service);
+                            setShowOptions(false);
+                          }}
+                          className="cursor-pointer px-4 py-2 text-base font-poppins font-medium hover:bg-gray-100"
+                        >
+                          <span className="text-gray-600/50">
+                            {beforeMatch}
+                          </span>
+
+                          <span className="text-gray-600">{matchText}</span>
+
+                          <span className="text-gray-600/50">{afterMatch}</span>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="px-6 py-3 text-xl font-poppins text-gray-600/50">
+                      No service found
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div class="w-screen flex justify-center">
+            <button
+              onClick={() => {
+                document.getElementById("servidesSection")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
+              class="text-base mt-2 font-poppins font-bold px-5 py-1.5 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
+            >
+              ORDER NOW
+            </button>
           </div>
         </div>
-
+      </div>
 
       <Container className={`relative`}>
         <div className="pt-6 xl:pt-40.25 px-3.5 xl:px-0 text-center xl:text-start  xl:px-0 w-screen xl:w-full">
-          <p className="font-roboto font-extrabold text-white text-3xl xl:text-70 xl:leading-24">
+          <p className="font-roboto font-extrabold text-white text-4xl xl:text-70 leading-12 xl:leading-24">
             A Clean and Smart Solution{" "}
           </p>
-          <p className="font-roboto font-extrabold text-white text-3xl xl:text-70 xl:leading-24">
+          <p className="font-roboto font-extrabold text-white text-4xl xl:text-70 leading-12 xl:leading-24 mt-1 xl:mt-0">
             Designed to <span className="text-74 grow-glow">Grow</span> Your
           </p>
           <p
-            className={`relative inline-block font-roboto font-extrabold text-white text-4xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+            className={`relative inline-block font-roboto font-extrabold mt-1 xl:mt-0 text-white text-5xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
           after:w-1 after:h-30 after:bg-white
           after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
           `}
@@ -289,7 +286,7 @@ const Hero = ({onScheduleClick}) => {
                 block: "start",
               });
             }}
-            className="px-30 font-poppins py-1 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-xl xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
+            className="px-30 font-poppins py-1 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-2xl xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
           >
             Hire Us
           </button>
@@ -308,6 +305,12 @@ const Hero = ({onScheduleClick}) => {
           businesses grow through impactful design, powerful software, and
           engaging digital experiences.{" "}
         </p>
+
+        <Image
+          src={Bennermen}
+          alt={`img`}
+          className={`block xl:hidden max-h-[708px] min-h-[400px] w-screen object-cover object-center `}
+        />
 
         {/* for desktop */}
         <div class="searchBox hidden xl:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/8 ">
