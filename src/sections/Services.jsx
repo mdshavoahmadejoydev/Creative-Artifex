@@ -85,10 +85,10 @@ const Services = () => {
 
 
   return (
-    <section id='servidesSection' className='bg-soft-gray py-94 overflow-x-hidden  scroll-mt-20'>
+    <section id='servidesSection' className='bg-soft-gray py-6 sm:py-10 xl:py-94 overflow-x-hidden  scroll-mt-20'>
       <Container>
-        <Title text={`Our Services`} className={`text-center`} />
-        <P text={`From design to development, we craft digital  experiences that elevate your brand and drive real growth.`} className={`w-591 text-center mx-auto mt-4 mb-55`} />
+        <Title text={`Our Services`} className={`text-center  w-screen xl:w-full`} />
+        <P text={`From design to development, we craft digital  experiences that elevate your brand and drive real growth.`} className={` xl:w-591 text-center mx-auto xl:mt-4 mb-55`} />
 
         {/* services card */}
         <Flex className="flex-wrap justify-center gap-8 items-stretch">

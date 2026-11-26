@@ -173,7 +173,7 @@ const Hero = ({onScheduleClick}) => {
       className={`xl:h-186.75 p-0 w-screen xl:w-full bg-cover bg-center bg-no-repeat overflow-x-hidden xl:overflow-hidden`}
       style={{ backgroundImage: `url(${creativeHero})` }}
     >
-      <div class="searchBox block xl:hidden mt-[110px] ">
+      <div class="searchBox block lg:hidden xl:hidden mt-110 sm:mt-[150px] ">
         <div class="w-93.75">
           <div className="relative w-screen">
             {/* Search Input */}
@@ -186,12 +186,12 @@ const Hero = ({onScheduleClick}) => {
                   setSearch(e.target.value);
                   setShowOptions(true);
                 }}
-                className=" min-w-[150px] flex-1 max-w-[433px] shrink-0 bg-white pl-4 py-1 rounded-l-full outline-none text-xl font-poppins font-medium text-gray-700 placeholder:text-gray-700"
+                className=" min-w-[150px] flex-1 max-w-[433px] shrink-0 bg-white pl-4 py-1 sm:py-2 rounded-l-full outline-none text-xl font-poppins font-medium text-gray-700 placeholder:text-gray-700"
               />
 
               <FaSearch
                 onClick={serchFindItem}
-                className="w-[45px] text-xl text-gray-600 bg-white py-2.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer shrink-0"
+                className="w-[45px] sm:w-[50px] text-xl text-gray-600 bg-white py-2.5 sm:py-3.5 box-content rounded-r-full flex items-center justify-center hover:text-red-500 duration-150 cursor-pointer shrink-0"
               />
             </div>
 
@@ -253,7 +253,7 @@ const Hero = ({onScheduleClick}) => {
                   block: "start",
                 });
               }}
-              class="text-base mt-2 font-poppins font-bold px-5 py-1.5 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
+              class="text-base mt-2 sm:mt-3 font-poppins font-bold px-5 sm:px-16 py-1.5 sm:py-2 text-white bg-blue-800 rounded-full border-2 border-cyan-400    hover:hover:border-red-500 duration-150 cursor-pointer"
             >
               ORDER NOW
             </button>
@@ -262,15 +262,15 @@ const Hero = ({onScheduleClick}) => {
       </div>
 
       <Container className={`relative`}>
-        <div className="pt-6 xl:pt-40.25 px-3.5 xl:px-0 text-center xl:text-start  xl:px-0 w-screen xl:w-full">
-          <p className="font-roboto font-extrabold text-white text-4xl xl:text-70 leading-12 xl:leading-24">
+        <div className="pt-6 sm:pt-10 xl:pt-40.25 px-3.5 xl:px-0 text-center xl:text-start  xl:px-0 w-screen xl:w-full">
+          <p className="font-roboto font-extrabold text-white text-4xl sm:text-5xl xl:text-70 leading-12 xl:leading-24">
             A Clean and Smart Solution{" "}
           </p>
-          <p className="font-roboto font-extrabold text-white text-4xl xl:text-70 leading-12 xl:leading-24 mt-1 xl:mt-0">
+          <p className="font-roboto font-extrabold text-white text-4xl sm:text-5xl xl:text-70 leading-12 xl:leading-24 mt-1 sm:mt-2 xl:mt-0">
             Designed to <span className="text-74 grow-glow">Grow</span> Your
           </p>
           <p
-            className={`relative inline-block font-roboto font-extrabold mt-1 xl:mt-0 text-white text-5xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
+            className={`relative inline-block font-roboto font-extrabold mt-1 sm:mt-2 xl:mt-0 text-white text-5xl xl:text-[85px] tracking-[4px] xl:tracking-[8px] xl:leading-24 transition-all duration-500  after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 after:rounded-full
           after:w-1 after:h-30 after:bg-white
           after:animate-[cursorBlink_0.6s_ease-in-out_infinite]
           `}
@@ -278,7 +278,7 @@ const Hero = ({onScheduleClick}) => {
             {displayText || "\u00A0"}
           </p>
         </div>
-        <div className="ml-4 xl:ml-23 mt-8 mb-5 xl:my-7">
+        <div className="ml-4 xl:ml-23 mt-8 sm:mt-14 mb-5 xl:my-7">
           <button
             onClick={() => {
               document.getElementById("servidesSection")?.scrollIntoView({
@@ -286,7 +286,7 @@ const Hero = ({onScheduleClick}) => {
                 block: "start",
               });
             }}
-            className="px-30 font-poppins py-1 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-2xl xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
+            className="px-30 font-poppins py-1 sm:py-1.5 xl:py-2  bg-Royal-Purple text-white italic font-extrabold border border-white rounded-full text-2xl xl:text-4xl cursor-pointer hover:border-red-500 duration-200"
           >
             Hire Us
           </button>
@@ -294,23 +294,23 @@ const Hero = ({onScheduleClick}) => {
           <Schedule
             onClick={onScheduleClick}
             text={`Schedule A Meeting`}
-            className={`block mt-2.5 xl:mt-3.5`}
+            className={`block mt-2.5 sm:mt-3.5 xl:mt-3.5`}
             calender={true}
             hover={true}
           />
         </div>
 
-        <p className="font-poppins font-medium text-base xl:text-2xl w-screen xl:w-826 text-center xl:text-start px-3.5 xl:px-0 pb-3 xl:pb-6 text-white/90">
+        <p className="font-poppins font-medium text-base xl:text-2xl w-screen xl:w-826 text-center sm:text-start xl:text-start px-3.5 xl:px-0 pb-3 xl:pb-6 text-white/90">
           Creative provides creative and technology-driven services that help
           businesses grow through impactful design, powerful software, and
           engaging digital experiences.{" "}
         </p>
 
-        <Image
+        {/* <Image
           src={Bennermen}
           alt={`img`}
           className={`block xl:hidden max-h-[708px] min-h-[400px] w-screen object-cover object-center `}
-        />
+        /> */}
 
         {/* for desktop */}
         <div class="searchBox hidden xl:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/8 ">

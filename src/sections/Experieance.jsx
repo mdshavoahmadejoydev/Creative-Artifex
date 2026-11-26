@@ -35,80 +35,62 @@ const Experieance = ({ onScheduleClick }) => {
   }, []);
 
 
-  // useEffect(() => {
-  //   const target = 500;
-  //   const duration = 6000; // 2 seconds
-  //   const incrementTime = 20;
-  //   const increment = target / (duration / incrementTime);
-
-  //   const interval = setInterval(() => {
-  //     setCount((prev) => {
-  //       if (prev >= target) {
-  //         clearInterval(interval);
-  //         return target;
-  //       }
-
-  //       return Math.min(target, Math.ceil(prev + increment));
-  //     });
-  //   }, incrementTime);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   return (
-    <section className="bg-light-gray py-80 overflow-x-hidden">
-      <Container>
-        <Flex className={`items-center`}>
+    <section className="bg-light-gray py-10 sm:py-16 xl:py-80 overflow-x-hidden">
+      <Container className={``}>
+        <div className={`block w-screen xl:w-full xl:flex items-center`}>
           {/* left part */}
-          <div className="w-1/2 relative">
+          <div className="w-[320px] sm:w-[640px] xl:w-1/2 relative mx-auto">
             <Image
               src={ExperienceImg}
               alt={`image`}
-              className={`h-416 mx-auto`}
+              className={`h-[220px] sm:h-[400px]  xl:h-416 mx-auto`}
             />
-            <div class="absolute top-156 left-32">
-              <p class="text-2xl font-['Poppins'] font-semibold text-white text-center">
+            <div class="absolute top-[80px] sm:top-[150px] xl:top-156 left-[54px] sm:left-[132px] xl:left-32">
+              <p class="text-sm sm:text-2xl xl:text-2xl font-['Poppins'] font-semibold text-white text-center">
                 Project <br></br> Completed
               </p>
-              <p className="text-4xl font-['Poppins'] font-bold text-white text-center">
+              <p className="text-base sm:text-3xl xl:text-4xl font-['Poppins'] font-bold text-white text-center">
                 {Math.floor(count500)}+
               </p>
             </div>
-            <div class="absolute top-80 left-360">
-              <p class="text-2xl font-['Poppins'] font-semibold text-white text-center">
+            <div class="absolute top-[38px] sm:top-[80px] xl:top-80 left-[177px]  sm:left-[353px] xl:left-360">
+              <p class="text-sm sm:text-2xl xl:text-2xl font-['Poppins'] font-semibold text-white text-center">
                 {" "}
                 Years Of <br></br> Experience{" "}
               </p>
-              <p className="text-4xl font-['Poppins'] font-bold text-white text-center">
+              <p className="text-base sm:text-3xl xl:text-4xl font-['Poppins'] font-bold text-white text-center">
                 {String(Math.floor(count4)).padStart(2, "0")}+
               </p>
             </div>
-            <div class="absolute top-232 left-360">
-              <p class="text-2xl font-['Poppins'] font-semibold text-white text-center">
+            <div class="absolute top-[120px]  sm:top-[225px] xl:top-232 left-[177px]  sm:left-[353px] xl:left-360">
+              <p class="text-sm  sm:text-2xl xl:text-2xl font-['Poppins'] font-semibold text-white text-center">
                 Project <br></br> Completed
               </p>
-              <p className="text-4xl font-['Poppins'] font-bold text-white text-center">
+              <p className="text-base sm:text-3xl xl:text-4xl font-['Poppins'] font-bold text-white text-center">
                 {Math.floor(count400)}+
               </p>
             </div>
           </div>
 
           {/* Right part */}
-          <div className="w-1/2">
-            <Title text={`Inside Creative Artifex`} />
+          <div className="w-full mx-auto mt-6 sm:mt-14 xl:mt-0 xl:w-1/2">
+            <Title text={`Inside Creative Artifex`} className={`text-center! xl:text-start!`}/>
             <P
               text={`Creative Artifex is a creative design and development agency  dedicated to empowering startups, individuals,  and businesses in their growth journeys. By combining strategic  thinking with innovative design and robust development.  thinking with innovative design and robust development.`}
-              className={`w-560 mt-15 ml-21 mb-29`}
+              className={`xl:w-560 mt-3 px-3.5 xl:px-0 xl:mt-15 xl:ml-21 mb-29 text-center xl:text-start`}
             />
-            <Schedule
+            <div className='flex justify-center xl:justify-start'>
+              <Schedule
               onClick={onScheduleClick}
               text={`Schedule A Meeting`}
               calender={true}
               hover={true}
               className={`bg-seagreen`}
             />
+            </div>
           </div>
-        </Flex>
+        </div>
       </Container>
     </section>
   );

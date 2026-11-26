@@ -215,7 +215,7 @@ const Header = ({}) => {
             <Link to={"/"} className="xl:w-1/4 ">
               <Flex className="gap-3 items-center cursor-pointer">
                 <Image
-                  className={`h-[40px] xl:h-55 py-3 xl:py-18 box-content`}
+                  className={`h-[40px] sm:h-[50px] xl:h-55 py-3 sm:py-4.5 xl:py-18 box-content`}
                   src={headerLogo}
                   alt={`header logo`}
                 />
@@ -333,7 +333,7 @@ const Header = ({}) => {
                 className="group"
               >
                 <RiAccountCircleFill
-                  className={`${location.pathname.includes("/deshboard") || location.pathname.includes("/OrderPrintablePage") ? "text-red-500" : "text-white"} text-3xl xl:text-4xl ml-10 xl:py-29 cursor-pointer box-content hover:text-skyblue duration-200`}
+                  className={`${location.pathname.includes("/deshboard") || location.pathname.includes("/OrderPrintablePage") ? "text-red-500" : "text-white"} text-3xl sm:text-4xl xl:text-4xl ml-10 xl:py-29 cursor-pointer box-content hover:text-skyblue duration-200`}
                 />
               </button>
 
@@ -355,13 +355,13 @@ const Header = ({}) => {
 
               {/* 3link button for mobile device start*/}
 
-              <div className="xl:hidden ml-2 relative">
+              <div className="xl:hidden ml-2 sm:ml-4 relative">
                 <button
                   onClick={() => setShowMenu(!showMenu)}
                   className="relative w-8 h-8 flex items-center justify-center"
                 >
                   <RiMenu3Line
-                    className={`absolute text-white text-3xl transition-all duration-300 ${
+                    className={`absolute text-white text-3xl sm:text-4xl transition-all duration-300 ${
                       showMenu
                         ? "rotate-90 opacity-0 scale-50"
                         : "rotate-0 opacity-100 scale-100"
@@ -369,7 +369,7 @@ const Header = ({}) => {
                   />
 
                   <IoClose
-                    className={`absolute text-white text-3xl transition-all duration-300 ${
+                    className={`absolute text-white text-3xl sm:text-4xl transition-all duration-300 ${
                       showMenu
                         ? "rotate-0 opacity-100 scale-100"
                         : "-rotate-90 opacity-0 scale-50"
@@ -378,7 +378,7 @@ const Header = ({}) => {
                 </button>
 
                 <div
-                  className={`absolute top-12.5 rounded-l-2xl   bg-black/30 backdrop-blur-2xl border border-white/10 shadow-2xl      w-[280px] px-3.5 py-3 z-50 transition-all duration-300 ${
+                  className={`absolute top-12.5 sm:top-14.5 rounded-l-2xl   bg-black/30 backdrop-blur-2xl border border-white/10 shadow-2xl      w-[280px] sm:w-[320px] px-3.5 py-3 z-50 transition-all duration-300 ${
                     showMenu ? "-right-3.5" : "-right-315"
                   }`}
                 >

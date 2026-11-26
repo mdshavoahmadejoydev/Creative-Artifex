@@ -10,7 +10,9 @@ import workWithLogo8 from '../assets/workWithLogos/CreativeArtifex1.png'
 import workWithLogo9 from '../assets/workWithLogos/CreativeArtifex2.png'
 
 import Flex from '../components/Flex'
-import WorkingWithLogosF from '../components/WorkingWithLogosF'
+// import WorkingWithLogosF from '../components/WorkingWithLogosF'
+
+import Image from '../components/Image'
 
 const WorkingWith = () => {
 
@@ -27,22 +29,30 @@ const WorkingWith = () => {
   ]
 
   return (
-    <section className='bg-pinkish py-6 overflow-x-hidden'>
+    <section className='bg-pinkish py-3 sm:py-5 xl:py-6 overflow-x-hidden'>
       <Flex className={`w-max animation-logo-scroll hover:[animation-play-state:paused]`}>
         {
           logoarr.map((item, index) => {
             return (
-              <div key={`first ${index}`} className='shrink-0 mr-16'>
-                <WorkingWithLogosF src={item}/>
+              <div key={`first ${index}`} className="shrink-0 mr-16">
+                <Image
+                  src={item}
+                  alt={`company logo`}
+                  className={`h-6 sm:h-9 xl:h-12 object-cover object-center`}
+                />
               </div>
-            )
+            );
           })
         }
         {
           logoarr.map((item, index) => {
             return(
               <div key={`second ${index}`} className='mr-16 shrink-0'>
-                <WorkingWithLogosF src={item}/>
+                <Image
+                  src={item}
+                  alt={`company logo`}
+                  className={`h-6 sm:h-9 xl:h-12 object-cover object-center`}
+                />
               </div>
             )
           })
